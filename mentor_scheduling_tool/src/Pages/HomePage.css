@@ -1,0 +1,26 @@
+#purple_background {
+  background-color: purple;
+  display: flex;
+}
+
+#white_background {
+  background-color: white;
+  border-radius: 40px;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  align-items: space-around;
+}
+
+#login_form {
+  /* padding: 50px;
+  margin: 50px; */
+  display: flex;
+  align-content: space-between;
+}
+
+#form_field {
+  display: flex;
+}

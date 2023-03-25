@@ -1,32 +1,31 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 //Pages
-import HomePage from "./Pages/HomePage"; 
+import HomePage from "./Pages/HomePage";
 import MentorProfilePage from "./Pages/MentorProfilePage";
 
 //Components
-import Nav from "./components/Nav/Nav"
+import Nav from "./components/Nav/Nav";
 
 //CSS
-import './App.css'
+import "./App.css";
 import MentorListPage from "./Pages/MentorListPage";
 
 const HeaderLayout = () => {
-  
-    return (
-      <div>
-      <h1>Mentor Scheduling Tool</h1>
-      <Nav /> 
+  return (
+    <div>
+      {/* <h1>Mentor Scheduling Tool</h1> */}
+      <Nav />
       <Outlet />
-      </div>
-      )
-}
-  
+    </div>
+  );
+};
+
 const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
-      { path: "/", element: <HomePage />},
+      { path: "/", element: <HomePage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorProfilePage /> },
     ],
