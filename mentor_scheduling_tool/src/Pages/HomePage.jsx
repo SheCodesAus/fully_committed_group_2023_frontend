@@ -2,9 +2,9 @@
 function HomePage() {
     return (
     <div>
-        <p>Coming soon...</p>
+        <p>...Under construction...</p>
     </div>
     )
 }
 
-export default HomePage();
+export default HomePage;

@@ -16,7 +16,7 @@ const HeaderLayout = () => {
     return (
       <div>
       <h1>Mentor Scheduling Tool</h1>
-      {/* <Nav />  */}
+      <Nav /> 
       <Outlet />
       </div>
       )
