@@ -9,11 +9,11 @@ function MentorListPage() {
             return <div key ={mentor.id}>
                 <h2>{`${mentor.first_name} ${mentor.last_name}`}</h2>
                 <p>{`Skills: ${mentor.skills}`}</p>
-                <p>{`Will travel: ${mentor.will_travel}`}</p>
-                <p>{`Onboarding: ${mentor.is_active}`}</p>
+                <p>{`Will travel? ${mentor.will_travel}`}</p>
+                <p>{`Onboarding active? ${mentor.is_active}`}</p>
                 </div>
             })
-        };
+        }
         </div> 
     );
 }
