@@ -6,21 +6,64 @@
 #white_background {
   background-color: white;
   border-radius: 40px;
-  padding: 100px;
+  padding: 90px; /* adjust the padding as needed */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   align-items: space-around;
+  width: 200%; /* adjust the width as needed */
 }
 
-#login_form {
-  /* padding: 50px;
-  margin: 50px; */
+.login_form {
   display: flex;
-  align-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
-#form_field {
+.login_form input[type="text"],
+.login_form input[type="password"] {
+  background-color: #f2f2f2; /* light purple background color */
+  border: none;
+  padding: 0.5rem;
+  margin-bottom: 1rem; /* reduce distance between input fields */
+  width: 100%;
+  font-size: 1rem;
+  color: black; /* set the color of the text to black */
+}
+
+.login_form input[type="text"]:focus,
+.login_form input[type="password"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px 0 #646cff;
+}
+
+.form_field {
   display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.form_field input {
+  padding: 0.5rem;
+}
+
+.form_field input[type="submit"] {
+  background-color: orange;
+  border-radius: 50%;
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem; /* Change the font size to a smaller value */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline */
+}
+
+.form_field input[type="submit"]:hover {
+  background-color: darkorange;
 }
