@@ -1,0 +1,77 @@
+#mentor_creation_form {
+  color: purple;
+}
+
+#mentor_info_banner {
+  display: flex;
+  justify-content: space-evenly;
+  /* display: flex;
+  justify-content: center; */
+  /* justify-content: space-around; */
+  /* align-content: space-around; */
+}
+
+.container_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#container_radio {
+  display: flex;
+  flex-direction: row;
+}
+
+.container_label {
+  display: block;
+  /* padding-left: 50px; */
+  position: relative;
+  padding-left: 60px;
+}
+.container_label_input {
+  display: none;
+  /* background: rgb(96, 96, 99); */
+}
+.container_label_span {
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  overflow: hidden;
+  line-height: 1;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 35pt;
+  left: 0;
+  top: 50%;
+  margin-top: -7.5px;
+  background: rgb(96, 96, 99);
+  /* padding: 50px; */
+}
+.container_label_input:checked + span {
+  background: purple;
+  border-color: rgb(96, 96, 99);
+}
+
+/* #purple_background {
+  background-color: purple;
+
+  display: flex;
+}
+
+#white_background {
+  background-color: white;
+  border-radius: 40px;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  align-items: space-around;
+} */
+
+.purple_container {
+  background-color: rgb(222, 159, 222);
+  color: white;
+  min-height: 150px;
+}
