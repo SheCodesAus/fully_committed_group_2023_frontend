@@ -6,8 +6,9 @@ function Nav() {
       <Link to="/">Home | </Link>
       <Link to="/mentors">All Mentors | </Link>
       <Link to="/mentors/1">Mentor 1 | </Link>
-      <Link to="/mentors/2">Mentor 2</Link>
-      <Link to="/mentor-creation">Create Mentor</Link>
+      <Link to="/mentors/2">Mentor 2 |</Link>
+      <Link to="/mentor-creation">Create Mentor |</Link>
+      <Link to="/programs">Programs</Link>
     </nav>
   );
 }
