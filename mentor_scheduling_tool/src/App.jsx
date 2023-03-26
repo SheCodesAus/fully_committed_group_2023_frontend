@@ -30,6 +30,9 @@ const router = createBrowserRouter([
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorProfilePage /> },
       { path: "/mentor-creation", element: <MentorCreationPage /> },
+      { path: "/programs", element: <ProgramListPage /> },
+      { path: "/programs/:id", element: <ProgramPage /> },
+
     ],
   },
 ]);
