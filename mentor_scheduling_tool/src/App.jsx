@@ -10,6 +10,7 @@ import Nav from "./components/Nav/Nav";
 //CSS
 import "./App.css";
 import MentorListPage from "./Pages/MentorListPage";
+import MentorCreationPage from "./Pages/MentorCreationPage";
 
 const HeaderLayout = () => {
   return (
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorProfilePage /> },
+      { path: "/mentor-creation", element: <MentorCreationPage /> },
     ],
   },
 ]);
