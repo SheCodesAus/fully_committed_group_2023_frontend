@@ -3,13 +3,15 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 //Pages
 import HomePage from "./Pages/HomePage";
 import MentorProfilePage from "./Pages/MentorProfilePage";
+import AllMentorsPage from "./Pages/AllMentorsPage";
+import ProgramPage from "./Pages/ProgramPage";
+import AllProgramsPage from "./Pages/AllProgramsPage"
 
 //Components
 import Nav from "./components/Nav/Nav";
 
 //CSS
 import "./App.css";
-import MentorListPage from "./Pages/MentorListPage";
 
 const HeaderLayout = () => {
   return (
@@ -26,8 +28,9 @@ const router = createBrowserRouter([
     element: <HeaderLayout />,
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/mentors", element: <MentorListPage /> },
+      { path: "/mentors", element: <AllMentorsPage /> },
       { path: "/mentors/:id", element: <MentorProfilePage /> },
+      { path: "/programs", element: <AllProgramsPage />}
     ],
   },
 ]);

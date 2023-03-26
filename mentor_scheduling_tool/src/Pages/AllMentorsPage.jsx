@@ -1,6 +1,6 @@
 import { allMentors } from "../mentordata";
 
-function MentorListPage() {
+function AllMentorsPage() {
 
     return (
         <div>
@@ -18,5 +18,5 @@ function MentorListPage() {
     );
 }
 
-export default MentorListPage;
+export default AllMentorsPage;
 
