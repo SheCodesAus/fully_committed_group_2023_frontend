@@ -6,13 +6,13 @@
 #white_background {
   background-color: white;
   border-radius: 40px;
-  padding: 90px; /* adjust the padding as needed */
+  padding: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   align-items: space-around;
-  width: 200%; /* adjust the width as needed */
+  width: 200%;
 }
 
 .login_form {
@@ -23,13 +23,12 @@
 
 .login_form input[type="text"],
 .login_form input[type="password"] {
-  background-color: #f2f2f2; /* light purple background color */
+  background-color: #f2f2f2;
   border: none;
   padding: 0.5rem;
-  margin-bottom: 1rem; /* reduce distance between input fields */
-  width: 100%;
+  margin-bottom: 1rem;
   font-size: 1rem;
-  color: black; /* set the color of the text to black */
+  color: black;
 }
 
 .login_form input[type="text"]:focus,
