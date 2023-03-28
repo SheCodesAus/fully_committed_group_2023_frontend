@@ -36,7 +36,7 @@ function MentorCreationPage() {
           <option value="react">AReactudi</option>
         </select> */}
 
-        <div>
+        <div className='skills'>
 
           <label for="HTML and CSS">HTML and CSS</label>
           <input type="checkbox" name="htmlcss" value={skills.htmlcss} onChange={() => setSkills({ ...skills, htmlcss: !skills.htmlcss})} />
@@ -155,6 +155,10 @@ function MentorCreationPage() {
         <label for="isactive"> Is active</label>
         <input type="checkbox" name="isactive" value="isactive"></input>
         
+        <div>
+
+            
+        </div>
         <label for="notes">Notes:</label>
 
         <div id="mentor_notes_banner">
