@@ -1,9 +1,10 @@
-import { allPrograms } from "../programdata";
+import { allPrograms } from "../programdata.js";
 
-function AllPrograms() {
+function ProgramsListPage() {
     return (
         <div>
-            {allPrograms.map((program) =>{
+            {
+                allPrograms.map((program) =>{
                 return <div key={program.id}>
                     <h2>{`${program.program_name}`}</h2>
                     {/* <p>{`Program Type: ${program.program_type}`}</p> */}
@@ -17,4 +18,5 @@ function AllPrograms() {
     )
 }
 
-export default AllPrograms;
+export default ProgramsListPage;
+
