@@ -1,7 +1,7 @@
 //CSS
-import "./HomePage.css";
+import "./Login.css";
 import LoginForm from "../Components/LoginForm/LoginForm";
-function HomePage() {
+function LoginPage() {
   return (
     <div id="purple_background">
       <div id="white_background">
@@ -16,4 +16,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default LoginPage;
