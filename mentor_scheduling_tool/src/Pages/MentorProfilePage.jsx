@@ -31,13 +31,4 @@ function MentorProfilePage() {
 
 export default MentorProfilePage;
 
-// junior_mentor (bool)
-// industry_mentor (bool)
-// lead_mentor (bool)
-// she_codes_alumni (bool)
-// current_step (
-// CHOICE: step_1_interview, step_2_send_offer, step_3_send_contract, step_4_returned_contract, step_5_send_calendar_invite, step_6_onboard_mentor, step_7_mentoring, step_8_feedback_sent, step_9_offboard_mentor
-// payment_type (CHOICE: paid, volunteer, mentor_give_back)
-// notes (free text)
-// feedback (free text)
-// Is_active (bool)
+

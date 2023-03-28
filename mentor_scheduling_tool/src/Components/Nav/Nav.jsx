@@ -10,7 +10,7 @@ function Nav() {
       </div>
 
       <div className="nav-links">
-        <Link to="/">HOME</Link>
+        <Link to="/login">LOGIN</Link>
         <Link to="/programs">PROGRAMS</Link>
         <Link to="/sessions">SESSIONS</Link>
         <Link to="/mentors">MENTORS</Link>

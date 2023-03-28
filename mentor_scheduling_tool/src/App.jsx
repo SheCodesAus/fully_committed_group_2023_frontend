@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 
 //Pages
-import HomePage from "./Pages/HomePage";
+import LoginPage from "./Pages/LoginPage";
 import MentorListPage from "/src/Pages/MentorListPage.jsx";
 import MentorProfilePage from "/src/Pages/MentorProfilePage";
 import MentorCreationPage from "/src/Pages/MentorCreationPage";
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
-      { path: "/", element: <HomePage /> },
+      { path: "/login", element: <LoginPage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorProfilePage /> },
       { path: "/mentor-creation", element: <MentorCreationPage /> },
