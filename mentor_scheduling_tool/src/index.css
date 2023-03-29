@@ -1,4 +1,4 @@
-:root {
+/* :root {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -33,7 +33,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #8246af;
+  background-color: white;
 }
 
 h1 {
@@ -71,4 +71,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
