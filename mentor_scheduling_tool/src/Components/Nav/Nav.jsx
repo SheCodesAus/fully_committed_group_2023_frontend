@@ -5,9 +5,9 @@ import "./Nav.css"
 function Nav() {
   return (
     <nav>
-      <div className="logo" >
+      {/* <div className="logo" >
         <img src="https://shecodes.com.au/wp-content/uploads/2020/02/Purple_no_circle.svg"/>
-      </div>
+      </div> */}
 
       <div className="nav-links">
         <Link to="/login">LOGIN</Link>

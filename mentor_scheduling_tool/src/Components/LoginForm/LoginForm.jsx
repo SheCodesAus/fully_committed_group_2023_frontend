@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext} from "react-router-dom";
+import "./LoginForm.css";
+
 
 function LoginForm({redirectURL = "/"}) {
   const [loggedIn, setLoggedIn] = useOutletContext();
@@ -39,7 +41,7 @@ function LoginForm({redirectURL = "/"}) {
         const { token } = await postData();
             window.localStorage.setItem("token", token);
             setLoggedIn(true)
-            return navigate("/programs");
+            return navigate(redirectURL);
     }
      else {
             setLoggedIn(false)
@@ -47,32 +49,39 @@ function LoginForm({redirectURL = "/"}) {
         }
       }
   return (
-    
-    <form action="" method="get" className="login_form" onSubmit={handleSubmit}>
-    <div className="form_field">
-      <input
-        type="text"
-        name="username"
-        id="username"
-        placeholder="Username"
-        required
-        onChange={handleChange}
-      ></input>
-    </div>
-    <div className="form_field">
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Password"
-        required
-        onChange={handleChange}
-      ></input>
-    </div>
-    <div className="form_field">
-      <input type="submit" value="OK"></input>
-    </div>
-  </form>
+    <div id="purple_background">
+      <div id="white_background">
+        <div className="logo">
+          <img src="https://shecodes.com.au/wp-content/uploads/2020/02/Purple_no_circle.svg"></img>
+        </div>
+          <div id="login_form"></div>
+          <form action="" method="get" className="login_form" onSubmit={handleSubmit}>
+                <div className="form_field">
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Username"
+                    required
+                    onChange={handleChange}
+                  ></input>
+                </div>
+                <div className="form_field">
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                    onChange={handleChange}
+                  ></input>
+                </div>
+                <div className="form_field">
+                  <input type="submit" value="OK"></input>
+                </div>
+            </form>
+          </div>
+      </div>
   );
 }
 
