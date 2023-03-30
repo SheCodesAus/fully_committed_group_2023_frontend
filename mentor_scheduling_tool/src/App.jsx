@@ -7,10 +7,11 @@ import MentorListPage from "./Pages/MentorListPage.jsx";
 import MentorProfilePage from "./Pages/MentorProfilePage.jsx";
 import MentorCreationPage from "./Pages/MentorCreationPage.jsx";
 import ProgramsListPage from "./Pages/ProgramsListPage.jsx";
+import ProgramPage from "./Pages/ProgramPage.jsx"
+import SessionsPage from "./Pages/SessionsPage.jsx";
 
 //Components
 import Nav from "./components/Nav/Nav";
-// import Mentors from "./Components/Mentors/Mentors";
 
 //CSS
 import "./App.css";
@@ -37,8 +38,8 @@ const router = createBrowserRouter([
       { path: "/mentors/:id", element: <MentorProfilePage /> },
       { path: "/mentor-creation", element: <MentorCreationPage /> },
       { path: "/programs", element: <ProgramsListPage /> },
-      // { path: "/programs/:id", element: <ProgramPage /> },
-
+      { path: "/programs/:id", element: <ProgramPage /> },
+      { path: "/sessions", element: <SessionsPage />},
     ],
   },
 ]);
