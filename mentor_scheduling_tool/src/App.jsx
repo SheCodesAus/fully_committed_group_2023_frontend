@@ -22,7 +22,7 @@ const HeaderLayout = () => {
     return (
       <div>
         <div className="header-container">
-          <img src="https://shecodes.com.au/wp-content/uploads/2020/02/Purple_no_circle.svg" className="logo" />
+          <img src="/src/Images/Purple_no_circle.svg" className="logo" />
           <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         </div>
       <Outlet context={[loggedIn, setLoggedIn]} />
