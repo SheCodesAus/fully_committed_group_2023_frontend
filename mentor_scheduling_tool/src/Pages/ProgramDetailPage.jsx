@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { allPrograms } from "../programdata";
 
-function ProgramPage() {
+function ProgramDetailPage() {
     const { id } = useParams();
 
     const programData = allPrograms.find(program => program.id === id);
@@ -17,4 +17,4 @@ function ProgramPage() {
     )
 }
 
-export default ProgramPage;
+export default ProgramDetailPage;
