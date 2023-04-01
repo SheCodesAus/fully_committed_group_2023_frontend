@@ -11,7 +11,7 @@ import ProgramPage from "./Pages/ProgramPage.jsx"
 import SessionsPage from "./Pages/SessionsPage.jsx";
 
 //Components
-import Nav from "./components/Nav/Nav";
+import Nav from "./components/Nav/Nav.jsx";
 
 //CSS
 import "./App.css";
