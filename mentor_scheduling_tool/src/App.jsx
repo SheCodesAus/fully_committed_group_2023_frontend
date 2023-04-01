@@ -11,7 +11,7 @@ import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
 import SessionListPage from "./Pages/SessionListPage.jsx"
 
 //Components
-import Nav from "./components/Nav/Nav.jsx";
+import Nav from "./Components/Nav/Nav.jsx";
 
 //CSS
 import "./App.css";
