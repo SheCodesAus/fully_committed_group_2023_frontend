@@ -1,4 +1,8 @@
-:root {
+/* :root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -20,7 +24,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #ffa300;
 }
 
 body {
@@ -29,7 +33,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #8246af;
+  background-color: white;
 }
 
 h1 {
@@ -67,4 +71,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

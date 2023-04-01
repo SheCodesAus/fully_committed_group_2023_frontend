@@ -2,15 +2,16 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 
 //Pages
-import HomePage from "./Pages/HomePage";
-import MentorListPage from "/src/Pages/MentorListPage.jsx";
-import MentorProfilePage from "/src/Pages/MentorProfilePage";
-import MentorCreationPage from "/src/Pages/MentorCreationPage";
-import ProgramsListPage from "/src/Pages/ProgramsListPage";
+import LoginPage from "./Pages/LoginPage.jsx";
+import MentorListPage from "./Pages/MentorListPage.jsx";
+import MentorProfilePage from "./Pages/MentorProfilePage.jsx";
+import MentorCreationPage from "./Pages/MentorCreationPage.jsx";
+import ProgramsListPage from "./Pages/ProgramsListPage.jsx";
+import ProgramPage from "./Pages/ProgramPage.jsx"
+import SessionsPage from "./Pages/SessionsPage.jsx";
 
 //Components
 import Nav from "./components/Nav/Nav";
-// import Mentors from "./Components/Mentors/Mentors";
 
 //CSS
 import "./App.css";
@@ -20,10 +21,11 @@ const HeaderLayout = () => {
   const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem("token") !== null);
     return (
       <div>
-      <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-      {/* need to tell the nav that it has these props/give that state to the nav */}
+        <div className="header-container">
+          <img src="/src/Images/Purple_no_circle.svg" className="logo" />
+          <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+        </div>
       <Outlet context={[loggedIn, setLoggedIn]} />
-      {/* value of context is loggedIn & setLoggedIn, anything using this outlet has access to the value of logged in and the set logged in function. We access this via useOutletContext. Now any children elements are able to use the outletContext */}
       </div>)
 };
 
@@ -31,13 +33,13 @@ const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
-      { path: "/", element: <HomePage /> },
+      { path: "/login", element: <LoginPage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorProfilePage /> },
       { path: "/mentor-creation", element: <MentorCreationPage /> },
       { path: "/programs", element: <ProgramsListPage /> },
-      // { path: "/programs/:id", element: <ProgramPage /> },
-
+      { path: "/programs/:id", element: <ProgramPage /> },
+      { path: "/sessions", element: <SessionsPage />},
     ],
   },
 ]);
