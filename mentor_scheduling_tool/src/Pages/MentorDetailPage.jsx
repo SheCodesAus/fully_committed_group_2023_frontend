@@ -12,6 +12,7 @@ function MentorDetailPage() {
       })
       .then((data) => {
         setMentorData(data);
+        console.log(mentorData); 
       });
   }, [id]);
 
