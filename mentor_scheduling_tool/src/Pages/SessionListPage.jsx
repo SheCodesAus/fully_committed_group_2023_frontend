@@ -1,6 +1,6 @@
 
-function SessionsPage() {
+function SessionListPage() {
     return "Coming soon..."
 }
 
-export default SessionsPage;
+export default SessionListPage;

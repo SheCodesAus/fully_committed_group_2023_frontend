@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function MentorProfilePage() {
+function MentorDetailPage() {
   const { id } = useParams();
   const [mentorData, setMentorData] = useState(null);
 
@@ -55,7 +55,7 @@ function MentorProfilePage() {
   );
 }
 
-export default MentorProfilePage;
+export default MentorDetailPage;
 
 // import { useParams } from "react-router-dom";
 // import { allMentors } from "../mentordata";
