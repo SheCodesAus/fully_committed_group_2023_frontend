@@ -7,7 +7,7 @@ import MentorDetailPage from "./Pages/MentorDetailPage.jsx";
 import MentorListPage from "./Pages/MentorListPage.jsx";
 import ProgramDetailPage from "./Pages/ProgramDetailPage.jsx"
 import ProgramListPage from "./Pages/ProgramListPage.jsx";
-import SessionDetailPage from "./Pages/SessionsPage.jsx";
+import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
 import SessionListPage from "./Pages/SessionListPage.jsx"
 
 //Components
@@ -36,9 +36,9 @@ const router = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorDetailPage /> },
+      { path: "/programs", element: <ProgramListPage /> },
       { path: "/programs/:id", element: <ProgramDetailPage /> },
-      { path: "/programs", element: <ProgramsListPage /> },
-      { path: "/sessions", element: <SessionDetailPage />},
+      { path: "/session/:id", element: <SessionDetailPage />},
       { path: "/sessions", element: <SessionListPage />},
     ],
   },
