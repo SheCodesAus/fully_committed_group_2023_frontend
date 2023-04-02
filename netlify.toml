@@ -1,7 +1,0 @@
-[Build]
-base = "mentor_scheduling_tool"
-publish = "build-output/"
-
-[[redirects]]
-  from = "/"
-  to = "/programs"
