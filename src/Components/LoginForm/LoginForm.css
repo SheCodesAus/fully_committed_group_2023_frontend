@@ -49,7 +49,9 @@
   padding: 0.5rem;
 }
 
-.form_field input[type="submit"] {
+/* .form_field input[type="submit"]  */
+.button
+{
   background-color: orange;
   border-radius: 50%;
   color: white;
