@@ -40,6 +40,7 @@ const router = createBrowserRouter([
       { path: "/programs/:id", element: <ProgramDetailPage /> },
       { path: "/session/:id", element: <SessionDetailPage />},
       { path: "/sessions", element: <SessionListPage />},
+      { path: "/", element: <div><h1>Home</h1></div>},
     ],
   },
 ]);
