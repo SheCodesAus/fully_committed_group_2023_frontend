@@ -21,7 +21,7 @@ function LoginForm({redirectURL = "/programs"}) {
     }));
   };
 
-  const postData = async () => {
+  const postData = async() => {
     const response = await fetch(
         `${import.meta.env.VITE_API_URL}api-token-auth/`,
         {
@@ -35,7 +35,7 @@ function LoginForm({redirectURL = "/programs"}) {
     return response.json();
 };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     if (credentials.username && credentials.password) {
         const { token } = await postData();
