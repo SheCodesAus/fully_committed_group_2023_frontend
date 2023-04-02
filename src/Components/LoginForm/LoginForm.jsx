@@ -3,7 +3,7 @@ import { useNavigate, useOutletContext} from "react-router-dom";
 import "./LoginForm.css";
 
 
-function LoginForm({redirectURL = "/"}) {
+function LoginForm({redirectURL = "/programs"}) {
   const [loggedIn, setLoggedIn] = useOutletContext();
  
   const [credentials, setCredentials] = useState({
@@ -45,7 +45,7 @@ function LoginForm({redirectURL = "/"}) {
     }
      else {
             setLoggedIn(false)
-            return navigate("/");
+            return navigate("/login");
         }
       }
   return (
@@ -76,8 +76,8 @@ function LoginForm({redirectURL = "/"}) {
                     onChange={handleChange}
                   ></input>
                 </div>
-                <div className="form_field">
-                  <input type="submit" value="OK"></input>
+                <div className="button">
+                  <button value="OK">OK</button>
                 </div>
             </form>
           </div>
