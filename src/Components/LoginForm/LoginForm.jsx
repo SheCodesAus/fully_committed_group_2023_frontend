@@ -35,19 +35,22 @@ function LoginForm({redirectURL = "/programs"}) {
     return response.json();
 };
 
-  const handleSubmit = async(event) => {
-    event.preventDefault();
-    if (credentials.username && credentials.password) {
-        const { token } = await postData();
-            window.localStorage.setItem("token", token);
-            setLoggedIn(true)
-            return navigate(redirectURL);
-    }
-     else {
-            setLoggedIn(false)
-            return navigate("/login");
-        }
+const handleSubmit = async(event) => {
+  event.preventDefault();
+  if (credentials.username && credentials.password) {
+      const { token } = await postData();
+      if(token !== undefined) {
+          window.localStorage.setItem("token", token);
+          setLoggedIn(true);
+          navigate(redirectURL);
+
+      } else {
+          setLoggedIn(false);
+          const response = await postData();
+          alert(JSON.stringify(response));
       }
+  }
+};
   return (
     <div id="purple_background">
       <div id="white_background">
