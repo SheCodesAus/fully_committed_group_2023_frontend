@@ -11,9 +11,9 @@ function EditButton(props) {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button className="edit-button"onClick={handleClick}>
       Edit
-   </button>  {/* <button class="edit-button">Edit</button> */}
+   </button>
   );
 }
 
