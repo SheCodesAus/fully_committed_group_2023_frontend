@@ -26,9 +26,12 @@ function Nav(props) {
           <Link to="/login">LOGIN</Link>
         )}
         {loggedIn && (
-            <button id="logout-button" onClick={handleClick}>
-            Log Out
-            </button>
+            <Link to="#" onClick={handleClick}>
+            LOGOUT
+            </Link>
+            // <button id="logout-button" onClick={handleClick}>
+            // Log Out
+            // </button>
         )}
         <Link to="/programs">PROGRAMS</Link>
         <Link to="/sessions">SESSIONS</Link>
