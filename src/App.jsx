@@ -9,9 +9,9 @@ import ProgramDetailPage from "./Pages/ProgramDetailPage.jsx"
 import ProgramListPage from "./Pages/ProgramListPage.jsx";
 import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
 import SessionListPage from "./Pages/SessionListPage.jsx";
-import CurrentUserPage from "./pages/CurrentUserPage";
-import UserListPage from "./pages/UserListPage";
-import UserDetailPage from "./pages/UserDetailPage";
+import CurrentUserPage from "./Pages/CurrentUserPage.jsx";
+import UserListPage from "./Pages/UserListPage.jsx";
+import UserDetailPage from "./Pages/UserDetailPage.jsx";
 
 // Components
 import Footer from "./Components/Footer/Footer.jsx";
