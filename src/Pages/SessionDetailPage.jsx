@@ -20,9 +20,12 @@ function SessionDetailPage() {
 
 
     return (
-        <p >
-                Hi
-        </p>
+        <div className="page-content-wrapper">
+            
+
+
+
+        </div>
 
 
 
