@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+
 function MentorDetailPage() {
   const { id } = useParams();
   const [mentorData, setMentorData] = useState(null);
@@ -15,6 +16,7 @@ function MentorDetailPage() {
         console.log(mentorData); 
       });
   }, [id]);
+
 
   return (
     <div>

@@ -1,3 +1,4 @@
+import EditButton from "../Components/EditButton/EditButton.jsx";
 import { allPrograms } from "../programdata.js";
 
 function ProgramsListPage() {
@@ -11,6 +12,7 @@ function ProgramsListPage() {
                     <p>{`Program City: ${program.city}`}</p>
                     <p>{`Start Date: ${program.start_date}`}</p>
                     {/* <p>{`End Date: ${program.end_date}`}</p> */}
+                    <EditButton />
                     </div>
                 })
             }
