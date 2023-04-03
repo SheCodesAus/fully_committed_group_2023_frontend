@@ -11,9 +11,9 @@ function SubmitButton(props) {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button className="submit-button"onClick={handleClick}>
       Submit
-   </button>  { <button class="submit-button">Submit</button> }
+    </button>
   );
 }
 
