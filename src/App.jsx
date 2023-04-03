@@ -29,8 +29,8 @@ const HeaderLayout = () => {
           <img src="/src/Images/Purple_no_circle.svg" className="logo" />
           <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         </div>
-      <Outlet context={[loggedIn, setLoggedIn]} />
-      <Footer />
+        <Outlet context={[loggedIn, setLoggedIn]} />
+        <Footer />
       </div>)
 };
 
