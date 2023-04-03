@@ -18,6 +18,7 @@ function SessionDetailPage() {
 
     }, [id]);
 
+    // For Session Details: Retrieving the program name
     useEffect(() => {
         if (sessionData == null) return;
         const fetchProgramData = async () => {
@@ -31,40 +32,82 @@ function SessionDetailPage() {
 
     }, [sessionData])
 
+    // For Mentor Allocation: Table headings for list of mentors
+    const tableHeaders = ["Name", "Type", "Is Active", "Current Step"]
 
-    return (
-        <div className="page-content-wrapper">
-            <div>
-                <h2 className="section-header">SESSION DETAILS</h2>
+    // For Mentor Allocation: Generating the value for mentor type
+    const getMentorType = ({ lead_mentor, industry_mentor, junior_mentor}) => {
+        if (junior_mentor) return 'Junior';
+        if (industry_mentor) return 'Industry';
+        if (lead_mentor) return 'Lead';
+    }
+    // May need to revisit this logic if we do the lead must be industry mentor thing
+
+
+    console.log(sessionData)
+    return (<>
+        {sessionData && programData && <div className="page-content-wrapper">
+            <h1>{sessionData.session_name}</h1>
+            
                 <div>
-                    <span>Program </span> 
-                    <span>{programData.program_name}</span>
-
-                    <span>Location</span>
-                    <span>{sessionData.city}</span>
-
-                    <span>Module</span>
-                    <span>{sessionData.module_type}</span>
-
-                    <span>Date</span>
-                    <span>{sessionData.date}</span>
-                    {/* NOTE: Extract date only */}
-
-                    <span>Time</span>
-                    <span>{sessionData.date}</span>
-                    {/* NOTE: Have to replace this with the to and from time */}
-
+                    <h2 className="section-header">SESSION DETAILS</h2>
+                    <div>
+                        <div>
+                            <span>Program </span> 
+                            <span>{programData?.program_name}</span>
+                        </div>
+                        <div>
+                            <span>Location </span>
+                            <span>{sessionData.city}</span>
+                        </div>
+                        <div>
+                            <span>Module </span>
+                            <span>{sessionData.module_type}</span>
+                        </div>
+                        <div>
+                            <span>Date </span>
+                            <span>{sessionData.date}</span>
+                            {/* TODO: Extract date only */}
+                        </div>
+                        <div>
+                            <span>Time </span>
+                            <span>{sessionData.date}</span>
+                            {/* TODO: Have to replace this with the extracted to and from time - pending backend to update */}
+                        </div>
+                    </div>
                 </div>
+
+
+            <div>
+                <h2 className="section-header">MENTOR ALLOCATION</h2>
             </div>
 
+            {/* TODO: Add mentor required/mentor assigned section */}
+            
+            <table>
+            <thead>
+                <tr>
+                    {tableHeaders.map(header => (
+                        <th key={header}>{header}</th>
+                    ))}
+                </tr>
+            </thead>
 
+            <tbody>
+                {sessionData.mentors.map(mentor => (
+                    <tr key={mentor.id}>
+                        <td>{mentor.first_name} {mentor.last_name}</td>
+                        <td>{getMentorType(mentor)}</td>
+                        <td><input type='checkbox' checked={mentor.is_active}/></td>
+                        <td>{mentor.current_step}</td>
+                    </tr>))}
+            </tbody>
+
+            </table>
 
         </div>
-
-
-
-
-    )
+    }
+    </>)
 }
 
 export default SessionDetailPage;

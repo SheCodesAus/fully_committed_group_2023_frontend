@@ -34,15 +34,16 @@ function SessionListPage() {
     //     setAnnotatedSessionData(annotated);
     // }, [programData])
 
+
     const annotatedSessionData = programData?.flatMap(({ program_type, sessions }) => {
         return sessions.map((session) => ({ ...session, program_type }))
     })
     
-
     const tableHeaders = ["Date", "Program Type", "Module", "Location", "Status"];
 
     return (
         <div className="page-content-wrapper">
+        <h1>SESSIONS</h1>
 
         <table>
             <thead>
@@ -54,14 +55,14 @@ function SessionListPage() {
             </thead>
 
             <tbody>
-                {annotatedSessionData && annotatedSessionData.map(session => (
+                {annotatedSessionData?.map(session => (
                     <tr key={session.id}>
                         <td>{session.date}</td>
                         <td>{session.program_type}</td>
                         <td>{session.module_type}</td>
                         <td>{session.city}</td>
                         <td>{session.mentors_assigned}/{session.mentors_required}</td>
-                        {/* ^^ NOTE: Replace above line with progress bar */}
+                        {/* TODO: Replace above line with progress bar */}
                     </tr>))}
             </tbody>
 
