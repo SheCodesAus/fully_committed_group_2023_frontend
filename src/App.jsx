@@ -1,16 +1,18 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-//Pages
+// Pages
 import LoginPage from "./Pages/LoginPage.jsx";
 import MentorDetailPage from "./Pages/MentorDetailPage.jsx";
 import MentorListPage from "./Pages/MentorListPage.jsx";
 import ProgramDetailPage from "./Pages/ProgramDetailPage.jsx"
 import ProgramListPage from "./Pages/ProgramListPage.jsx";
 import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
-import SessionListPage from "./Pages/SessionListPage.jsx"
+import SessionListPage from "./Pages/SessionListPage.jsx";
+import CurrentUserPage from "./Pages/CurrentUserPage.jsx";
 
-//Components
+// Components
+import Footer from "./Components/Footer/Footer.jsx";
 import Nav from "./Components/Nav/Nav.jsx";
 
 //CSS
@@ -25,7 +27,8 @@ const HeaderLayout = () => {
           <img src="/src/Images/Purple_no_circle.svg" className="logo" />
           <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         </div>
-      <Outlet context={[loggedIn, setLoggedIn]} />
+        <Outlet context={[loggedIn, setLoggedIn]} />
+        <Footer />
       </div>)
 };
 
@@ -33,14 +36,15 @@ const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
+      { path: "/", element: <div><h1>Home</h1></div>},
       { path: "/login", element: <LoginPage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorDetailPage /> },
       { path: "/programs", element: <ProgramListPage /> },
       { path: "/programs/:id", element: <ProgramDetailPage /> },
-      { path: "/session/:id", element: <SessionDetailPage />},
-      { path: "/sessions", element: <SessionListPage />},
-      { path: "/", element: <div><h1>Home</h1></div>},
+      { path: "/sessions/:id", element: <SessionDetailPage />},
+      { path: "/sessions", element: <SessionListPage />}, 
+      { path: "/users/current", element: <CurrentUserPage /> }, 
     ],
   },
 ]);

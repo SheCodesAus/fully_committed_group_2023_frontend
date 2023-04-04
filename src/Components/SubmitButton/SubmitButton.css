@@ -1,0 +1,15 @@
+button.submit-button {
+    background-color: #8246AF; 
+/* #8246AF - purple */ 
+/* FFA300 orange */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  
+  button.submit-button:hover {
+    background-color: #4f5051;
+  }

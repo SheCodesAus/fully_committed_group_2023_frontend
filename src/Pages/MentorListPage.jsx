@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import MentorCreationForm from "../Components/CreateMentorForm/CreateMentorForm.jsx";
+import EditButton from "../Components/EditButton/EditButton.jsx";
 
 function MentorListPage() {
     const [mentorData, setMentorData] = useState ([])
@@ -22,11 +24,13 @@ function MentorListPage() {
                 <p>{`Skills: ${mentor.skills}`}</p>
                 <p>{`Will travel? ${mentor.will_travel}`}</p>
                 <p>{`Onboarding active? ${mentor.is_active}`}</p>
+                <EditButton />
                 </div>
             })
         }
         </div> 
     );
+        
 }
 
 export default MentorListPage;

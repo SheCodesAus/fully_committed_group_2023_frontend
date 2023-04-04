@@ -1,14 +1,35 @@
-#mentor_creation_form {
+/* form not complete, styling is working styling only */
+
+.mentor-form {
+  padding: 2%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 2%;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 2%;
+}
+
+
+/* #mentor_creation_form {
   color: purple;
 }
 
 #mentor_info_banner {
   display: flex;
   justify-content: space-evenly;
-  /* display: flex;
-  justify-content: center; */
-  /* justify-content: space-around; */
-  /* align-content: space-around; */
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  align-content: space-around;
 }
 
 .container_column {
@@ -24,13 +45,13 @@
 
 .container_label {
   display: block;
-  /* padding-left: 50px; */
+  padding-left: 50px;
   position: relative;
   padding-left: 60px;
 }
 .container_label_input {
   display: none;
-  /* background: rgb(96, 96, 99); */
+  background: rgb(96, 96, 99);
 }
 .container_label_span {
   border: 1px solid #ccc;
@@ -46,14 +67,14 @@
   top: 50%;
   margin-top: -7.5px;
   background: rgb(96, 96, 99);
-  /* padding: 50px; */
+  padding: 50px;
 }
 .container_label_input:checked + span {
   background: purple;
   border-color: rgb(96, 96, 99);
 }
 
-/* #purple_background {
+#purple_background {
   background-color: purple;
 
   display: flex;
@@ -68,10 +89,10 @@
   align-items: center;
   flex-direction: column;
   align-items: space-around;
-} */
+}
 
 .purple_container {
   background-color: rgb(222, 159, 222);
   color: white;
   min-height: 150px;
-}
+} */
