@@ -12,19 +12,19 @@ function UserCard(props) {
             <table className="user-card">
                 <tbody>
                     <tr>
-                        <td><strong>USER NAME:</strong></td>
+                        <td className="label"><strong>USER NAME:</strong></td>
                         <td className="input">{user.username}</td>
                     </tr>
                     <tr>
-                        <td><strong>FIRST NAME:</strong></td>
+                        <td className="label"><strong>FIRST NAME:</strong></td>
                         <td className="input">{user.first_name}</td>
                     </tr>
                     <tr>
-                        <td><strong>LAST NAME:</strong></td>
+                        <td className="label"><strong>LAST NAME:</strong></td>
                         <td className="input">{user.last_name}</td>
                     </tr>
                     <tr>
-                        <td><strong>USER EMAIL:</strong></td>
+                        <td className="label"><strong>USER EMAIL:</strong></td>
                         <td className="input">{user.email}</td>
                     </tr>
                 </tbody>
