@@ -1,11 +1,11 @@
 .user-card {
-    padding: 15px;
+    /* padding: 15px; */
     min-height: 50px;
     max-height: 700px;
-    /* min-width: 100px; */
+    min-width: 100px;
     /* max-width: 300px; */
-    margin-top: 20px;
-    margin-left: 0;
+    /* margin-top: 20px;
+    margin-left: 0; */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -14,25 +14,5 @@
     flex-basis: 15%;
     flex-grow: 1;
     text-align: left;
-    border-spacing: 0 10px;
 
-}
-
-.user-card td {
-    text-align: start;
-    margin: 50px;
-
-}
-
-.input {
-    text-align: start;
-    margin: 10px;
-    border-radius: 8%;
-    padding: 10px;
-    background-color: #F7F7F9;
-}
-
-.label {
-    color: #8246AF;
-    padding-right: 50px;
 }
