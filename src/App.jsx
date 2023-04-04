@@ -10,8 +10,6 @@ import ProgramListPage from "./Pages/ProgramListPage.jsx";
 import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
 import SessionListPage from "./Pages/SessionListPage.jsx";
 import CurrentUserPage from "./Pages/CurrentUserPage.jsx";
-import UserListPage from "./Pages/UserListPage.jsx";
-import UserDetailPage from "./Pages/UserDetailPage.jsx";
 
 // Components
 import Footer from "./Components/Footer/Footer.jsx";
@@ -45,9 +43,7 @@ const router = createBrowserRouter([
       { path: "/programs", element: <ProgramListPage /> },
       { path: "/programs/:id", element: <ProgramDetailPage /> },
       { path: "/sessions/:id", element: <SessionDetailPage />},
-      { path: "/sessions", element: <SessionListPage />},
-      { path: "/users", element: <UserListPage /> },   
-      { path: "/users/:id", element: <UserDetailPage /> },   
+      { path: "/sessions", element: <SessionListPage />}, 
       { path: "/users/current", element: <CurrentUserPage /> }, 
     ],
   },
