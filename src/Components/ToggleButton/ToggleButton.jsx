@@ -17,7 +17,7 @@ function ToggleButton() {
   } else {
     return (
       <div>
-        <button className='button-false' onClick={handleClick}>✕</button>
+        <button className='button-false' onClick={handleClick}></button>
       </div>
     );
   }
