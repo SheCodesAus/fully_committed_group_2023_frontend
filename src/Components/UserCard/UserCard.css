@@ -1,0 +1,20 @@
+.user-card {
+    padding: 15px;
+    border-radius: 15px;
+    min-height: 50px;
+    max-height: 700px;
+    /* min-width: 100px; */
+    max-width: 300px;
+    margin-top: 20px;
+    margin-left: 0;
+    border: 1px solid #EBEAE8;
+    text-align: center;
+    background-color: #EBEAE8;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    flex-basis: 15%;
+    flex-grow: 1;
+
+}
