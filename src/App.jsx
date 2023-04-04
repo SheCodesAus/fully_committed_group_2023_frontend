@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       { path: "/mentors/:id", element: <MentorDetailPage /> },
       { path: "/programs", element: <ProgramListPage /> },
       { path: "/programs/:id", element: <ProgramDetailPage /> },
-      { path: "/session/:id", element: <SessionDetailPage />},
+      { path: "/sessions/:id", element: <SessionDetailPage />},
       { path: "/sessions", element: <SessionListPage />},
       { path: "/users", element: <UserListPage /> },   
       { path: "/users/:id", element: <UserDetailPage /> },   

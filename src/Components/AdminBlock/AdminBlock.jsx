@@ -2,38 +2,42 @@ import { Link } from "react-router-dom";
 
 // RENDERED ON CURRENTUSERPAGE.JSX
 
+import "./AdminBlock.css";
+
 function AdminBlock() {
 
 
     return (
         <div id="admin-block">
             <h2>Admin Dashboard</h2>
-            <p>Configure your content in the admin portal</p>
-            <Link 
-            target="_blank" 
-            to="https://fully-committed-mentor-scheduling-tool.fly.dev/admin" className="button">
+            <p>Create, Edit and Configure content in the She Codes Admin Portal</p>
+            <button 
+                onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin")} 
+                className="admin-button">
                 Database
-            </Link> 
-            <Link 
-            target="_blank" 
-            to="https://fully-committed-mentor-scheduling-tool.fly.dev/admin/users/customuser/" className="button">
+            </button>
+            <button 
+                onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/users/customuser/")} 
+                className="admin-button">
                 Users
-            </Link> 
-            <Link 
-            target="_blank" 
-            to="https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/" className="button">
+            </button>
+            <button 
+                onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/")} 
+                className="admin-button">
                 Programs
-            </Link> 
-            <Link 
-            target="_blank" 
-            to="https://fully-committed-mentor-scheduling-tool.fly.dev/admin/sess/session/" className="button">
+            </button>
+
+            <button 
+                onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/sess/session/")} 
+                className="admin-button">
                 Sessions
-            </Link> 
-            <Link 
-            target="_blank" 
-            to="https://fully-committed-mentor-scheduling-tool.fly.dev/admin/mentors/mentor/" className="button">
+            </button>
+
+            <button 
+                onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/mentors/mentor/")} 
+                className="admin-button">
                 Mentors
-            </Link> 
+            </button>
         </div>
     );
 }

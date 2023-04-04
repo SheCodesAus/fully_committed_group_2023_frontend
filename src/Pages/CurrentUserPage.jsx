@@ -11,6 +11,10 @@ import { Link } from "react-router-dom";
 
 // ------- COMPONENTS -------
 import AdminBlock from "../Components/AdminBlock/AdminBlock";
+import UserCard from "../Components/UserCard/UserCard"
+
+//CSS
+import "../App.css";
 
 function CurrentUserPage() {
 
@@ -53,38 +57,32 @@ function CurrentUserPage() {
     // ------- RENDER -------
 
     return (
-            <div>
-                {isAdmin() && (
-                    <>
-                        {/* -- ADMIN BLOCK -- */}
-                        <AdminBlock />
-                        <Link to="X" className="button-link">
-                Edit</Link>
-                    </>
-                    )}
+        <>
+            <div className="page-container">
+                <div id="admin-block">
+                    {isAdmin() && (
+                            <AdminBlock />
+                        )}
+                </div>
                 <div id="user-block">
                     {user.id > 1 && !isAdmin() && (
                         <>
-                        <h1>Welcome back {user.username}!</h1>
-                        <Link to="X" className="button-link">
-                Edit</Link>
+                            <h1>Welcome back {user.first_name}!</h1>
+                            <p>Please contact admin to change your profile details</p>
                         </>
                     )}
                     {!user.id && (
                         <>
-                        <h1>Login to view your profile</h1>
+                            <h1>Login to view your profile</h1>
                         </>
                     )}
-                {/* -- USER DETAILS -- */}
-                {user.id && (
-                    <>
-                        <p>First Name: {user.first_name}</p>
-                        <p>Last Name: {user.last_name}</p>
-                        <p>User Email: {user.email}</p>
-                    </>
-                )}
+                    {/* -- USER DETAILS -- */}
+                    {user.id && (
+                        <UserCard user={user} />
+                    )}
                 </div>
             </div>
+        </>
         );
     }
 
