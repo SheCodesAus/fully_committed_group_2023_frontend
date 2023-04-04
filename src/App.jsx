@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 // Pages

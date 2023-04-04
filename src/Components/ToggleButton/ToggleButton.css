@@ -1,0 +1,19 @@
+.button-true {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #8246af;
+    color: white;
+    font-size: 80%;
+    border: none;
+}
+
+.button-false {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #3b3a3b;
+    color: white;
+    font-size: 80%;
+    border: none;
+}
