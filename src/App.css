@@ -14,16 +14,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  padding: 50px 30px 50px 30px;
-  margin-bottom: 100px;
+  /* padding: 50px 30px 50px 30px; */
+  margin: 50px 100px;
   background-color: white;
 }
 
 .section-container-grey {
   background-color: #F7F7F9;
-  border-radius: 8%;
-  width: 95%;
-
+  border-radius: 40px;
+  width: 100%;
+  margin: 15%;
+  padding: 2%;
 }
 
 /* --- Current User Page --- */

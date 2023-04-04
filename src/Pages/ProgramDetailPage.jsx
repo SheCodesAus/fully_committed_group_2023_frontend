@@ -19,7 +19,7 @@ function ProgramDetailPage() {
             <div>
             {programData ? (
             <div>
-                <div>
+                <div className='section-container-grey'>
                 <h2>{`${programData.program_name}`}</h2>
                 <p key="program-type">{`Program Type: ${programData.program_type}`}</p>
                 <p key="program-city">{`Program City: ${programData.program_city}`}</p>
