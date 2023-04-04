@@ -25,7 +25,9 @@ function ProgramDetailPage() {
                 <p key="program-city">{`Program City: ${programData.program_city}`}</p>
                 <p key="start-date">{`Start Date: ${programData.start_date}`}</p>
                 <p key="end-date">{`End Date: ${programData.end_date}`}</p>
-                <ToggleButton />
+                    <div>
+                    <ToggleButton />
+                    </div>
                 </div>
             </div>
             ) : (
