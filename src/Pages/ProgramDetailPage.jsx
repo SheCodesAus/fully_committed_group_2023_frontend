@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ToggleButton from "../Components/ToggleButton/ToggleButton";
+
 // import { allPrograms } from "../programdata";
 
 function ProgramDetailPage() {
@@ -23,6 +25,7 @@ function ProgramDetailPage() {
                 <p key="program-city">{`Program City: ${programData.program_city}`}</p>
                 <p key="start-date">{`Start Date: ${programData.start_date}`}</p>
                 <p key="end-date">{`End Date: ${programData.end_date}`}</p>
+                <ToggleButton />
                 </div>
             </div>
             ) : (
