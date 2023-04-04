@@ -20,7 +20,7 @@ body {
   border-radius: 40px;
 }
 
-/* Current User Page */
+/* --- Current User Page --- */
 .page-container {
   float: left;
   text-align: left;
@@ -35,6 +35,36 @@ body {
   width: 100%;
 }
 
+/* --- Table Formatting: User Card, Session Detail Page --- */
+table {
+  border-spacing: 10px 10px;
+  margin: 20px;
+}
+
+td {
+  text-align: start;
+  margin: 20px;
+}
+
+.input {
+  text-align: start;
+  margin: 10px;
+  border-radius: 8%;
+  padding: 10px;
+  background-color: #F7F7F9;
+  text-align: left;
+}
+
+.label {
+  color: #8246AF;
+  padding-right: 50px;
+  text-align: left;
+}
+
+.separator {
+  padding: 0 10px;
+  vertical-align: middle;
+}
 
 /* #root {
   max-width: 1280px;
