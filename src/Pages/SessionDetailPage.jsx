@@ -65,14 +65,19 @@ function SessionDetailPage() {
                             <span>{sessionData.module_type}</span>
                         </div>
                         <div>
-                            <span>Date </span>
-                            <span>{sessionData.date}</span>
-                            {/* TODO: Extract date only */}
+                            <span>Start Date </span>
+                            <span>{new Date(sessionData.start_date).toLocaleDateString()}</span>
+                            <span>Start Time </span>
+                            <span>{new Date(sessionData.start_date).toLocaleTimeString()}</span>
+                            {/* <span>End Date </span>
+                            <span>{new Date(sessionData.end_date).toLocaleDateString()}</span> */}
+                            <span>End Time </span>
+                            <span>{new Date(sessionData.end_date).toLocaleTimeString()}</span>
                         </div>
                         <div>
-                            <span>Time </span>
-                            <span>{sessionData.date}</span>
-                            {/* TODO: Have to replace this with the extracted to and from time - pending backend to update */}
+                            <span>End Date </span>
+                            <span>{sessionData.end_date}</span>
+                            {/* Extracted Date and time */}
                         </div>
                     </div>
                 </div>
