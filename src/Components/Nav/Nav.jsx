@@ -12,6 +12,7 @@ function Nav(props) {
         window.localStorage.removeItem("token");
         window.sessionStorage.removeItem("userData");
         setLoggedIn(false);
+        window.location.reload();
 
     }
 
