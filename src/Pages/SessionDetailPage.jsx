@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 function SessionDetailPage() {
     const { id } = useParams();
@@ -136,7 +137,7 @@ function SessionDetailPage() {
             <tbody>
                 {sessionData.mentors.map(mentor => (
                     <tr key={mentor.id}>
-                        <td>{mentor.first_name} {mentor.last_name}</td>
+                        <td><Link to={`/mentors/${mentor.id}`}>{mentor.first_name} {mentor.last_name}</ Link></td>
                         <td>{getMentorType(mentor)}</td>
                         <td><input type='checkbox' checked={mentor.is_active}/></td>
                         <td>{mentor.current_step}</td>

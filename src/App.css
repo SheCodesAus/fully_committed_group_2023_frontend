@@ -37,7 +37,7 @@ body {
 
 /* --- Table Formatting: User Card, Session Detail Page --- */
 table {
-  border-spacing: 0 10px;
+  border-spacing: 10px 10px;
   margin: 20px;
 }
 
@@ -52,11 +52,13 @@ td {
   border-radius: 8%;
   padding: 10px;
   background-color: #F7F7F9;
+  text-align: left;
 }
 
 .label {
   color: #8246AF;
   padding-right: 50px;
+  text-align: left;
 }
 
 .separator {
