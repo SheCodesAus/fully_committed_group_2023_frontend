@@ -9,13 +9,27 @@ function UserCard(props) {
     return (
 
         <>
-            <div className="user-card">
-                <p>User Name: {user.username}</p>
-                <p>First Name: {user.first_name}</p>
-                <p>Last Name: {user.last_name}</p>
-                <p>User Email: {user.email}</p>
-            </div>
+            <table className="user-card">
+                <tbody>
+                    <tr>
+                        <td><strong>USER NAME:</strong></td>
+                        <td className="input">{user.username}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FIRST NAME:</strong></td>
+                        <td className="input">{user.first_name}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>LAST NAME:</strong></td>
+                        <td className="input">{user.last_name}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>USER EMAIL:</strong></td>
+                        <td className="input">{user.email}</td>
+                    </tr>
+                </tbody>
+            </table>
         </>
-    );
+  );
 }
     export default UserCard;

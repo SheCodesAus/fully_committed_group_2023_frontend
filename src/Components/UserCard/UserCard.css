@@ -1,20 +1,33 @@
 .user-card {
     padding: 15px;
-    border-radius: 15px;
     min-height: 50px;
     max-height: 700px;
     /* min-width: 100px; */
     max-width: 300px;
     margin-top: 20px;
     margin-left: 0;
-    border: 1px solid #EBEAE8;
     text-align: center;
-    background-color: #EBEAE8;
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
     flex-basis: 15%;
     flex-grow: 1;
+    text-align: left;
 
+}
+
+.user-card td {
+    text-align: start;
+    margin: 50px;
+    /* padding: 10px; */
+
+}
+
+.input {
+    text-align: start;
+    margin: 10px;
+    border-radius: 5%;
+    padding: 10px;
+    background-color: #FAFAFA;
 }

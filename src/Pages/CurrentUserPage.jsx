@@ -67,10 +67,8 @@ function CurrentUserPage() {
                 <div id="user-block">
                     {user.id > 1 && !isAdmin() && (
                         <>
-                            <h1>Welcome back {user.username}!</h1>
-                            <Link to="X" className="button-link">
-                            Edit
-                            </Link>
+                            <h1>Welcome back {user.first_name}!</h1>
+                            <p>Please contact admin to change your profile details</p>
                         </>
                     )}
                     {!user.id && (
