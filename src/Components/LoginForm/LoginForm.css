@@ -1,35 +1,60 @@
+body {
+  margin: 0;
+}
 
 #purple_background {
-  background-color: #8246af;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Set the height to fill the entire viewport i.e. screen*/
+  background-color: #8246af;
 }
 
 #white_background {
-  background-color: white;
-  border-radius: 40px;
-  padding: 90px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   align-items: space-around;
-  width: 200%;
+  margin: 0 10px; /* center form */
+  padding: 10px;
+  width: 60%;
+  max-width: 700px; /* Add a max width for form */
+  height: 50vh;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+#login-header {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  text-decoration-color: #8246af;
+}
+
+#login-header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-top: 0px;
 }
 
 .login_form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0.5rem 0 5rem; /* add some margin between the form and the logo */
 }
 
 .login_form input[type="text"],
 .login_form input[type="password"] {
-  background-color: #f2f2f2;
-  border: none;
+  width: 100%; /* set the input width to 100% */
   padding: 0.5rem;
   margin-bottom: 1rem;
   font-size: 1rem;
   color: black;
+  background-color: #f2f2f2;
+  border: none;
 }
 
 .login_form input[type="text"]:focus,
@@ -41,7 +66,7 @@
 .form_field {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   margin-right: 1rem;
 }
 
@@ -49,23 +74,26 @@
   padding: 0.5rem;
 }
 
-/* .form_field input[type="submit"]  */
-.button
-{
-  background-color: orange;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.button > button {
+  background-color: #ffa300;
+  border: none;
   border-radius: 50%;
   color: white;
   width: 3rem;
   height: 3rem;
-  font-size: 1rem; /* Change the font size to a smaller value */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1rem;
   transition: background-color 0.3s ease-in-out;
-  border: none; /* Remove the border */
-  outline: none; /* Remove the outline */
+  outline: none;
 }
 
-.form_field input[type="submit"]:hover {
-  background-color: darkorange;
+.button > button:hover {
+  background-color: #ffa300;
 }
