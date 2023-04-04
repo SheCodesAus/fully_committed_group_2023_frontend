@@ -5,15 +5,17 @@
     background-color: #8246af;
     color: white;
     font-size: 80%;
-    border: none;
+    border: 1px;
+    border-color: #8246af;
 }
 
 .button-false {
     height: 30px;
     width: 30px;
     border-radius: 50%;
-    background-color: #3b3a3b;
+    background-color: #aeadae;
     color: white;
     font-size: 80%;
-    border: none;
+    border: 5px;
+    border-color: #8246af;
 }

@@ -1,26 +1,22 @@
 import { useState } from 'react';
+import './ToggleButton.css';
 
-import "./ToggleButton.css";
-
-function ToggleButton() {
-  const [toggle, setToggle] = useState(false);
+function ToggleButton({ isChecked, onChange }) {
+  const [toggle, setToggle] = useState(isChecked);
+  
   const handleClick = () => {
-    setToggle(!toggle);
+    const newToggle = !toggle;
+    setToggle(newToggle);
+    onChange(newToggle);
   };
 
-  if (toggle === true) {
-    return (
-      <div>
-        <button className='button-true' onClick={handleClick}>✓</button>
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <button className='button-false' onClick={handleClick}></button>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <button className={toggle ? 'button-true' : 'button-false'} onClick={handleClick}>
+        {toggle ? '✓' : ''}
+      </button>
+    </div>
+  );
 }
 
 export default ToggleButton;
