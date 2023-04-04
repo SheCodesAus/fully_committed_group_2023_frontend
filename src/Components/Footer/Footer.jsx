@@ -1,3 +1,5 @@
+// KRISTY - DONE
+
 function Footer () {
     return (
         <div className="footer">

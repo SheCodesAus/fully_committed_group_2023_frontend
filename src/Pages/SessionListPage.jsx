@@ -1,3 +1,11 @@
+// WEN & KRISTY
+// ALMOST DONE - CAN START TO STYLE
+
+// TODO
+// ADD PROGRESS BAR
+// ADD NEW/CREATE BUTTON
+
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 

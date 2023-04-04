@@ -1,3 +1,8 @@
+// WEN & KRISTY 
+
+// ALMOST DONE - CHANGE TO PROGRESS BAR AND REDO STEP VALUE
+
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -121,10 +126,9 @@ function SessionDetailPage() {
             <div>
                 <span>Total Mentors Assigned</span>
                 <span> {sessionData.mentors_assigned} / {sessionData.mentors_required} </span>
-                
+                {/* /TODO: CHANGE THIS TO PROGRESS BAR */}
             </div>
-            {/* TODO: Add mentor required/mentor assigned section */}
-            
+                
             <table>
             <thead>
                 <tr>
@@ -141,6 +145,7 @@ function SessionDetailPage() {
                         <td>{getMentorType(mentor)}</td>
                         <td><input type='checkbox' checked={mentor.is_active}/></td>
                         <td>{mentor.current_step}</td>
+                        {/* TODO: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
                     </tr>))}
             </tbody>
 
