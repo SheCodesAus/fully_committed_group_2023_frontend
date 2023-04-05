@@ -1,4 +1,4 @@
-// (KRISTY) - TO DO
+// (KRISTY) - DONE
 
 // RENDERED ON SESSIONCREATIONPAGE.JSX
 
@@ -16,11 +16,6 @@ function SessionForm() {
     // ------- AUTH -------
     const authToken = window.localStorage.getItem("token")
     const [loggedIn] = useOutletContext();
-
-    // Check if the user is a super-user with edit/create abilities
-    // const isAdmin = () => {
-    //     return user.is_superuser === true;
-    // };
 
     // ------- HOOKS -------
     const navigate = useNavigate();
@@ -48,11 +43,7 @@ function SessionForm() {
     };
     // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below. 
 
-    // function getSessionName(sessionFormData) {
-    //     return <SessionName {...sessionFormData} />;
-    //     }
-
-    const handleSubmit = async (event, programs) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         
         // Check if user is admin
@@ -62,22 +53,23 @@ function SessionForm() {
             return;
         }
 
-        // Get the program type value for the selected program id
-        // const selectedProgram = programs.find(program => program.id === sessions.program);
-        // const programType = selectedProgram ? selectedProgram.program_type : '';
+        // Fetch program data for the selected program
+        const programResponse = await fetch(`${import.meta.env.VITE_API_URL}programs/${sessions.program}/`);
+        const programData = await programResponse.json();
 
         // Format session name using SessionName component
         const formattedSessionName = ReactDOMServer.renderToString(
             <SessionName
             module_type={sessions.module_type}
-            // program={programType}
             city={sessions.city}
             start_date={sessions.start_date}
             end_date={sessions.end_date}
+            program={programData}
+            program_type={programData.program_type}
             />
-        );
-        
-        // POST session data to API
+            );
+
+        // ---------- POST session data to API -------
         try {
             const response = await fetch(`${import.meta.env.VITE_API_URL}sessions/`, {
             method: "POST",
@@ -117,7 +109,7 @@ function SessionForm() {
         --> if not logged in, redirect to login page
     */
 
-    // Get program data for drop down
+    // -----------Get program data for drop down
     const [programs, setPrograms] = useState([]);
 
     useEffect(() => {
@@ -136,6 +128,7 @@ function SessionForm() {
                 <h2>Create a session</h2>
 
                     <div>
+                    {/* -------------------- SESSION TIMES ------------- */}
                     <label htmlFor="start_date">Session Start:</label>
                     <input
                         type="datetime-local"
@@ -158,6 +151,7 @@ function SessionForm() {
                     />
                     </div>
                     <div>
+                        {/* -------------------- CITY DROP DOWN BOX ------------- */}
                         <label htmlFor="city">City:</label>
                         <select id="city" name="city" value={sessions.city} onChange={handleChange}>
                         <option value="">-- Select a city --</option>
@@ -167,6 +161,7 @@ function SessionForm() {
                         </select>
                     </div>
                     <div>
+                        {/* -------------------- MODULE DROP DOWN BOX ------------- */}
                         <label htmlFor="module_type">Module Type:</label>
                         <select id="module_type" name="module_type" value={sessions.module_type} onChange={handleChange}>
                             <option value="">-- Select a module type --</option>
@@ -181,8 +176,9 @@ function SessionForm() {
                         </select>
                     </div>
 
-                    {/* Single choice option from a model */}
+
                     <div>
+                        {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}
                         <label htmlFor="program">Choose a program:</label>
                         <select id="program" name="program" onChange={handleChange}>
                             <option value="">-- Select a program --</option>
