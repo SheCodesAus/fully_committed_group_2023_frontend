@@ -8,11 +8,12 @@
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: auto;
 }
 
 .footer p {
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
   padding: 10px;
 }
