@@ -14,7 +14,7 @@ import AdminBlock from "../Components/AdminBlock/AdminBlock";
 import UserCard from "../Components/UserCard/UserCard"
 
 //CSS
-import "../App.css";
+// import "../App.css";
 
 function CurrentUserPage() {
 
