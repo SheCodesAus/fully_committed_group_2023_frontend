@@ -62,6 +62,20 @@ function MentorForm() {
           <option value="Sydney">Sydney</option>
           <option value="Brisbane">Brisbane</option>
         </select>
+        <div className='container'>
+        <div>
+        <label htmlFor='willTravel'>Will Travel</label>
+        <ToggleButton
+          isChecked={willTravel.react}
+          onChange={(isChecked) => handleTravelChange('react', isChecked)} />
+        </div>
+        <div>
+        <label htmlFor='alumni'>Alumni</label>
+        <ToggleButton
+          isChecked={alumni.react}
+          onChange={(isChecked) => handleAlumniChange('react', isChecked)} />
+        </div>
+        </div>
       </div>
       <div className='container' >
         <div>
@@ -111,12 +125,6 @@ function MentorForm() {
         </div>
       </div>
       <div className='container'>
-        <div>
-        <label htmlFor='willTravel'>Will Travel</label>
-        <ToggleButton
-          isChecked={willTravel.react}
-          onChange={(isChecked) => handleTravelChange('react', isChecked)} />
-        </div>
         <div className='container'>
         <label>Mentor Type</label>    
         <ToggleButton
@@ -131,12 +139,6 @@ function MentorForm() {
         <ToggleButton
           isChecked={leadMentor.react}
           onChange={(isChecked) => handleLeadMentorChange('react', isChecked)} />
-        </div>
-        <div>
-        <label htmlFor='alumni'>Alumni</label>
-        <ToggleButton
-          isChecked={alumni.react}
-          onChange={(isChecked) => handleAlumniChange('react', isChecked)} />
         </div>
       </div>
       <div>{/* step */}</div>
