@@ -125,21 +125,27 @@ function MentorForm() {
         </div>
       </div>
       <div className='container'>
-        <div className='container'>
-        <label>Mentor Type</label>    
+      <div>
+        <label>Mentor Type</label>  
+        </div>  
+        <div>
+        <label htmlFor="juniorMentor">Junior Mentor</label>
         <ToggleButton
           isChecked={juniorMentor.react}
           onChange={(isChecked) => handleJuniorMentorChange('react', isChecked)} />
-          
+          </div>
+          <div>
+          <label htmlFor="industryMentor">Industry Mentor</label>
         <ToggleButton
           isChecked={industryMentor.react}
           onChange={(isChecked) => handleIndustryMentorChange('react', isChecked)} />
-        </div> 
+          </div>
         <div>
+        <label htmlFor="leadMentor">Lead Mentor</label>
         <ToggleButton
           isChecked={leadMentor.react}
           onChange={(isChecked) => handleLeadMentorChange('react', isChecked)} />
-        </div>
+        </div> 
       </div>
       <div>{/* step */}</div>
       <div>{/* notes */}</div>
