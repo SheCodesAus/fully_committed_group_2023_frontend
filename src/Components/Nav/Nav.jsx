@@ -22,9 +22,9 @@ function Nav(props) {
 
   return (
     <nav>
-      {/* <div className="logo" >
-        <img src="https://shecodes.com.au/wp-content/uploads/2020/02/Purple_no_circle.svg"/>
-      </div> */}
+      {/* <div className="logo" > */}
+      <img className="logo" src="https://shecodes.com.au/wp-content/uploads/2020/02/Purple_no_circle.svg"/>
+      {/* </div> */}
 
       <div className="nav-links">
         {!loggedIn && (

@@ -25,11 +25,11 @@ import "./App.css";
 const HeaderLayout = () => {
   const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem("token") !== null);
     return (
-      <div>
-        <div className="header-container">
-          <img src="/src/Images/Purple_no_circle.svg" className="logo" />
+      <div className="header-layout"> 
+        {/* <div className="header-container">
+          <img src="/src/Images/Purple_no_circle.svg" className="logo" /> */}
           <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
-        </div>
+        {/* </div> */}
         <Outlet context={[loggedIn, setLoggedIn]} />
         <Footer />
       </div>)

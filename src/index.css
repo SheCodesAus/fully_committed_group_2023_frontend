@@ -1,3 +1,16 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  
+}
+
+body {
+  margin: 0;
+  background-color: #8246af;
+}
 /* :root {
   display: flex;
   flex-direction: column;
