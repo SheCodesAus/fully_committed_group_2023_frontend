@@ -52,7 +52,7 @@ function CurrentUserPage() {
         fetchUser();
     }, [authToken]);
 
-    // Check if the user is a super-user
+    // Check if the user is a super-user with edit/create abilities
     const isAdmin = () => {
         return user.is_superuser === true;
     };
