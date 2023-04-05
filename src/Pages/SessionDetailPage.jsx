@@ -6,6 +6,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import PageContent from "../Components/PageContent/PageContent";
 
 function SessionDetailPage() {
     const { id } = useParams();
@@ -51,8 +52,9 @@ function SessionDetailPage() {
 
 
     console.log(sessionData)
-    return (<>
-        {sessionData && programData && <div className="page-content-wrapper">
+    return (
+    <PageContent>
+        {sessionData && programData && <>
             <h1>{sessionData.session_name}</h1>
             
                 <div>
@@ -151,9 +153,9 @@ function SessionDetailPage() {
 
             </table>
 
-        </div>
+        </>
     }
-    </>)
+    </PageContent>)
 }
 
 export default SessionDetailPage;

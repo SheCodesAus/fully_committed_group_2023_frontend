@@ -3,9 +3,10 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     background-color: #8246af;
-    width: 100%;
+    width: 90%;
     /* color: white; */
     align-items: center;
+    margin: 1rem 0;
 
     /* max-height: 20%; */
     /* border: 1px solid rgba(126, 28, 118, 0.788); */
