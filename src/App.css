@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap");
 
 .header-layout {
   display: flex;
@@ -29,7 +29,7 @@ body {
 }
 
 .section-container-grey {
-  background-color: #F7F7F9;
+  background-color: #f9f8f7;
   border-radius: 40px;
   width: 100%;
   margin: 15%;
@@ -72,4 +72,3 @@ body {
     animation: logo-spin infinite 20s linear;
   }
 } */
-
