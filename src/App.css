@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
 
+.header-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #8246af;
+  align-items: center;
+  width: 100%;
+  max-width: 1800px;
+}
+
 body {
   font-family: Raleway;
   color: black;
@@ -25,52 +34,6 @@ body {
   width: 100%;
   margin: 15%;
   padding: 2%;
-}
-
-/* --- Current User Page --- */
-.page-container {
-  float: left;
-  text-align: left;
-  padding: 20px;
-  /* margin-top: -100px; */
-  /* needed to reverse remove margin from header-container */
-  margin-bottom: 50px;
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: white;
-  border-radius: 40px;
-  width: 100%;
-}
-
-/* --- Table Formatting: User Card, Session Detail Page --- */
-table {
-  border-spacing: 10px 10px;
-  margin: 20px;
-}
-
-td {
-  text-align: start;
-  margin: 20px;
-}
-
-.input {
-  text-align: start;
-  margin: 10px;
-  border-radius: 8%;
-  padding: 10px;
-  background-color: #F7F7F9;
-  text-align: left;
-}
-
-.label {
-  color: #8246AF;
-  padding-right: 50px;
-  text-align: left;
-}
-
-.separator {
-  padding: 0 10px;
-  vertical-align: middle;
 }
 
 /* #root {

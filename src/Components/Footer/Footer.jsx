@@ -1,4 +1,6 @@
-import './Footer.css';
+// (KRISTY) - DONE
+
+import './Footer.css'
 
 function Footer () {
     return (

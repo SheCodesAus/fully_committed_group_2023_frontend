@@ -13,7 +13,7 @@
   align-items: center;
   flex-direction: column;
   align-items: space-around;
-  width: 200%;
+  /* width: 200%; */
 }
 
 .login_form {

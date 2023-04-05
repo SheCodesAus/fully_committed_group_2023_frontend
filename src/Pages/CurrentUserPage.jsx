@@ -1,3 +1,6 @@
+// (KRISTY) - DONE
+
+
 // function CurrentUserPage() {
 
 //     return "Profile Page Coming soon..."
@@ -14,7 +17,7 @@ import AdminBlock from "../Components/AdminBlock/AdminBlock";
 import UserCard from "../Components/UserCard/UserCard"
 
 //CSS
-import "../App.css";
+// import "../App.css";
 
 function CurrentUserPage() {
 
@@ -49,7 +52,7 @@ function CurrentUserPage() {
         fetchUser();
     }, [authToken]);
 
-    // Check if the user is a super-user
+    // Check if the user is a super-user with edit/create abilities
     const isAdmin = () => {
         return user.is_superuser === true;
     };

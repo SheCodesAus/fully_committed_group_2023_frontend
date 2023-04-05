@@ -1,6 +1,12 @@
+// (WEN & KRISTY) - ALMOST DONE
+
+// TO DO - CHANGE TO PROGRESS BAR AND REDO STEP VALUE
+
+
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import PageContent from "../Components/PageContent/PageContent";
 
 function SessionDetailPage() {
     const { id } = useParams();
@@ -46,8 +52,10 @@ function SessionDetailPage() {
 
 
     console.log(sessionData)
-    return (<>
-        {sessionData && programData && <div className="page-content-wrapper">
+    return (
+    <PageContent>
+        <div className="login"></div>
+        {sessionData && programData && <>
             <h1>{sessionData.session_name}</h1>
             
                 <div>
@@ -121,10 +129,9 @@ function SessionDetailPage() {
             <div>
                 <span>Total Mentors Assigned</span>
                 <span> {sessionData.mentors_assigned} / {sessionData.mentors_required} </span>
-                
+                {/* /TODO: CHANGE THIS TO PROGRESS BAR */}
             </div>
-            {/* TODO: Add mentor required/mentor assigned section */}
-            
+                
             <table>
             <thead>
                 <tr>
@@ -141,14 +148,15 @@ function SessionDetailPage() {
                         <td>{getMentorType(mentor)}</td>
                         <td><input type='checkbox' checked={mentor.is_active}/></td>
                         <td>{mentor.current_step}</td>
+                        {/* TODO: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
                     </tr>))}
             </tbody>
 
             </table>
 
-        </div>
+        </>
     }
-    </>)
+    </PageContent>)
 }
 
 export default SessionDetailPage;

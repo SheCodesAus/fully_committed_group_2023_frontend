@@ -1,3 +1,10 @@
+// (WEN & KRISTY) - ALMOST DONE
+
+// WEN - TODO
+// ADD PROGRESS BAR
+// ADD NEW/CREATE BUTTON
+
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 

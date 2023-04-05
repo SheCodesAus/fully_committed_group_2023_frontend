@@ -1,3 +1,6 @@
+// (CLAIRE & WEN) - ALMOST DONE
+// WEN TO FINISH
+
 import { useState } from "react";
 import { useNavigate, useOutletContext} from "react-router-dom";
 import "./SubmitButton.css";

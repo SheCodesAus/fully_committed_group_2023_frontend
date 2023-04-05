@@ -1,3 +1,7 @@
+// (KAT & KRISTY & WEN) - DONE 
+
+// (WEN) - To do - implement login logic to disappear nav bar links if not logged in
+
 import { Link } from "react-router-dom";
 
 import "./Nav.css"
@@ -18,9 +22,9 @@ function Nav(props) {
 
   return (
     <nav>
-      {/* <div className="logo" >
-        <img src="https://shecodes.com.au/wp-content/uploads/2020/02/Purple_no_circle.svg"/>
-      </div> */}
+      {/* <div className="logo" > */}
+      <img className="logo" src="/white_no_circle.svg"/>
+      {/* </div> */}
 
       <div className="nav-links">
         {!loggedIn && (
