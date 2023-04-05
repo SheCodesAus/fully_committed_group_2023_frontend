@@ -1,4 +1,4 @@
-// KRISTY - DONE
+// (KRISTY) - DONE
 
 function Footer () {
     return (

@@ -1,4 +1,4 @@
-// KRISTY - DONE
+// (KRISTY) - DONE
 
 import { Link } from "react-router-dom";
 
