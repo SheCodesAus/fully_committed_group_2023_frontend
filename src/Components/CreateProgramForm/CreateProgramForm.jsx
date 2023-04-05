@@ -1,8 +1,11 @@
 // (KAT) - TO DO
 import { useState } from 'react';
-import ProgramName from '../ProgramName/ProgramName.jsx';
+import DatePicker from 'react-date-picker';
 import ReactDOMServer from 'react-dom/server';
+
+import ProgramName from '../ProgramName/ProgramName.jsx';
 import './CreateProgramForm.css';
+import 'react-date-picker/dist/DatePicker.css';
 
 function ProgramForm() {
     const [programFormData, setProgramFormData]= useState({
@@ -12,23 +15,27 @@ function ProgramForm() {
         end_date: "",
     });
 
-    function handleChange(event) {
-        const { name, value } = event.target;
+    function handleChange(name, value) {
         let newValue = value;
       
         // If this is the start date input, set the time part to midnight
         if (name === "start_date") {
-          newValue = `${newValue.slice(0, 11)}00:00:00`;
+          const date = new Date(value);
+          date.setHours(0, 0, 0, 0);
+          newValue = date;
         }
       
         // If this is the end date input, set the time part to 23:59:59
         if (name === "end_date") {
-          newValue = `${newValue.slice(0, 11)}23:59:59`;
+          const date = new Date(value);
+          date.setHours(23, 59, 59, 999);
+          newValue = date;
         }
       
         setProgramFormData((prevData) => ({ ...prevData, [name]: newValue }));
-      }
-          
+      }      
+      
+      
 
     function getProgramName(program) {
         return ReactDOMServer.renderToString(
@@ -90,28 +97,24 @@ function ProgramForm() {
           <option value="Sydney">Sydney</option>
           <option value="Brisbane">Brisbane</option>
         </select>
-          
-        <label htmlFor="start_date">Start Date:</label>
-        <input type="datetime-local"
-        id="start_date"
-        name="start_date"
-        value={programFormData.start_date}
-        onChange={handleChange}
-        step="1"
-        required
-        />
+                    
+            <DatePicker
+            id="start_date"
+            name="start_date"
+            selected={programFormData.start_date}
+            onChange={(date) => handleChange("start_date", date)}
+            dateFormat="dd/MM/yyyy"
+            required
+            />
 
-        <label htmlFor="end_date">End Date:</label>
-        <input
-        type="datetime-local"
-        id="end_date"
-        name="end_date"
-        value={programFormData.end_date}
-        onChange={handleChange}
-        step="1"
-        required
-        />
-
+            <DatePicker
+            id="end_date"
+            name="end_date"
+            selected={programFormData.end_date}
+            onChange={(date) => handleChange("end_date", date)}
+            dateFormat="dd/MM/yyyy"
+            required
+            />
       
           <button type="submit">Create Program</button>
         </form>
