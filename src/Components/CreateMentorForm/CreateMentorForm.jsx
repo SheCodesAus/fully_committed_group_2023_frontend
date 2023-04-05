@@ -2,7 +2,10 @@
 
 import { useState } from 'react';
 import ToggleButton from '../ToggleButton/ToggleButton.jsx';
+import PageContent from  '../PageContent/PageContent.jsx';
+
 import './CreateMentorForm.css';
+
 
 function MentorForm() {
   // For multi selecting skills
@@ -41,6 +44,7 @@ function MentorForm() {
   }
 
   return (
+    <PageContent>
     <div className='mentor-form'>
     <form>
       <div className='contact-inputs'>
@@ -143,7 +147,7 @@ function MentorForm() {
       <div>{/* notes */}</div>
     </form>
     </div>
-  );
+  </PageContent> );
 }
 
 export default MentorForm;

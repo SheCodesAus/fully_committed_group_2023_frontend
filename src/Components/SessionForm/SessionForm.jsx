@@ -10,6 +10,7 @@ import { useNavigate, useOutletContext, Link } from "react-router-dom";
 import './SessionForm.css';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import SessionName from '../SessionName/SessionName';
+import PageContent from '../PageContent/PageContent';
 
 function SessionForm() {
 
@@ -129,6 +130,7 @@ function SessionForm() {
 
 
     return (
+    <PageContent>
         <>
             {loggedIn ? 
                 <div>
@@ -214,7 +216,7 @@ function SessionForm() {
                 
             ) }
         </>
-    );
+    </PageContent>);
 }
 
 export default SessionForm;

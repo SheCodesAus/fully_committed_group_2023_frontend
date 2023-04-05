@@ -18,6 +18,7 @@ function ProgramDetailPage() {
     }, [id]);
 
     return (
+        
             <div>
             {programData ? (
             <div>

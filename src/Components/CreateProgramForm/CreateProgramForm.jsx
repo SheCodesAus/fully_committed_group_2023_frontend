@@ -6,6 +6,7 @@ import ReactDOMServer from 'react-dom/server';
 import ProgramName from '../ProgramName/ProgramName.jsx';
 import './CreateProgramForm.css';
 import 'react-date-picker/dist/DatePicker.css';
+import PageContent from '../PageContent/PageContent.jsx';
 
 function ProgramForm() {
     const [programFormData, setProgramFormData]= useState({
@@ -79,6 +80,7 @@ function ProgramForm() {
     };
 
       return (
+      <PageContent>  
         <form onSubmit={handleSubmit}>
           <label htmlFor="program_type">Program Type:</label>
           <select value={programFormData.program_type}
@@ -118,7 +120,7 @@ function ProgramForm() {
       
           <button type="submit">Create Program</button>
         </form>
-      );
+      </PageContent>);
 
 }
 

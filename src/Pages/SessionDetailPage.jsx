@@ -54,7 +54,6 @@ function SessionDetailPage() {
     console.log(sessionData)
     return (
     <PageContent>
-        <div className="login"></div>
         {sessionData && programData && <>
             <h1>{sessionData.session_name}</h1>
             

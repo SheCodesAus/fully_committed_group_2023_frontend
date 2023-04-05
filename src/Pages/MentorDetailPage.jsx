@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import PageContent from "../Components/PageContent/PageContent";
 
 
 function MentorDetailPage() {
@@ -21,6 +22,7 @@ function MentorDetailPage() {
 
 
   return (
+  <PageContent> 
     <div>
       {mentorData ? (
         <div>
@@ -57,7 +59,7 @@ function MentorDetailPage() {
         <div>Loading...</div>
       )}
     </div>
-  );
+    </PageContent>);
 }
 
 export default MentorDetailPage;

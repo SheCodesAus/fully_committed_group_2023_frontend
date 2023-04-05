@@ -7,6 +7,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import PageContent from "../Components/PageContent/PageContent";
 
 function SessionListPage() {
     // const [sessionData, setSessionData] = useState(null);
@@ -50,6 +51,7 @@ function SessionListPage() {
     const tableHeaders = ["Session", "Date", "Program Name", "Program Type", "Module", "Location", "Mentors"];
 
     return (
+    <PageContent>    
         <div className="page-content-wrapper">
         <h1>SESSIONS</h1>
 
@@ -82,7 +84,7 @@ function SessionListPage() {
 
 
 
-    )
+    </PageContent>)
 }
 
 export default SessionListPage;
