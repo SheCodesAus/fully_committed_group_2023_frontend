@@ -2,11 +2,14 @@
 
 // RENDERED ON SESSIONCREATIONPAGE.JSX
 
+import ReactDOMServer from 'react-dom/server';
+
 import { useState, useEffect } from 'react';
 import { useNavigate, useOutletContext, Link } from "react-router-dom";
 
 import './SessionForm.css';
 import SubmitButton from '../SubmitButton/SubmitButton';
+import SessionName from '../SessionName/SessionName';
 
 function SessionForm() {
 
@@ -15,9 +18,9 @@ function SessionForm() {
     const [loggedIn] = useOutletContext();
 
     // Check if the user is a super-user with edit/create abilities
-    const isAdmin = () => {
-        return user.is_superuser === true;
-    };
+    // const isAdmin = () => {
+    //     return user.is_superuser === true;
+    // };
 
     // ------- HOOKS -------
     const navigate = useNavigate();
@@ -45,37 +48,65 @@ function SessionForm() {
     };
     // copies the original data, replaces the old data for each id/value pair to what is input in the form (changes state). this will be submitted to API below. 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-    // submit the new data (state change) from handleChange.
-        // POST: moved from separate function to be embedded and actioned when the submit button is pressed. 
+    // function getSessionName(sessionFormData) {
+    //     return <SessionName {...sessionFormData} />;
+    //     }
 
-        if (isAdmin) {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}sessions/`,
-                    {
-                    method: 'POST',
-                    headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Token ${authToken}`,
-                },
-                body: JSON.stringify(sessions),
-                }
-                );
-                if (!response.ok) {
-                    throw new Error(await response.text());
-                }
-                location.reload();
-            } catch (err) {
-                console.error(err);
-                alert(`Error: ${err.message}`);
-            }
-        } else {
-        // redirect to login page
-        navigate(`/login`);
+    const handleSubmit = async (event, programs) => {
+        event.preventDefault();
+        
+        // Check if user is admin
+        if (!loggedIn) {
+            // Redirect to login page
+            navigate(`/login`);
+            return;
         }
-    };
+
+        // Get the program type value for the selected program id
+        // const selectedProgram = programs.find(program => program.id === sessions.program);
+        // const programType = selectedProgram ? selectedProgram.program_type : '';
+
+        // Format session name using SessionName component
+        const formattedSessionName = ReactDOMServer.renderToString(
+            <SessionName
+            module_type={sessions.module_type}
+            // program={programType}
+            city={sessions.city}
+            start_date={sessions.start_date}
+            end_date={sessions.end_date}
+            />
+        );
+        
+        // POST session data to API
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}sessions/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Token ${authToken}`,
+            },
+            body: JSON.stringify({
+                session_name: formattedSessionName,
+                start_date: sessions.start_date,
+                end_date: sessions.end_date,
+                city: sessions.city,
+                module_type: sessions.module_type,
+                program: sessions.program,
+                mentors_required: sessions.mentors_required,
+            }),
+            });
+        
+            if (!response.ok) {
+            throw new Error(await response.text());
+            }
+        
+            location.reload();
+        } catch (error) {
+            console.error(error);
+            alert(`Error: ${error.message}`);
+        }
+        };
+        
     /* 
     If authtoken exists (if logged in) --> 
         --> TRY to POST the data to deployed, using fetch 
@@ -99,22 +130,11 @@ function SessionForm() {
 
     return (
         <>
-            {isAdmin && loggedIn ? 
+            {loggedIn ? 
                 <div>
                 <form onSubmit={handleSubmit}>
                 <h2>Create a session</h2>
-                    <div>
-                    <label htmlFor="session_name">Session Name:</label>
-                    <input
-                        type="text"
-                        id="session_name"
-                        placeholder="Enter session name"
-                        name="session_name"
-                        value={sessions.session_name}
-                        onChange={handleChange}
-                    />
 
-                    </div>
                     <div>
                     <label htmlFor="start_date">Session Start:</label>
                     <input
@@ -187,7 +207,6 @@ function SessionForm() {
                 <SubmitButton />
                 </form>
                 </div>
-
             : (
                 <Link to="/login" className="button-link">
                 You must be an admin to create a session
