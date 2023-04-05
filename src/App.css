@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap');
 
-
+.header-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #8246af;
+  align-items: center;
+  width: 100%;
+  max-width: 1800px;
+}
 
 body {
   font-family: Raleway;
