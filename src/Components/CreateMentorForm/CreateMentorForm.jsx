@@ -56,12 +56,28 @@ function MentorForm() {
         <input type="text" name="phone" id="phone" />
       </div>
       <div className='contact-inputs'>
+      <div>
         <label htmlFor="city" name="city" id="city">Location</label>
         <select value={city} onChange={handleCityChange} required>
           <option value="Perth">Perth</option>
           <option value="Sydney">Sydney</option>
           <option value="Brisbane">Brisbane</option>
         </select>
+        </div>
+        <div className='container'>
+        <div>
+        <label htmlFor='willTravel'>Will Travel</label>
+        <ToggleButton
+          isChecked={willTravel.react}
+          onChange={(isChecked) => handleTravelChange('react', isChecked)} />
+        </div>
+        <div>
+        <label htmlFor='alumni'>Alumni</label>
+        <ToggleButton
+          isChecked={alumni.react}
+          onChange={(isChecked) => handleAlumniChange('react', isChecked)} />
+        </div>
+        </div>
       </div>
       <div className='container' >
         <div>
@@ -111,33 +127,27 @@ function MentorForm() {
         </div>
       </div>
       <div className='container'>
+      <div>
+        <label>Mentor Type:</label>  
+        </div>  
         <div>
-        <label htmlFor='willTravel'>Will Travel</label>
-        <ToggleButton
-          isChecked={willTravel.react}
-          onChange={(isChecked) => handleTravelChange('react', isChecked)} />
-        </div>
-        <div className='container'>
-        <label>Mentor Type</label>    
+        <label htmlFor="juniorMentor">Junior Mentor</label>
         <ToggleButton
           isChecked={juniorMentor.react}
           onChange={(isChecked) => handleJuniorMentorChange('react', isChecked)} />
-          
+          </div>
+          <div>
+          <label htmlFor="industryMentor">Industry Mentor</label>
         <ToggleButton
           isChecked={industryMentor.react}
           onChange={(isChecked) => handleIndustryMentorChange('react', isChecked)} />
-        </div> 
+          </div>
         <div>
+        <label htmlFor="leadMentor">Lead Mentor</label>
         <ToggleButton
           isChecked={leadMentor.react}
           onChange={(isChecked) => handleLeadMentorChange('react', isChecked)} />
-        </div>
-        <div>
-        <label htmlFor='alumni'>Alumni</label>
-        <ToggleButton
-          isChecked={alumni.react}
-          onChange={(isChecked) => handleAlumniChange('react', isChecked)} />
-        </div>
+        </div> 
       </div>
       <div>{/* step */}</div>
       <div>{/* notes */}</div>
