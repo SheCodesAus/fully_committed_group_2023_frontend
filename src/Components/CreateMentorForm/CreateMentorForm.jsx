@@ -56,12 +56,14 @@ function MentorForm() {
         <input type="text" name="phone" id="phone" />
       </div>
       <div className='contact-inputs'>
+      <div>
         <label htmlFor="city" name="city" id="city">Location</label>
         <select value={city} onChange={handleCityChange} required>
           <option value="Perth">Perth</option>
           <option value="Sydney">Sydney</option>
           <option value="Brisbane">Brisbane</option>
         </select>
+        </div>
         <div className='container'>
         <div>
         <label htmlFor='willTravel'>Will Travel</label>
@@ -126,7 +128,7 @@ function MentorForm() {
       </div>
       <div className='container'>
       <div>
-        <label>Mentor Type</label>  
+        <label>Mentor Type:</label>  
         </div>  
         <div>
         <label htmlFor="juniorMentor">Junior Mentor</label>
