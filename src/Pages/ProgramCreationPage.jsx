@@ -1,10 +1,10 @@
-// // UNCOMMENT ONCE PROGRAM FORM CAN BE EXPORTED
-// // TODO - change import/return when we change the form names to remove the 'create'
+// UNCOMMENT ONCE PROGRAM FORM CAN BE EXPORTED
+// TODO - change import/return when we change the form names to remove the 'create'
 
-// import CreateProgramForm from "../Components/CreateProgramForm/CreateProgramForm";
+import ProgramForm from "../Components/CreateProgramForm/CreateProgramForm.jsx";
 
-// function ProgramCreationPage () {
-//   return <CreateProgramForm />
-// }
+function ProgramCreationPage () {
+  return <ProgramForm />
+}
 
-// export default ProgramCreationPage;
+export default ProgramCreationPage;
