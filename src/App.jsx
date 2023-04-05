@@ -3,10 +3,13 @@ import { useState } from "react";
 
 // Pages
 import LoginPage from "./Pages/LoginPage.jsx";
+import MentorCreationPage from "./Pages/MentorCreationPage";
 import MentorDetailPage from "./Pages/MentorDetailPage.jsx";
 import MentorListPage from "./Pages/MentorListPage.jsx";
-import ProgramDetailPage from "./Pages/ProgramDetailPage.jsx"
+import ProgramCreationPage from "./Pages/ProgramCreationPage.jsx";
+import ProgramDetailPage from "./Pages/ProgramDetailPage.jsx";
 import ProgramListPage from "./Pages/ProgramListPage.jsx";
+import SessionCreationPage from "./Pages/SessionCreationPage.jsx";
 import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
 import SessionListPage from "./Pages/SessionListPage.jsx";
 import CurrentUserPage from "./Pages/CurrentUserPage.jsx";
@@ -36,12 +39,15 @@ const router = createBrowserRouter([
   {
     element: <HeaderLayout />,
     children: [
-      { path: "/", element: <div><h1>Home</h1></div>},
+      { path: "/", element: <ProgramListPage />},
       { path: "/login", element: <LoginPage /> },
+      { path: "/mentors/create", element: <MentorCreationPage />},
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorDetailPage /> },
+      { path: "/programs/create", element: <ProgramCreationPage />},
       { path: "/programs", element: <ProgramListPage /> },
       { path: "/programs/:id", element: <ProgramDetailPage /> },
+      { path: "/sessions/create", element: <SessionCreationPage />},
       { path: "/sessions/:id", element: <SessionDetailPage />},
       { path: "/sessions", element: <SessionListPage />}, 
       { path: "/users/current", element: <CurrentUserPage /> }, 
