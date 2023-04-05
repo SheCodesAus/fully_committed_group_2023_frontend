@@ -1,7 +1,58 @@
 /* form not complete, styling is working styling only */
 
 .mentor-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
   padding: 2%;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 2%;
+  
+}
+
+.contact-inputs label,
+.container label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #8246af;
+}
+
+.contact-inputs input,
+.contact-inputs select {
+  width: 45%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  
+}
+
+
+.contact-inputs input:hover,
+.contact-inputs select:hover {
+  outline: none;
+  box-shadow: 0 0 5px 0 #646cff;
 }
 
 .container {
@@ -9,14 +60,29 @@
   flex-direction: row;
   justify-content: space-evenly;
   padding: 2%;
+  margin-bottom: 1rem;
+  background-color: #f2f2f2;
+  border-radius: 5px;
 }
 
-.contact-inputs {
+.container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container label {
+  margin-right: 20px;
+}
+
+
+
+/* .contact-inputs {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 2%;
-}
+} */
 
 
 /* #mentor_creation_form {
