@@ -1,3 +1,7 @@
+// (KAT & KRISTY & WEN) - DONE 
+
+// (WEN) - To do - implement login logic to disappear nav bar links if not logged in
+
 import { Link } from "react-router-dom";
 
 import "./Nav.css"
