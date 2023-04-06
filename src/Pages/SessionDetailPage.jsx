@@ -10,6 +10,8 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
+import EditButton from "../Components/EditButton/EditButton";
+
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -197,6 +199,8 @@ function SessionDetailPage() {
           </table>}          
         </>
       )}
+    <EditButton/>
+
     </PageContent>
   );
 }
