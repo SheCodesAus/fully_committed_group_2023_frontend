@@ -1,12 +1,15 @@
-// (WEN & KRISTY) - ALMOST DONE
+// (WEN & KRISTY) - DONE
 
-// TO DO - CHANGE TO PROGRESS BAR AND REDO STEP VALUE
+// NICE TO HAVES
+// Redo step value
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
+import EditButton from "../Components/EditButton/EditButton";
+
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -51,8 +54,6 @@ function SessionDetailPage() {
     if (lead_mentor) return "Lead";
   };
   // May need to revisit this logic if we do the lead must be industry mentor thing
-
-  console.log(sessionData);
   return (
     <PageContent>
       <div className="login"></div>
@@ -69,7 +70,7 @@ function SessionDetailPage() {
                   <td className="label">
                     <strong>Program </strong>{" "}
                   </td>
-                  <td className="input"> {programData?.program_name}</td>
+                  <td className="input"><Link to={`/programs/${programData.id}`}>{programData?.program_name}</Link> </td>
                 </tr>
                 <tr>
                   <td className="label">
@@ -136,16 +137,17 @@ function SessionDetailPage() {
             {/* </div> */}
           </div>
 
-          <div>
-            <h2 className="section-header">MENTOR ALLOCATION</h2>
-          </div>
+{/* MENTOR ALLOCATION SECTION */}
 
           <div>
-            <span>Total Mentors Assigned</span>
-            <span>
-              {" "}
-              {sessionData.mentors_assigned} / {sessionData.mentors_required}{" "}
-            </span>
+            <h2 className="section-header">MENTORS ASSIGNED</h2>
+          </div>
+
+{/* Progress bar summary */}
+
+          <div>
+            {/* <span>Total Mentors Assigned</span> */}
+
             <ProgressBar
               completed={
                 sessionData.mentors_required > 0
@@ -155,9 +157,16 @@ function SessionDetailPage() {
                   : 0
               }
             ></ProgressBar>
+
+            <span>
+              {" "}
+              {sessionData.mentors_assigned} / {sessionData.mentors_required}{" "}
+            </span>
           </div>
 
-          <table>
+{/* Table of mentors assigned */}
+
+          {(sessionData.mentors.length >0) && <table>
             <thead>
               <tr>
                 {tableHeaders.map((header) => (
@@ -179,13 +188,15 @@ function SessionDetailPage() {
                     <input type="checkbox" checked={mentor.is_active} />
                   </td>
                   <td>{mentor.current_step}</td>
-                  {/* TODO: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
+                  {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table>}          
         </>
       )}
+    <EditButton/>
+
     </PageContent>
   );
 }
