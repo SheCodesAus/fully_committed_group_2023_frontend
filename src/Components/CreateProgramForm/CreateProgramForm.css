@@ -1,0 +1,61 @@
+.program-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 2%;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+    color: #8246af;
+    text-decoration: none;
+}
+.program-inputs,
+.program-dates {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: fit-content;
+    margin-bottom: 20px;
+    padding: 2%;
+    gap: 10px;
+  }
+
+  .program-inputs select,
+  input[type="datetime-local"] {
+    min-width: 250px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    border: none;
+    font-size: 1rem;
+    color: black;
+    font-family: Raleway;
+  }
+  
+  .program-inputs label,
+  .program-dates label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: #8246af;
+    text-decoration: none;
+  }
+
+
+
+select:focus,
+input[type="datetime-local"]:focus {
+    outline: none;
+    box-shadow: 0 0 5px 0 #646cff;
+}

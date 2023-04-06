@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { useNavigate, useOutletContext, Link } from "react-router-dom";
 import ProgramName from '../ProgramName/ProgramName.jsx';
 import ReactDOMServer from 'react-dom/server';
+import PageContent from  '../PageContent/PageContent.jsx';
+import SubmitButton from '../SubmitButton/SubmitButton';
 import './CreateProgramForm.css';
 
 function ProgramForm() {
@@ -80,8 +82,13 @@ function ProgramForm() {
     };
 
     return (
+      <PageContent>
+        <>
+      <div className='program-form'>
+      <h1>CREATE A PROGRAM</h1>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="program_type">Program Type:</label>
+        <div className='program-inputs'>
+        <label htmlFor="program_type">PROGRAM TYPE:</label>
         <select value={programFormData.program_type}
             id="program_type" 
             name="program_type"
@@ -92,16 +99,16 @@ function ProgramForm() {
             <option value="Sydney">Flash</option>
             <option value="Workshop">Workshop</option>
         </select>
-    
-        <label htmlFor="city">Location:</label>
+        <label htmlFor="city">LOCATION:</label>
         <select value={programFormData.city} id="city" name="city" onChange={handleChange} required>
         <option value="">-- Select a city --</option>
         <option value="Perth">Perth</option>
         <option value="Sydney">Sydney</option>
         <option value="Brisbane">Brisbane</option>
         </select>
-        
-        <label htmlFor="start_date">Start Date:</label>
+        </div>
+        <div className='program-dates'>
+        <label htmlFor="start_date">START DATE:</label>
         <input type="datetime-local"
         id="start_date"
         name="start_date"
@@ -110,7 +117,7 @@ function ProgramForm() {
         required
         />
 
-        <label htmlFor="end_date">End Date:</label>
+        <label htmlFor="end_date">END DATE:</label>
         <input
         type="datetime-local"
         id="end_date"
@@ -119,10 +126,14 @@ function ProgramForm() {
         onChange={handleChange}
         required
         />
+        </div>
 
-    
-        <button type="submit">Create Program</button>
+        {/* <button type="submit">Create Program</button> */}
+        <SubmitButton />
         </form>
+        </div>
+        </>
+        </PageContent>
     );
 
 }
