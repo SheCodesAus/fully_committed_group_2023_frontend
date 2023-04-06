@@ -71,7 +71,7 @@ function SessionListPage() {
                         <td>{session.program_type}</td>
                         <td>{session.module_type}</td>
                         <td>{session.city}</td>
-                        <td>{session.mentors_assigned}/{session.mentors_required} allocated</td>
+                        <td>{session.mentors_assigned}/{session.mentors_required} </td>
                         {/* TODO: Replace above line with progress bar */}
                     </tr>))}
             </tbody>

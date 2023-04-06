@@ -142,17 +142,14 @@ function SessionDetailPage() {
 {/* MENTOR ALLOCATION SECTION */}
 
           <div>
-            <h2 className="section-header">MENTOR ALLOCATION</h2>
+            <h2 className="section-header">MENTORS ASSIGNED</h2>
           </div>
 
 {/* Progress bar summary */}
 
           <div>
-            <span>Total Mentors Assigned</span>
-            <span>
-              {" "}
-              {sessionData.mentors_assigned} / {sessionData.mentors_required}{" "}
-            </span>
+            {/* <span>Total Mentors Assigned</span> */}
+
             <ProgressBar
               completed={
                 sessionData.mentors_required > 0
@@ -162,6 +159,11 @@ function SessionDetailPage() {
                   : 0
               }
             ></ProgressBar>
+
+            <span>
+              {" "}
+              {sessionData.mentors_assigned} / {sessionData.mentors_required}{" "}
+            </span>
           </div>
 
 {/* Table of mentors assigned */}
