@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import ProgramName from "../Components/ProgramName/ProgramName.jsx"
 import EditButton from "../Components/EditButton/EditButton.jsx";
+import PageContent from "../Components/PageContent/PageContent.jsx";
 // import { allPrograms } from "../programdata.js";
 
 
@@ -19,6 +20,7 @@ function ProgramsListPage() {
         });
     }, []);
     return (
+        <PageContent>   
         <div>
             {
                 programData.map((program) =>{
@@ -28,6 +30,7 @@ function ProgramsListPage() {
                 })
             }
         </div>
+        </PageContent> 
     )
 }
 

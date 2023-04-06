@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MentorCreationForm from "../Components/CreateMentorForm/CreateMentorForm.jsx";
 import EditButton from "../Components/EditButton/EditButton.jsx";
+import PageContent from "../Components/PageContent/PageContent.jsx";
 
 function MentorListPage() {
     const [mentorData, setMentorData] = useState ([])
@@ -16,6 +17,7 @@ function MentorListPage() {
     }, []);
 
     return (
+        <PageContent>
         <div>
         {
         mentorData.map((mentor) => {
@@ -28,9 +30,11 @@ function MentorListPage() {
                 <p>{`Onboarding active? ${mentor.is_active}`}</p>
                 <EditButton />
                 </div>
+                
             })
         }
         </div> 
+        </PageContent>
     );
         
 }
