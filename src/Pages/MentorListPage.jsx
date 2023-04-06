@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import MentorCreationForm from "../Components/CreateMentorForm/CreateMentorForm.jsx";
 // import "./CreateButton.css";
+import "./MentorListPage.css"; // import CSS file
+
+
 
 function MentorListPage() {
     const [mentorData, setMentorData] = useState([])
