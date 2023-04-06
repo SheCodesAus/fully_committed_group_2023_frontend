@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 // ------- COMPONENTS -------
 import AdminBlock from "../Components/AdminBlock/AdminBlock";
 import UserCard from "../Components/UserCard/UserCard"
+import PageContent from  '../Components/PageContent/PageContent.jsx';
 
 //CSS
 // import "../App.css";
@@ -60,6 +61,7 @@ function CurrentUserPage() {
     // ------- RENDER -------
 
     return (
+        <PageContent >
         <>
             <div className="page-container">
                 <div id="admin-block">
@@ -86,6 +88,7 @@ function CurrentUserPage() {
                 </div>
             </div>
         </>
+        </PageContent>
         );
     }
 
