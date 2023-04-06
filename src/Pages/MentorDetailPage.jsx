@@ -7,6 +7,7 @@ import ToggleButton from "../Components/ToggleButton/ToggleButton"
 
 function MentorDetailPage() {
   const { id } = useParams();
+
   const [mentorData, setMentorData] = useState(
     {
       first_name: '',
@@ -14,7 +15,6 @@ function MentorDetailPage() {
       email: '',
       phone: '',
       will_travel: false,
-      city: '',
       html_css: false,
       javascript: false,
       react: false,
@@ -25,8 +25,10 @@ function MentorDetailPage() {
       industry_mentor: false,
       lead_mentor: false,
       she_codes_alumni: false,
-      payment_type: '',
+      city: '',
       current_step: '',
+      payment_type: '',
+      notes: '',
       is_active: true,
       sessions: [],
   });
@@ -41,11 +43,19 @@ function MentorDetailPage() {
     fetchMentorData();
   }, [id]);
 
+  function formattedString(str) {
+    return str.split("_").map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+  }
+  
+
   const sectionHeaders = [
     ["Personal Information"],
     ["Skills"],
     [""],
-    ["Notes"]
+    [""],
+    [""],
+    // ["Sessions"],
+    // ["Notes"]
   ];
 
   const firstTableData = {
@@ -84,6 +94,12 @@ function MentorDetailPage() {
   };
   
   const thirdTableData = {
+    step: {
+      label: "Onboarding Stage",
+      value: formattedString(mentorData.current_step),
+    },
+  };
+    const fourthTableData = {
     will_travel: {
       label: "Willing to travel",
       value: mentorData.will_travel,
@@ -101,6 +117,34 @@ function MentorDetailPage() {
       value: mentorData.she_codes_alumni,
     },
   };
+
+  const fifthTableData = {
+    payment_type: {
+      label: "Payment Type",
+      value: mentorData.payment_type,
+    },
+
+    is_active: {
+      label: "Is Active",
+      value: mentorData.is_active,
+    }
+  };
+
+  // const sessionNames = mentorData.sessions.map(session => session.session_name)
+
+  // const sixthTableData= {
+  //   session: {
+  //     label: "Sessions",
+  //     value: mentorData.sessions.map((session) => formattedString(session.session_name)),
+  //   },
+  // };
+  
+  // const seventhTableData= {
+  //   notes: {
+  //     label: "Notes",
+  //     value: mentorData.notes,
+  //   },
+  // };
   
   const handleToggle = async (key, value) => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}mentors/${id}`, {
@@ -119,9 +163,9 @@ function MentorDetailPage() {
     <PageContent>
       <div className="page-content-wrapper">
         <h1>{`${mentorData.first_name} ${mentorData.last_name}`}</h1>
-        {sectionHeaders.map((header, index) => (
+        {sectionHeaders.map(([header], index) => (
           <React.Fragment key={index}>
-            <h2 className="section-header">{header}</h2>
+          <h2 className="section-header">{header || " "}</h2>
             <table>
               <tbody>
                 {index === 0 && (
@@ -162,25 +206,63 @@ function MentorDetailPage() {
                       </td>
                     </tr>
                   ))}
-                {index === 2 &&
-                  Object.entries(thirdTableData).map(([key, { label, value }]) => (
-                    <tr key={key}>
-                      <td className="label">
-                        <strong>{label}</strong>
-                      </td>
-                      <td className="input">
-                        <ToggleButton
-                          value={value}
-                          onChange={() => handleToggle(key, value)}
-                        />
-                      </td>
-                    </tr>
-                  ))}
-                {/* {index === 3 && (
+                  {index === 2 && (
+                    <>
                     <tr>
-                      <td className="label"><strong>Notes:</strong></td>
-                      <td className="input">{notes}</td>
+                      <td className="label">
+                        <strong>{thirdTableData.step.label}</strong>
+                      </td> 
+                      <td>{thirdTableData.step.value}</td>
                     </tr>
+                    </>
+                  )}
+                {index === 3 &&
+                  Object.entries(fourthTableData).map(([key, { label, value }]) => (
+                      <tr key={key}>
+                          <td className="label">
+                              <strong>{label}</strong>
+                          </td>
+                          <td className="input">
+                              <ToggleButton
+                                  value={value}
+                                  onChange={() => handleToggle(key, value)}
+                              />
+                          </td>
+                      </tr>
+                  ))}
+                  {index === 4 &&
+                  Object.entries(fifthTableData).map(([key, { label, value }]) => (
+                      <tr key={key}>
+                          <td className="label">
+                              <strong>{label}</strong>
+                          </td>
+                          <td className="input">
+                              <ToggleButton
+                                  value={value}
+                                  onChange={() => handleToggle(key, value)}
+                              />
+                          </td>
+                      </tr>
+                  ))}
+                  {/* {index === 5 && (
+                    <>
+                    <tr>
+                      <td className="label">
+                        <strong>{sixthTableData.label}</strong>
+                      </td> 
+                      <td>{sixthTableData.value}</td>
+                    </tr>
+                    </>
+                  )}
+                  {index === 6 && (
+                    <>
+                    <tr>
+                      <td className="label">
+                        <strong>{seventhTableData.label}</strong>
+                      </td> 
+                      <td>{seventhTableData.value}</td>
+                    </tr>
+                    </>
                   )} */}
               </tbody>
             </table>
@@ -192,5 +274,4 @@ function MentorDetailPage() {
   } 
   export default MentorDetailPage;   
   
-// added two Object.entries() calls to iterate over the firstTableData and secondTableData objects and created tr elements for each key-value pair. Added a check to differentiate between the two tables by checking the index variable passed into the map function. The Array.isArray() check is added to handle the case where we're iterating over the mentor_type property, which is an array.
 
