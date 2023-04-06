@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 import ProgramName from "../Components/ProgramName/ProgramName.jsx"
 import EditButton from "../Components/EditButton/EditButton.jsx";
+import PageContent from "../Components/PageContent/PageContent.jsx";
 // import { allPrograms } from "../programdata.js";
 
 
@@ -20,6 +21,14 @@ function ProgramsListPage() {
             });
     }, []);
     return (
+        <div>
+            {
+                programData.map((program) =>{
+                return <div key={program.id}>
+                <Link to={`/programs/${program.id}`}><h2>{<ProgramName {...program} />}</h2></Link>
+                    </div>
+                })
+            }
         <div className="page-content list">
             <div className="list-header">
                 <h1>PROGRAMS</h1>
@@ -36,7 +45,9 @@ function ProgramsListPage() {
                     })
                 }
             </div>
+
         </div>
+     
     )
 }
 
