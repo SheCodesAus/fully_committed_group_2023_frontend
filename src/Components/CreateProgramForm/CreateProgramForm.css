@@ -13,6 +13,10 @@ form {
   align-items: center;
 }
 
+h1 {
+    color: #8246af;
+    text-decoration: none;
+}
 .program-inputs,
 .program-dates {
     display: flex;
