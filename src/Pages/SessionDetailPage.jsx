@@ -1,6 +1,9 @@
 // (WEN & KRISTY) - ALMOST DONE
 
-// TO DO - CHANGE TO PROGRESS BAR AND REDO STEP VALUE
+// TO DO - logic so mentor details dont show when no mentors assigned
+
+// NICE TO HAVES
+// Redo step value
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
@@ -136,9 +139,13 @@ function SessionDetailPage() {
             {/* </div> */}
           </div>
 
+{/* MENTOR ALLOCATION SECTION */}
+
           <div>
             <h2 className="section-header">MENTOR ALLOCATION</h2>
           </div>
+
+{/* Progress bar summary */}
 
           <div>
             <span>Total Mentors Assigned</span>
@@ -157,7 +164,9 @@ function SessionDetailPage() {
             ></ProgressBar>
           </div>
 
-          <table>
+{/* Table of mentors assigned */}
+
+          {(sessionData.mentors.length >0) && <table>
             <thead>
               <tr>
                 {tableHeaders.map((header) => (
@@ -179,11 +188,11 @@ function SessionDetailPage() {
                     <input type="checkbox" checked={mentor.is_active} />
                   </td>
                   <td>{mentor.current_step}</td>
-                  {/* TODO: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
+                  {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table>}          
         </>
       )}
     </PageContent>
