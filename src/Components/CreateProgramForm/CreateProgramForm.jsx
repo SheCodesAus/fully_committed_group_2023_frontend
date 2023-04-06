@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { useNavigate, useOutletContext, Link } from "react-router-dom";
 import ProgramName from '../ProgramName/ProgramName.jsx';
 import ReactDOMServer from 'react-dom/server';
+import PageContent from  '../PageContent/PageContent.jsx';
+import SubmitButton from '../SubmitButton/SubmitButton';
 import './CreateProgramForm.css';
 
 function ProgramForm() {
@@ -80,6 +82,8 @@ function ProgramForm() {
     };
 
     return (
+      <PageContent>
+        <>
       <div className='program-form'>
       <h1>CREATE A PROGRAM</h1>
         <form onSubmit={handleSubmit}>
@@ -128,6 +132,8 @@ function ProgramForm() {
         <button type="submit">Create Program</button>
         </form>
         </div>
+        </>
+        </PageContent>
     );
 
 }
