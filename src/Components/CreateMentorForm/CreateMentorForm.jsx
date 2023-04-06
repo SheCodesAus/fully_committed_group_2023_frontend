@@ -6,6 +6,7 @@ import { useNavigate, useOutletContext, Link } from "react-router-dom";
 
 import ToggleButton2 from '../ToggleButton/ToggleButton2.jsx';
 import SubmitButton from '../SubmitButton/SubmitButton';
+import PageContent from  '../PageContent/PageContent.jsx';
 import './CreateMentorForm.css';
 
 function MentorCreateForm() {
@@ -100,6 +101,7 @@ function MentorCreateForm() {
     // ----------- RENDER
 
     return (
+        <PageContent>
         <>
             {loggedIn ? 
             <div className='mentor-form'>
@@ -309,6 +311,7 @@ function MentorCreateForm() {
             </Link>
         ) }
         </>
+        </PageContent>
     );
 }
 
