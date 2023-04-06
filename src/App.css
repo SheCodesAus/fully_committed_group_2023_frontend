@@ -13,6 +13,8 @@ body {
   font-family: Raleway;
   color: black;
   text-align: center;
+  min-height: 100vh; /*moved from #root to body to make sure footer sits at the bottom of the page*/
+  position: relative; /* Set position to relative to allow absolute positioning of the footer */
 }
 
 .logo {

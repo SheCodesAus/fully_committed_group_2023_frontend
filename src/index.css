@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */ /*removed - assigned min-height:100vh to body to fix footer*/
   margin: 0;
 }
 
