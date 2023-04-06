@@ -128,8 +128,8 @@ function ProgramForm() {
         />
         </div>
 
-    
-        <button type="submit">Create Program</button>
+        {/* <button type="submit">Create Program</button> */}
+        <SubmitButton />
         </form>
         </div>
         </>
