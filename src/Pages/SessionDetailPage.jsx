@@ -1,5 +1,4 @@
-// (WEN & KRISTY) - ALMOST DONE
-
+// (WEN & KRISTY) - DONE
 
 // NICE TO HAVES
 // Redo step value

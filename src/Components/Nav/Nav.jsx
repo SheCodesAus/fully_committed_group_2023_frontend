@@ -31,9 +31,7 @@ function Nav(props) {
           <Link to="/login">LOGIN</Link>
         )} */}
         {loggedIn && <>
-          <Link to="#" onClick={handleClick}>
-            LOGOUT
-          </Link>
+
           {/* <button id="logout-button" onClick={handleClick}>
               Log Out
             </button> */}
@@ -41,6 +39,9 @@ function Nav(props) {
           <Link to="/sessions">SESSIONS</Link>
           <Link to="/mentors">MENTORS</Link>
           <Link to="/users/current">PROFILE</Link>
+          <Link to="#" onClick={handleClick}>
+            LOGOUT
+          </Link>
         </>
         }
         {/* <Link to="/mentors/1">Mentor 1 | </Link> */}

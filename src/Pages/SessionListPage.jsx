@@ -1,7 +1,4 @@
-// (WEN & KRISTY) - ALMOST DONE
-
-// ADD NEW/CREATE BUTTON
-
+// (WEN & KRISTY) 
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
