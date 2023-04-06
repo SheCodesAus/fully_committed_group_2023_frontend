@@ -17,6 +17,8 @@ function MentorListPage() {
 
     return (
         <div>
+        <Link className="create-button" to={`/mentors/create`}>Create</Link>
+
         {
         mentorData.map((mentor) => {
             return <div key ={mentor.id}>

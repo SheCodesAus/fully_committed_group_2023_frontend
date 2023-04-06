@@ -54,9 +54,7 @@ function SessionListPage() {
         
         <Link className="create-button" to={`/sessions/create`}>Create</Link>
 
-        <Link className="create-button" to={`/mentors/create`}>Create</Link>
 
-        <Link className="create-button" to={`/programs/create`}>Create</Link>
 
         <table>
             <thead>
