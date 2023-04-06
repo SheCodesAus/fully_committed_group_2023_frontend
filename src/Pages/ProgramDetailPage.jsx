@@ -40,9 +40,11 @@ function ProgramDetailPage() {
           <ProgressBar
             completed={
               programData.mentors_required > 0
-                ? (programData.mentors_assigned /
-                    programData.mentors_required) *
-                  100
+                ? Math.ceil(
+                    (programData.mentors_assigned /
+                      programData.mentors_required) *
+                      100
+                  )
                 : 0
             }
           ></ProgressBar>

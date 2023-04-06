@@ -10,7 +10,6 @@ import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import EditButton from "../Components/EditButton/EditButton";
 
-
 function SessionDetailPage() {
   const { id } = useParams();
   const [sessionData, setSessionData] = useState(null);
@@ -70,7 +69,11 @@ function SessionDetailPage() {
                   <td className="label">
                     <strong>Program </strong>{" "}
                   </td>
-                  <td className="input"><Link to={`/programs/${programData.id}`}>{programData?.program_name}</Link> </td>
+                  <td className="input">
+                    <Link to={`/programs/${programData.id}`}>
+                      {programData?.program_name}
+                    </Link>{" "}
+                  </td>
                 </tr>
                 <tr>
                   <td className="label">
@@ -137,13 +140,13 @@ function SessionDetailPage() {
             {/* </div> */}
           </div>
 
-{/* MENTOR ALLOCATION SECTION */}
+          {/* MENTOR ALLOCATION SECTION */}
 
           <div>
             <h2 className="section-header">MENTORS ASSIGNED</h2>
           </div>
 
-{/* Progress bar summary */}
+          {/* Progress bar summary */}
 
           <div>
             {/* <span>Total Mentors Assigned</span> */}
@@ -151,9 +154,11 @@ function SessionDetailPage() {
             <ProgressBar
               completed={
                 sessionData.mentors_required > 0
-                  ? (sessionData.mentors_assigned /
-                      sessionData.mentors_required) *
-                    100
+                  ? Math.ceil(
+                      (sessionData.mentors_assigned /
+                        sessionData.mentors_required) *
+                        100
+                    )
                   : 0
               }
             ></ProgressBar>
@@ -164,39 +169,40 @@ function SessionDetailPage() {
             </span>
           </div>
 
-{/* Table of mentors assigned */}
+          {/* Table of mentors assigned */}
 
-          {(sessionData.mentors.length >0) && <table>
-            <thead>
-              <tr>
-                {tableHeaders.map((header) => (
-                  <th key={header}>{header}</th>
-                ))}
-              </tr>
-            </thead>
-
-            <tbody>
-              {sessionData.mentors.map((mentor) => (
-                <tr key={mentor.id}>
-                  <td>
-                    <Link to={`/mentors/${mentor.id}`}>
-                      {mentor.first_name} {mentor.last_name}
-                    </Link>
-                  </td>
-                  <td>{getMentorType(mentor)}</td>
-                  <td>
-                    <input type="checkbox" checked={mentor.is_active} />
-                  </td>
-                  <td>{mentor.current_step}</td>
-                  {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
+          {sessionData.mentors.length > 0 && (
+            <table>
+              <thead>
+                <tr>
+                  {tableHeaders.map((header) => (
+                    <th key={header}>{header}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>}          
+              </thead>
+
+              <tbody>
+                {sessionData.mentors.map((mentor) => (
+                  <tr key={mentor.id}>
+                    <td>
+                      <Link to={`/mentors/${mentor.id}`}>
+                        {mentor.first_name} {mentor.last_name}
+                      </Link>
+                    </td>
+                    <td>{getMentorType(mentor)}</td>
+                    <td>
+                      <input type="checkbox" checked={mentor.is_active} />
+                    </td>
+                    <td>{mentor.current_step}</td>
+                    {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </>
       )}
-    <EditButton/>
-
+      <EditButton />
     </PageContent>
   );
 }
