@@ -19,3 +19,5 @@
     border: 5px;
     border-color: #8246af;
 }
+
+/* the button-true and button-false classes are being conditionally rendered in the ToggleButtonReadOnly component, please do not delete them */
