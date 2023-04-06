@@ -72,7 +72,7 @@ function SessionDetailPage() {
                   <td className="label">
                     <strong>Program </strong>{" "}
                   </td>
-                  <td className="input"> {programData?.program_name}</td>
+                  <td className="input"><Link to={`/programs/${programData.id}`}>{programData?.program_name}</Link> </td>
                 </tr>
                 <tr>
                   <td className="label">
