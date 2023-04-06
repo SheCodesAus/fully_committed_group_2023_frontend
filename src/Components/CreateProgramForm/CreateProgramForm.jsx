@@ -80,6 +80,7 @@ function ProgramForm() {
     };
 
     return (
+      <div className='program-form'>
         <form onSubmit={handleSubmit}>
         <label htmlFor="program_type">Program Type:</label>
         <select value={programFormData.program_type}
@@ -123,6 +124,7 @@ function ProgramForm() {
     
         <button type="submit">Create Program</button>
         </form>
+        </div>
     );
 
 }
