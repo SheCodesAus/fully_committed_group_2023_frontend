@@ -20,7 +20,8 @@ function ProgramsListPage() {
     }, []);
     return (
         <div>
-
+    
+        <h1>PROGRAMS</h1>
         <Link className="create-button" to={`/programs/create`}>Create</Link>
 
             {

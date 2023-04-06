@@ -17,6 +17,8 @@ function MentorListPage() {
 
     return (
         <div>
+        <h1>MENTORS</h1>
+
         <Link className="create-button" to={`/mentors/create`}>Create</Link>
 
         {
@@ -28,7 +30,6 @@ function MentorListPage() {
                 <p>{`Skills: ${mentor.skills}`}</p>
                 <p>{`Will travel? ${mentor.will_travel}`}</p>
                 <p>{`Onboarding active? ${mentor.is_active}`}</p>
-                <EditButton />
                 </div>
             })
         }
