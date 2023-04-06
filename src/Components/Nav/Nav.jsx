@@ -7,41 +7,42 @@ import { Link } from "react-router-dom";
 import "./Nav.css"
 
 function Nav(props) {
-    // ------- AUTH -------
-    const { loggedIn, setLoggedIn } = props
+  // ------- AUTH -------
+  const { loggedIn, setLoggedIn } = props
 
-      // ------- ACTIONS & EFFECTS -------
+  // ------- ACTIONS & EFFECTS -------
 
-      const handleClick = () => {
-        window.localStorage.removeItem("token");
-        window.sessionStorage.removeItem("userData");
-        setLoggedIn(false);
-        window.location.reload();
+  const handleClick = () => {
+    window.localStorage.removeItem("token");
+    window.sessionStorage.removeItem("userData");
+    setLoggedIn(false);
+    window.location.reload();
 
-    }
+  }
 
   return (
     <nav>
       {/* <div className="logo" > */}
-      <img className="logo" src="/white_no_circle.svg"/>
+      <img className="logo" src="/white_no_circle.svg" />
       {/* </div> */}
 
       <div className="nav-links">
-        {!loggedIn && (
+        {/* {!loggedIn && (
           <Link to="/login">LOGIN</Link>
-        )}
-        {loggedIn && (
-            <Link to="#" onClick={handleClick}>
+        )} */}
+        {loggedIn && <>
+          <Link to="#" onClick={handleClick}>
             LOGOUT
-            </Link>
-            // <button id="logout-button" onClick={handleClick}>
-            // Log Out
-            // </button>
-        )}
-        <Link to="/programs">PROGRAMS</Link>
-        <Link to="/sessions">SESSIONS</Link>
-        <Link to="/mentors">MENTORS</Link>
-        <Link to="/users/current">PROFILE</Link>
+          </Link>
+          {/* <button id="logout-button" onClick={handleClick}>
+              Log Out
+            </button> */}
+          <Link to="/programs">PROGRAMS</Link>
+          <Link to="/sessions">SESSIONS</Link>
+          <Link to="/mentors">MENTORS</Link>
+          <Link to="/users/current">PROFILE</Link>
+        </>
+        }
         {/* <Link to="/mentors/1">Mentor 1 | </Link> */}
         {/* <Link to="/mentors/2">Mentor 2 |</Link> */}
         {/* <Link to="/mentor-creation">Create Mentor |</Link> */}

@@ -7,14 +7,9 @@ import "./SubmitButton.css";
 
 import React from 'react';
 
-function SubmitButton(props) {
-  const handleClick = () => {
-    // Perform submit action here
-    console.log('Submit button clicked!');
-  };
-
+function SubmitButton({onClick}) {
   return (
-    <button className="submit-button"onClick={handleClick}>
+    <button className="submit-button" onClick={onClick}>
       Submit
     </button>
   );

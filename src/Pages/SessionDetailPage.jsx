@@ -1,6 +1,5 @@
 // (WEN & KRISTY) - ALMOST DONE
 
-// TO DO - logic so mentor details dont show when no mentors assigned
 
 // NICE TO HAVES
 // Redo step value
@@ -56,8 +55,6 @@ function SessionDetailPage() {
     if (lead_mentor) return "Lead";
   };
   // May need to revisit this logic if we do the lead must be industry mentor thing
-
-  console.log(sessionData);
   return (
     <PageContent>
       <div className="login"></div>

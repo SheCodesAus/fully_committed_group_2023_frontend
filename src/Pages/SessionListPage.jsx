@@ -6,6 +6,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 function SessionListPage() {
     // const [sessionData, setSessionData] = useState(null);
     const [programData, setProgramData] = useState(null);
@@ -50,6 +51,12 @@ function SessionListPage() {
     return (
         <div className="page-content-wrapper">
         <h1>SESSIONS</h1>
+        
+        <Link className="create-button" to={`/sessions/create`}>Create</Link>
+
+        <Link className="create-button" to={`/mentors/create`}>Create</Link>
+
+        <Link className="create-button" to={`/programs/create`}>Create</Link>
 
         <table>
             <thead>

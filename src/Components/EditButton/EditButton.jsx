@@ -1,23 +1,19 @@
 // (CLAIRE & WEN) - ALMOST DONE
 // WEN TO FINISH
 
-import { useState } from "react";
-import { useNavigate, useOutletContext} from "react-router-dom";
 import "./EditButton.css";
 
 import React from 'react';
 
 function EditButton(props) {
-  const handleClick = () => {
-    // Perform edit action here
-    console.log('Edit button clicked!');
-  };
+
 
   return (
-    <button className="edit-button"onClick={handleClick}>
+    <button className="edit-button">
       Edit
    </button>
   );
 }
+
 
 export default EditButton;
