@@ -1,7 +1,8 @@
-button.submit-button {
+/* CLAIRE */
+
+button.create-button {
     background-color: #FFA300; 
-/* #8246AF - purple */ 
-/* FFA300 orange */
+    /* #8246AF purple and #FFA300 orange */
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -10,6 +11,6 @@ button.submit-button {
     cursor: pointer;
   }
   
-  button.submit-button:hover {
+  button.create-button:hover {
     background-color: #8246AF;
   }
