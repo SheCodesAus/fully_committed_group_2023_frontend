@@ -1,8 +1,7 @@
 // (KAT) - STARTED
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 
 function MentorDetailPage() {
   const { id } = useParams();
@@ -15,97 +14,100 @@ function MentorDetailPage() {
       })
       .then((data) => {
         setMentorData(data);
-        console.log(mentorData); 
       });
   }, [id]);
 
-
+  const tableHeaders = [
+    ["Table 1 Header 1", "Table 1 Header 2", "Table 1 Header 3"],
+    ["Table 2 Header 1", "Table 2 Header 2", "Table 2 Header 3", "Table 2 Header 4"]
+  ];
   return (
-    <div>
-      {mentorData ? (
-        <div>
-          <div>
-            <p>{`First Name: ${mentorData.first_name}`}</p>
-            <p>{`Last Name: ${mentorData.last_name}`}</p>
-            <p>{`Email: ${mentorData.email}`}</p>
-            <p>{`Phone: ${mentorData.phone}`}</p>
-            <p>{`City: ${mentorData.city}`}</p>
-          </div>
-          <div>
-            <p>{`Will travel? ${mentorData.will_travel}`}</p>
-            <p>{`Junior mentor? ${mentorData.junior_mentor}`}</p>
-            <p>{`Industry mentor? ${mentorData.industry_mentor}`}</p>
-            <p>{`Lead mentor? ${mentorData.lead_mentor}`}</p>
-            <p>{`She codes alumni? ${mentorData.she_codes_alumni}`}</p>
-          </div>
-          <div>
-            <p>{`Skills: ${mentorData.skills}`}</p>
-          </div>
-          <div>
-            <p>{`Current step: ${mentorData.current_step}`}</p>
-            <p>{`Pay Type: ${mentorData.payment_type}`}</p>
-            <p>{`Onboarding active? ${mentorData.is_active}`}</p>
-          </div>
-          <div>
-            <p>{`Notes: ${mentorData.notes}`}</p>
-          </div>
-          <div>
-            <p>{`Feedback: ${mentorData.feedback}`}</p>
-          </div>
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+    <div className="page-content-wrapper">
+      <h1>`${first_name} ${last_name}`</h1>
+  
+      {tableHeaders.map((headers, index) => (
+        <table key={index}>
+          <thead>
+            <tr>
+              {headers.map(header => (
+                <th key={header}>{header}</th>
+              ))}
+            </tr>
+          </thead>
+  
+          <tbody>
+            {/* Render table rows here */}
+          </tbody>
+        </table>
+      ))}
     </div>
   );
-}
+  
+} 
+  export default MentorDetailPage;
 
-export default MentorDetailPage;
+// import { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 
-// import { useParams } from "react-router-dom";
-// import { allMentors } from "../mentordata";
+// function SessionListPage() {
+//     const [programData, setProgramData] = useState(null);
 
-// function MentorProfilePage() {
-//     const { id } = useParams();
+//     useEffect(() => {
+//         const fetchProgramList = async () => {
+//             const response = await fetch(`${import.meta.env.VITE_API_URL}programs`)
+//             const data = await response.json();
+            
+//             setProgramData(data);
+//         }
+//         fetchProgramList();
+//     }, []);
 
-//     const mentorData = allMentors.find(mentor => 
-//         mentor.id === id);
+//     const annotatedSessionData = programData?.flatMap(({ program_type, program_name, sessions }) => {
+//         return sessions.map((session) => ({ ...session, program_type, program_name }))
+//     })
+    
+//     const tableHeaders = ["Session", "Date", "Program Name", "Program Type", "Module", "Location", "Mentors"];
 
 //     return (
-//         <div>
-//             <div>
-//                 <p>{`First Name: ${mentorData.first_name}`}</p>  
-//                 <p>{`Last Name: ${mentorData.last_name}`}</p>
-//                 <p>{`Email: ${mentorData.email}`}</p>
-//                 <p>{`Phone: ${mentorData.phone}`}</p>
-//                 <p>{`City: ${mentorData.city}`}</p>
-//             </div>
-//             <div>
-//                 <p>{`Will travel? ${mentorData.will_travel}`}</p>
-//                 <p>{`Junior mentor? ${mentorData.junior_mentor}`}</p>
-//                 <p>{`Industry mentor? ${mentorData.industry_mentor}`}</p>
-//                 <p>{`Lead mentor? ${mentorData.lead_mentor}`}</p>
-//                 <p>{`She codes alumni? ${mentorData.she_codes_alumni}`}</p>
-//             </div>
-//             <div>
-//                 <p>{`Skills: ${mentorData.skills}`}</p>
-//             </div>
-//             <div>
-//                 <p>{`Current step: ${mentorData.current_step}`}</p>
-//                 <p>{`Pay Type: ${mentorData.payment_type}`}</p>
-//                 <p>{`Onboarding active? ${mentorData.is_active}`}</p>
-//             </div>
-//             <div>
-//                 <p>{`Notes: ${mentorData.notes}`}</p>
-//             </div>
-//             <div>
-//                 <p>{`Feedback: ${mentorData.feedback}`}</p>
-//             </div>
-//         </div> 
+//         <div className="page-content-wrapper">
+//         <h1>SESSIONS</h1>
+
+//         <table>
+//             <thead>
+//                 <tr>
+//                     {tableHeaders.map(header => (
+//                         <th key={header}>{header}</th>
+//                     ))}
+//                 </tr>
+//             </thead>
+
+//             <tbody>
+//                 {annotatedSessionData?.map(session => (
+//                     <tr key={session.id}> 
+//                         <td><Link to={`/sessions/${session.id}`}>{session.session_name}</Link></td>
+//                         <td>{new Date(session.start_date).toLocaleDateString('en-AU', {day: 'numeric', month: 'short', year: '2-digit'})}</td>
+//                         <td><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
+//                         <td>{session.program_type}</td>
+//                         <td>{session.module_type}</td>
+//                         <td>{session.city}</td>
+//                         <td>{session.mentors_assigned}/{session.mentors_required} allocated</td>
+//                         {/* TODO: Replace above line with progress bar */}
+//                     </tr>))}
+//             </tbody>
+
+//         </table>
+
+//         </div>
+
+
 
 //     )
 // }
 
-// export default MentorProfilePage;
+// export default SessionListPage;
+
+
+
+
 
 
