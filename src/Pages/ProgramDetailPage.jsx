@@ -1,10 +1,11 @@
 // (KAT) - STARTED
 
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import PageContent from "../Components/PageContent/PageContent";
 import "./ProgramDetailPage.css";
+import EditButton from "../Components/EditButton/EditButton"
 
 // import { allPrograms } from "../programdata";
 
@@ -22,14 +23,19 @@ function ProgramDetailPage() {
   });
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}programs/${id}`)
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}programs/${id}`);
+        const data = await response.json();
         setProgramData(data);
-      });
+        // console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
   }, [id]);
+
 
   const sectionHeaders = [
     ["PROGRAM DETAILS"],
@@ -42,7 +48,6 @@ function ProgramDetailPage() {
   const tableHeaders = [
     [""],
     [""],
-    ["Mentor Name", "Mentor Type"],
     ["Date", "Module", "Start Time", "End Time", "Mentors Assigned"],
     [""],
   ];
