@@ -1,9 +1,10 @@
 // (KAT) - STARTED
 
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import PageContent from "../Components/PageContent/PageContent";
+import EditButton from "../Components/EditButton/EditButton"
 
 // import { allPrograms } from "../programdata";
 
@@ -21,29 +22,30 @@ function ProgramDetailPage() {
   });
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}programs/${id}`)
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}programs/${id}`);
+        const data = await response.json();
         setProgramData(data);
-      });
+        // console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
   }, [id]);
+
 
   const sectionHeaders = [
     ["Program Details"],
-    ["Mentors Assigned - Program"],
-    ["Mentors"],
+    ["Mentors Summary"],
     ["Sessions"],
-    ["Notes"]
   ];
 
   const tableHeaders = [
     [""],
     [""],
-    ["Mentor Name", "Mentor Type"],
     ["Date", "Module", "Start Time", "End Time", "Mentors Assigned"],
-    [""],
   ]
 
   const program_name = programData.program_name;
@@ -56,25 +58,42 @@ function ProgramDetailPage() {
   };
 
   const secondTableData = {
+    mentors_required: programData.mentors_required,
+    mentors_assigned: programData.mentors_assigned
 
   };
 
+  const formattedSessions = programData.sessions.map(session => {
+    const startDate = new Date(session.start_date);
+    const endDate = new Date(session.end_date);
+  
+    return {
+      date: startDate.toLocaleDateString(),
+      startTime: startDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+      endTime: endDate.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+      module: session.module_type,
+      id: session.id,
+      mentorsRequired: session.mentors_required,
+      mentorsAssigned: session.mentors_assigned
+    }
+  });
+  
+  
   const thirdTableData = {
-
+    sessions: formattedSessions || []
   };
-
-  const fourthTableData = {
-
-  };
-
-  const fifthTableData = {
-
-  };
+  
+  
+  console.log("sessions: ", thirdTableData.sessions);
+  console.log("sessions as JSON: ", JSON.stringify(thirdTableData.sessions));
 
   return (
     <PageContent>
       <div className="page-content-wrapper">
         <h1>{`${program_name}`}</h1>
+        <button type="button" className="edit-button">
+        <Link to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/${id}/change/`} style={{ textDecoration: 'none', color: 'white' }}>Edit</Link>
+        </button>
         {sectionHeaders.map(([header], index) => (
           <React.Fragment key={index}>
             <h2 className="section-header">{header || " "}</h2>
@@ -94,25 +113,23 @@ function ProgramDetailPage() {
                       <td className="label">
                         <strong>Program</strong>{" "}
                       </td>
-                      <td className="input">{`She Codes ${
-                        programData.program_type
-                      } Program`}</td>
+                      <td className="input">{`She Codes ${firstTableData.program_type} Program`}</td>
                     </tr>
                     <tr>
                       <td className="label">
                         <strong>Location</strong>
                       </td>
-                      <td className="input">{programData.city}</td>
+                      <td className="input">{firstTableData.city}</td>
                     </tr>
                     <tr>
                       <td className="label">
                         <strong>Start Date</strong>
                       </td>
-                      <td className="input">{programData.start_date}</td>
+                      <td className="input">{new Date(firstTableData.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                       <td className="label">
                         <strong>End Date</strong>
                       </td>
-                      <td className="input">{programData.end_date}</td>
+                      <td className="input">{new Date(firstTableData.end_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                     </tr>
                   </>
                 )}
@@ -121,13 +138,13 @@ function ProgramDetailPage() {
                   <>
                     <tr>
                       <td colSpan={tableHeaders[index].length}>
-                        {programData ? (
+                        {secondTableData ? (
                           <ProgressBar
                             completed={
-                              programData.mentors_required > 0
+                              secondTableData.mentors_required > 0
                                 ? Math.ceil(
-                                    (programData.mentors_assigned /
-                                      programData.mentors_required) *
+                                    (secondTableData.mentors_assigned /
+                                      secondTableData.mentors_required) *
                                       100
                                   )
                                 : 0
@@ -138,31 +155,32 @@ function ProgramDetailPage() {
                     </tr>
                   </>
                 )}
-                {/* ------------------------ MENTORS ------------------------ */}
-                {index === 2 && (
+                 {/* ------------------------ SESSIONS ------------------------ */}
+                 {index === 2 &&
                   <>
-                    <tr>
-                      <td></td>
+                  {thirdTableData.sessions.map((session, sessionIndex) => (
+                    <tr key={sessionIndex}>
+                      <td>{<Link to={`/sessions/${session.id}`}>{new Date(session.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</Link>}</td>
+                      <td>{session.module}</td>
+                      <td>{session.startTime}</td>
+                      <td>{session.endTime}</td>
+                      <td>
+                      {<Link to={`/sessions/${session.id}`}><ProgressBar
+                          completed={
+                            session.mentorsRequired > 0
+                              ? Math.ceil(
+                                  (session.mentorsAssigned /
+                                    session.mentorsRequired) *
+                                    100
+                                )
+                              : 0
+                          }
+                        /></Link>}
+                      </td>
                     </tr>
+                  ))}
                   </>
-                )}
-                {/* ------------------------ SESSIONS ------------------------ */}
-                {index === 3 && (
-                  <>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </>
-                )}
-  
-                {/* ------------------------ NOTES ------------------------ */}
-                {index === 4 && (
-                  <>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </>
-                )}
+                }
               </tbody>
             </table>
           </React.Fragment>

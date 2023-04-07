@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 import "./SessionListPage.css"; // import CSS file
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
-// import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSessionBar";
+
+import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSessionBar";
+
+
 
 
 function SessionListPage() {
