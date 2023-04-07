@@ -1,7 +1,8 @@
 /* CLAIRE */
 
-.list-header {
-    display: flex;
+/* .list-header {
+    /* display: flex; */
+    /* display: flexbox;
     justify-content: space-between;
     align-items: center;
     background-color: #f8f8f8;
@@ -12,11 +13,58 @@
     font-size: 2rem;
   }
   
-  /* .create-button {
-    background-color: #4caf50;
+.create-button {
+    background-color: #8246AF;
     color: #fff;
     border-radius: 4px;
     padding: 0.5rem 1rem;
     text-decoration: none;
-  } */
+  } 
+
+.page-content list {
+    width: 100px;
+} */ */
+ 
+---------------------
+.page-content {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  float: left;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.create-button {
+  padding: 10px 20px;
+  background-color: #8246a4;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.create-button:hover {
+  background-color: #FFA300;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 5px 0;
+}
+
   
