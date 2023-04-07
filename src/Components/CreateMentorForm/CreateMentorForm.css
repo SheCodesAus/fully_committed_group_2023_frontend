@@ -23,7 +23,19 @@ form {
   padding: 1%;
 }
 
+.location-inputs,
+.recruitment-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 1%;
+}
 .contact-inputs label,
+.location-inputs label,
+.recruitment-inputs label,
 .container label {
   font-size: 1rem;
   font-weight: bold;
@@ -34,25 +46,51 @@ form {
 }
 
 .contact-inputs input,
-.contact-inputs select {
-  width: 45%;
-  height: 40px;
+.contact-inputs select,
+.location-inputs select,
+.recruitment-inputs select {
+  min-width: 45%;
+  /* height: 40px; */
   padding: 10px;
   border-radius: 5px;
   background-color: #f2f2f2;
   border: none;
   font-size: 1rem;
   color: black;
+  font-family: Raleway;
 }
 
-.contact-inputs select {
+.location-inputs select {
   width:fit-content;   /* for the location drop down work around */
+}
+
+.location-inputs {    /* getting location drop down to sit better in inputs-block */
+  padding: 0%;        
+  flex-direction: column;
+}
+
+.recruitment-inputs #session {
+  height: 200px;            /* for the session scroll work around to make higher than others*/
 }
 .contact-inputs input:hover,
 .contact-inputs select:hover {
   outline: none;
   box-shadow: 0 0 5px 0 #646cff;
 }
+
+.inputs-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  /* width: 100%; */
+  margin-bottom: 20px;
+  padding: 1%;
+  gap: 15px; /* this needs to be px otherwise labels in .container get squished*/
+}
+
+
+
 
 .container {
   display: flex;
