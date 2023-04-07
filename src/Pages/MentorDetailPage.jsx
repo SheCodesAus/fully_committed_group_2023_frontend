@@ -2,8 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+
 import PageContent from "../Components/PageContent/PageContent";
 import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly"
+
+import MentorNoteCard from "../Components/MentorNoteCard/MentorNotesCard";
+import MentorNoteForm from "../Components/MentorNoteForm/MentorNoteForm";
+
 
   function MentorDetailPage() {
     const { id } = useParams();
@@ -77,8 +84,8 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
       ["Other Information"],
       [""],
       [""],
-      // ["Sessions"],
-      // ["Notes"]
+      ["Sessions"],
+      ["Notes"]
     ];
 
     const firstTableData = {
@@ -165,7 +172,9 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
     const sixthTableData= {
       session: {
         label: "Sessions",
-        value: mentorData.sessions.map((session) => formattedString(session.session_name)),
+        value: mentorData.sessions.map((session) => (
+          <Link to={`/sessions/${session.id}`}>{formattedString(session.session_name)}</Link>
+        )),
       },
     };
     
@@ -210,6 +219,7 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
                   )}
                   {index === 1 && (
                     <>
+                    {/* ------------------ SKILLS TABLE ------------------ */}
                       {Object.entries(secondTableData).map(([key, value]) => (
                         <ToggleTableRow
                           key={key}
@@ -222,6 +232,7 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
                   )}
                   {index === 2 && (
                     <>
+                    {/* ------------------ ONBOARDING AND PAYMENT TYPE TABLE ------------------ */}
                       {Object.entries(thirdTableData).map(([key, value]) => (
                         <tr key={key}>
                           <td className="label"><strong>{value.label} </strong></td>
@@ -232,6 +243,7 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
                   )}
                   {index === 3 && (
                     <>
+                    {/* ------------------ TRAVEL, JNR MENTOR, INDUSTRY MENTOR, ALUMNI ------------------ */}
                       {Object.entries(fourthTableData).map(([key, value]) => (
                         <ToggleTableRow
                           key={key}
@@ -244,6 +256,7 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
                   )}
                   {index === 4 && (
                     <>
+                    {/* ------------------ ACTIVE, LEAD MENTOR QUAL ------------------ */}
                       {Object.entries(fifthTableData).map(([key, value]) => (
                         <ToggleTableRow
                           key={key}
@@ -256,23 +269,29 @@ import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnl
                   )}
                   {index === 5 && (
                     <>
-                      <tr>
-                        <td className="label"><strong>Sessions </strong></td>
-                        <td className="input">{sessionNames.join(", ")}</td>
+                    {/* ------------------ SESSIONS ------------------ */}
+                    <tr>
+                    <td className="input">{sixthTableData.session.value.map((sessionName, i) => <React.Fragment key={i}>{sessionName}<br /></React.Fragment>)}</td>
                       </tr>
+
                     </>
                   )}
                   {index === 6 && (
                     <>
+                    {/* ------------------ NOTES ------------------ */}
                       <tr>
-                        <td className="label"><strong>Notes </strong></td>
-                        <td className="input">{mentorData.notes}</td>
+                        <td>{mentorData.notes}</td>
+                        {(mentorData.mentornotes ?? []).map((mentorNote, key) => {
+                        return <MentorNoteCard key={key} mentorNote={mentorNote} />;
+                        })}
+                      <MentorNoteForm mentorData={mentorData} />
                       </tr>
                     </>
                   )}
                 </tbody>
               </table>
             </React.Fragment>
+
           ))}
         </div>
       </PageContent>
