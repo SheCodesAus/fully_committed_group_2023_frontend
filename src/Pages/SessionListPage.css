@@ -12,6 +12,7 @@
 
 .page-content list {
   text-align: left;
+  /* text-align: center; */
   font-size: 24px;
   font-weight: bold;
   color: #8246af;
@@ -26,6 +27,8 @@
 /* } */
 
 .list-header {
+  text-align: center;
+  color: #8246af;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +39,7 @@
 .create-button {
   background-color: #8246af;
   color:white
+  
 
 }
 
