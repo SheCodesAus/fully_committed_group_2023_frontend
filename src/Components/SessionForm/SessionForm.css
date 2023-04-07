@@ -13,10 +13,11 @@
     align-items: center;
   }
   
-  h1 {
+  .session-form  h1 {
       color: #8246af;
       text-decoration: none;
   }
+
   .session-inputs,
   .session-dates {
       display: flex;
