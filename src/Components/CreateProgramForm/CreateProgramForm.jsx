@@ -109,7 +109,7 @@ function ProgramForm() {
         </div>
         <div className='program-dates'>
         <label htmlFor="start_date">Start Date</label>
-        <input type="datetime-local"
+        <input type="date"
         id="start_date"
         name="start_date"
         value={programFormData.start_date}
@@ -119,7 +119,7 @@ function ProgramForm() {
 
         <label htmlFor="end_date">End Date</label>
         <input
-        type="datetime-local"
+        type="date"
         id="end_date"
         name="end_date"
         value={programFormData.end_date}
