@@ -85,10 +85,10 @@ function ProgramForm() {
       <PageContent>
         <>
       <div className='program-form'>
-      <h1>CREATE A PROGRAM</h1>
+      <h1>New Program</h1>
         <form onSubmit={handleSubmit}>
         <div className='program-inputs'>
-        <label htmlFor="program_type">PROGRAM TYPE:</label>
+        <label htmlFor="program_type">Program Type</label>
         <select value={programFormData.program_type}
             id="program_type" 
             name="program_type"
@@ -99,7 +99,7 @@ function ProgramForm() {
             <option value="Sydney">Flash</option>
             <option value="Workshop">Workshop</option>
         </select>
-        <label htmlFor="city">LOCATION:</label>
+        <label htmlFor="city">Location</label>
         <select value={programFormData.city} id="city" name="city" onChange={handleChange} required>
         <option value="">-- Select a city --</option>
         <option value="Perth">Perth</option>
@@ -108,7 +108,7 @@ function ProgramForm() {
         </select>
         </div>
         <div className='program-dates'>
-        <label htmlFor="start_date">START DATE:</label>
+        <label htmlFor="start_date">Start Date</label>
         <input type="datetime-local"
         id="start_date"
         name="start_date"
@@ -117,7 +117,7 @@ function ProgramForm() {
         required
         />
 
-        <label htmlFor="end_date">END DATE:</label>
+        <label htmlFor="end_date">End Date</label>
         <input
         type="datetime-local"
         id="end_date"
