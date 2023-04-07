@@ -75,7 +75,7 @@ form {
 .contact-inputs input:hover,
 .contact-inputs select:hover {
   outline: none;
-  box-shadow: 0 0 5px 0 #646cff;
+  box-shadow: 0 0 5px 0 #8246af;
 }
 
 .inputs-block {
