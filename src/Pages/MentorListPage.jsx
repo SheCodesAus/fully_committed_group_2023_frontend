@@ -1,22 +1,14 @@
-// (KAT & CLAIRE & WEN) - STARTED
+// (KAT & CLAIRE & WEN) - DONE
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import MentorCreationForm from "../Components/CreateMentorForm/CreateMentorForm.jsx";
 import "./MentorListPage.css"; // import CSS file
 import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly.jsx";
+import { currentStepMapping } from "../utils.js";
+
 
 function MentorListPage() {
     const [mentorData, setMentorData] = useState([])
-
-    // useEffect(() => {
-    //     fetch(`${import.meta.env.VITE_API_URL}mentors`)
-    //         .then((results) => { return results.json(); })
-    //         .then((data) => {
-    //             setMentorData(data);
-    //         });
-    // }, []);
-
 
     useEffect(() => {
         const fetchMentorList = async () => {
@@ -28,16 +20,11 @@ function MentorListPage() {
         fetchMentorList();
     }, []);
 
-    const tableHeaders = ["Name", "Type", "Skills", "Alumni", "Location", "Travel", "Current Step"]
-
-
   // For Mentor Allocation: Generating the value for mentor type
     const getMentorType = ({ lead_mentor, industry_mentor, junior_mentor }) => {
         if (junior_mentor) return "Junior";
         if (industry_mentor) return "Industry";
-        if (lead_mentor) return "Lead";
     };
-
 
     return (
         <div className="page-content list">
@@ -49,37 +36,48 @@ function MentorListPage() {
             <table>
                 <thead>
                     <tr>
-                        {tableHeaders.map(header => (
-                            <th key={header}>{header}</th>
-                        ))}
+                        <th>Type</th>
+                        <th>Lead</th>
+                        <th>Alumni</th>
+                        <th>Name</th>
+                        <th>Current Step</th>
+                        <th colSpan={6}>Skills</th>
+                        <th>Location</th>
+                        <th>Travel</th>
                     </tr>
+
                 </thead>
 
                 <tbody>
-                    {/* {mentorData?.map(mentor => ( <Link key={mentor.id} to={`/mentors/${mentor.id}`}> */}
                     {mentorData?.map(mentor => ( 
                         <tr key={mentor.id} >
-                            
-                            <td>{mentor.first_name} {mentor.last_name}</td>
                             <td>{getMentorType(mentor)}</td>
-                            <td></td>
                             <td><ToggleButtonReadOnly
                             value={mentor.she_codes_alumni}
+                            readOnly={true} /></td>
+                            <td><ToggleButtonReadOnly
+                            value={mentor.lead_mentor}
                             readOnly={true}
                             /></td>
+                            <td><Link to={`/mentors/${mentor.id}`}>{mentor.first_name} {mentor.last_name}</Link></td>
+                            <td>{currentStepMapping[mentor.current_step]}</td>
+                            <div className="skills-table">
+                                <td><ToggleButtonReadOnly value={mentor.html_css} checkedCharacter="H" readOnly={true} /></td>
+                                <td><ToggleButtonReadOnly value={mentor.python} checkedCharacter="P" readOnly={true} /></td>
+                                <td><ToggleButtonReadOnly value={mentor.django} checkedCharacter="D" readOnly={true} /></td>
+                                <td><ToggleButtonReadOnly value={mentor.drf} checkedCharacter="Drf" readOnly={true} /></td>
+                                <td><ToggleButtonReadOnly value={mentor.javascript} checkedCharacter="J" readOnly={true} /></td>
+                                <td><ToggleButtonReadOnly value={mentor.react} checkedCharacter="R" readOnly={true} /></td>
+                            </div>
                             <td>{mentor.city}</td>
-                            <td></td>
-                            <td>{mentor.current_step}</td>
-
+                            <td><ToggleButtonReadOnly
+                            value={mentor.will_travel}
+                            readOnly={true}
+                            /></td>
                         </tr>
-                    // </Link>
                     ))}
                 </tbody>
-
             </table>
-
-
-
         </div>
 
 

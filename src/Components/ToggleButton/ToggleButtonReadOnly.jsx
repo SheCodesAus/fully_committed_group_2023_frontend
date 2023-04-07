@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ToggleButton.css";
 
-function ToggleButtonReadOnly({ value, onChange, readOnly, className }) {
+function ToggleButtonReadOnly({ value, onChange, readOnly, className, checkedCharacter = '✓', uncheckedCharacter = '' }) {
   const [toggle, setToggle] = useState(value);
   const [currentIsChecked, setCurrentIsChecked] = useState(value);
 
@@ -21,7 +21,7 @@ function ToggleButtonReadOnly({ value, onChange, readOnly, className }) {
         onClick={handleClick}
         disabled={readOnly}
       >
-        {value ? "✓" : ""}
+        {value ? checkedCharacter : uncheckedCharacter}
       </button>
     </div>
   );
