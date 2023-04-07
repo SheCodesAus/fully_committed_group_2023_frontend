@@ -33,8 +33,8 @@ function ProgramsListPage() {
                 <Link className="create-button" to={`/programs/create`}>Create</Link>
             </div>
 
-            <table>
-                <thead>
+            <table className="program-list-table">
+                <thead className="table-header">
                     <tr>
                         {tableHeaders.map(header => (
                             <th key={header}>{header}</th>
@@ -42,9 +42,9 @@ function ProgramsListPage() {
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="program table-rows">
                     {programData?.map(program => (
-                        <tr key={program.id}>
+                        <tr className="program-tr" key={program.id}>
                             <td>{program.program_type}</td>
                             <td>{program.city}</td>
 

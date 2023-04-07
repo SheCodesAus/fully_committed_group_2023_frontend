@@ -1,5 +1,57 @@
 /* CLAIRE */
 
+/* (Wen) This code isn't doing anything to the page - change it to .page-content.list and you'll see the changes */
+/* .page-content list {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8246af;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+
+.programs-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    width: 90%;
+    /* padding: 0.5rem; */
+    margin: 1rem auto;
+}
+
+.create-button {
+    background-color: #8246af;
+    color:white
+}
+
+/* (Wen) */
+.program-list-table {
+    width: 100%;
+    margin: 1rem auto 0 0;
+    max-width:1000px;
+}  
+
+.table-header {
+    text-align: center;
+}
+
+/* (Wen) To style all the td's directly under the class 'program-tr' (so you don't have to put a class against all the td elements)*/
+.program-tr>td {
+    text-align: center;
+}
+
 /* Remove link underline from progress bar */
 a.progress-link {
     text-decoration: none;
@@ -9,34 +61,20 @@ a.progress-link {
     text-align: left;
 }
 
-#program-list table {
+/* #program-list table {
     width: 100%;
     max-width: 800px;
     text-align: left;
-  }
+  } */
+
+
 
 #program-list td {
     width: 100px;
 }
 
-.page-content list {
-    text-align: left;
-    font-size: 24px;
-    font-weight: bold;
-    color: #8246af;
-    padding-left: 1rem;
-  }
 
-.list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f8f8;
-    padding: 1rem;
-}
 
-.create-button {
-    background-color: #8246af;
-    color:white
-  
-}
+
+
+
