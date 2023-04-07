@@ -64,6 +64,11 @@ form {
   width:fit-content;   /* for the location drop down work around */
 }
 
+.location-inputs {    /* getting location drop down to sit better in inputs-block */
+  padding: 0%;        
+  flex-direction: column;
+}
+
 .recruitment-inputs #session {
   height: 200px;            /* for the session scroll work around to make higher than others*/
 }
@@ -81,7 +86,7 @@ form {
   /* width: 100%; */
   margin-bottom: 20px;
   padding: 1%;
-  gap: 10%;
+  gap: 15px; /* this needs to be px otherwise labels in .container get squished*/
 }
 
 

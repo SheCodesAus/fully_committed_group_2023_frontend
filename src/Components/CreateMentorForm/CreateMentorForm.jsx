@@ -169,7 +169,7 @@ function MentorCreateForm() {
                 </div>
                 <div>
                   {/* -------------------- IS ALUMNI ------------- */}
-                  <label htmlFor="sheCodesAlumni">ALUMNI</label>
+                  <label htmlFor="sheCodesAlumni">SHE CODES ALUMNI</label>
                   <ToggleButton2
                     isChecked={mentors.she_codes_alumni}
                     onChange={(newValue) =>
