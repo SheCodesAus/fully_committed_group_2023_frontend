@@ -1,2 +1,20 @@
 /* CLAIRE */
 
+/* Remove link underline from progress bar */
+a.progress-link {
+    text-decoration: none;
+}
+
+.progress-bar {
+    text-align: left;
+}
+
+#program-list table {
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+  }
+
+#program-list td {
+    width: 100px;
+}
