@@ -1,0 +1,22 @@
+/* CLAIRE */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  /* .create-button {
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  } */
+  

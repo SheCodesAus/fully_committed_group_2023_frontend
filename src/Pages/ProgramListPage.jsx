@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 
 import ProgramName from "../Components/ProgramName/ProgramName.jsx"
 import EditButton from "../Components/EditButton/EditButton.jsx";
+
+import "./ProgramListPage.css"; // import CSS file
 // import { allPrograms } from "../programdata.js";
 
 

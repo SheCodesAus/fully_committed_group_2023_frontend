@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import "./SessionListPage.css"; // import CSS file
+
 
 function SessionListPage() {
     // const [sessionData, setSessionData] = useState(null);
