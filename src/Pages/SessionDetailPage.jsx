@@ -3,15 +3,14 @@
 // NICE TO HAVES
 // Redo step value
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import EditButton from "../Components/EditButton/EditButton";
-import ToggleButton from "../Components/ToggleButton/ToggleButton";
+import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly";
 import "./SessionDetailPage.css";
-import MentorNoteForm from "../Components/MentorNoteForm/MentorNoteForm";
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -199,7 +198,9 @@ function SessionDetailPage() {
                         </td>
                         <td>{getMentorType(mentor)}</td>
                         <td>
-                          <ToggleButton uncheckedCharacter="✓"></ToggleButton>
+                          <ToggleButtonReadOnly
+                            readOnly={"true"}
+                          ></ToggleButtonReadOnly>
                           {/* <input type="checkbox" checked={mentor.is_active} /> */}
                         </td>
                         <td>{mentor.current_step}</td>
@@ -212,7 +213,14 @@ function SessionDetailPage() {
             )}
           </>
         )}
-        <EditButton />
+        <button type="button" className="edit-button">
+          <Link
+            to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/sess/session/${id}/change/`}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Edit
+          </Link>
+        </button>
       </PageContent>
     </>
   );
