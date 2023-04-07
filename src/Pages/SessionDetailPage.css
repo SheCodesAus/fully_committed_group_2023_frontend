@@ -1,0 +1,42 @@
+/* SAM */
+.section-header {
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: #8246af;
+  padding-left: 1rem;
+  /* margin: 0 0 20px 0; */
+}
+
+.container-session-details {
+  background-color: whitesmoke;
+  padding: 2rem;
+}
+
+.container-mentor-details {
+  background-color: whitesmoke;
+  padding: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.heading-color {
+  color: white;
+  /* padding-top: 50px; */
+  margin-bottom: -20px;
+}
+
+.sub-header {
+  text-align: left;
+  color: #8246af;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.mentor-info-header {
+  color: #8246af;
+}
+
+th {
+  color: #8246af;
+}
