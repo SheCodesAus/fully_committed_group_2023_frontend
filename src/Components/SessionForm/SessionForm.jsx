@@ -126,51 +126,25 @@ function SessionForm() {
     <PageContent>
       <>
         {loggedIn ? (
-          <div>
+          <div className="session-form">
             <form onSubmit={handleSubmit}>
               <h2>Create a session</h2>
-
-              <div>
-                {/* -------------------- SESSION TIMES ------------- */}
-                <label htmlFor="start_date">Session Start:</label>
-                <input
-                  type="datetime-local"
-                  id="start_date"
-                  placeholder="Select Start Date and Time"
-                  name="start_date"
-                  value={session.start_date}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="end_date">Session End:</label>
-                <input
-                  type="datetime-local"
-                  id="end_date"
-                  placeholder="Select End Date and Time"
-                  name="end_date"
-                  value={session.end_date}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                {/* -------------------- CITY DROP DOWN BOX ------------- */}
-                <label htmlFor="city">City:</label>
-                <select
-                  id="city"
-                  name="city"
-                  value={session.city}
-                  onChange={handleChange}
-                >
-                  <option value="">-- Select a city --</option>
-                  <option value="Brisbane">Brisbane</option>
-                  <option value="Sydney">Sydney</option>
-                  <option value="Perth">Perth</option>
+              <div className="session-inputs">
+                {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}
+                <label htmlFor="program">PROGRAM:</label>
+                <select id="program" name="program" onChange={handleChange}>
+                  <option value="">-- Select a program --</option>
+                  {programs.map((program) => (
+                    <option key={program.id} value={program.id}>
+                      {program.program_name} ({program.city},{" "}
+                      {program.program_type})
+                    </option>
+                  ))}
                 </select>
               </div>
-              <div>
+              <div className="session-inputs">
                 {/* -------------------- MODULE DROP DOWN BOX ------------- */}
-                <label htmlFor="module_type">Module Type:</label>
+                <label htmlFor="module_type">MODULE TYPE:</label>
                 <select
                   id="module_type"
                   name="module_type"
@@ -187,23 +161,43 @@ function SessionForm() {
                   <option value="one_day_workshop">One Day Workshop</option>
                   <option value="n/a">Not Applicable</option>
                 </select>
-              </div>
-
-              <div>
-                {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}
-                <label htmlFor="program">Choose a program:</label>
-                <select id="program" name="program" onChange={handleChange}>
-                  <option value="">-- Select a program --</option>
-                  {programs.map((program) => (
-                    <option key={program.id} value={program.id}>
-                      {program.program_name} ({program.city},{" "}
-                      {program.program_type})
-                    </option>
-                  ))}
+                {/* -------------------- CITY DROP DOWN BOX ------------- */}
+                <label htmlFor="city">CITY:</label>
+                <select
+                  id="city"
+                  name="city"
+                  value={session.city}
+                  onChange={handleChange}
+                >
+                  <option value="">-- Select a city --</option>
+                  <option value="Brisbane">Brisbane</option>
+                  <option value="Sydney">Sydney</option>
+                  <option value="Perth">Perth</option>
                 </select>
               </div>
-              <div>
-                <label htmlFor="mentors_required">Mentors Required:</label>
+              <div className="session-dates">
+                {/* -------------------- SESSION TIMES ------------- */}
+                <label htmlFor="start_date">SESSION START:</label>
+                <input
+                  type="datetime-local"
+                  id="start_date"
+                  placeholder="Select Start Date and Time"
+                  name="start_date"
+                  value={session.start_date}
+                  onChange={handleChange}
+                />
+                <label htmlFor="end_date">SESSION END:</label>
+                <input
+                  type="datetime-local"
+                  id="end_date"
+                  placeholder="Select End Date and Time"
+                  name="end_date"
+                  value={session.end_date}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="session-inputs">
+                <label htmlFor="mentors_required">MENTORS REQUIRED:</label>
                 <input
                   type="number"
                   id="mentors_required"
