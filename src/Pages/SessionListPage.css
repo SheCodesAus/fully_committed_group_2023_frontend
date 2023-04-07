@@ -1,13 +1,38 @@
 /* CLAIRE */
 
+.page-content list {
+  text-align: left;
+  /* text-align: center; */
+  font-size: 24px;
+  font-weight: bold;
+  color: #8246af;
+  padding-left: 1rem;
+}
+
+/* .list-header {
+  text-align: justify;
+  color: white; /* or 8246af*/
+  /* padding-right: 1rem; */
+  /* padding-left: 1rem; */
+/* } */
+
 .list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f8f8;
-    padding: 1rem;
-  }
+  text-align: center;
+  color: #8246af;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+
+.create-button {
+  background-color: #8246af;
+  color:white
   
-  h1 {
-    font-size: 2rem;
-  }
+
+}
+
+th {
+  color: #8246af;
+}

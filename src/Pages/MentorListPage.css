@@ -12,11 +12,19 @@
     font-size: 2rem;
   }
   
-  /* .create-button {
-    background-color: #4caf50;
-    color: #fff;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-  } */
-  
+.create-button {
+  background-color: #8246af;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.page-content list {
+  /* text-align: left; */
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #8246af;
+  padding-left: 1rem;
+}

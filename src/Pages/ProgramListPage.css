@@ -18,3 +18,25 @@ a.progress-link {
 #program-list td {
     width: 100px;
 }
+
+.page-content list {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8246af;
+    padding-left: 1rem;
+  }
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 1rem;
+}
+
+.create-button {
+    background-color: #8246af;
+    color:white
+  
+}
