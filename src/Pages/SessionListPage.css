@@ -1,13 +1,44 @@
 /* CLAIRE */
 
-.list-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f8f8;
-    padding: 1rem;
-  }
-  
-  h1 {
+/* .heading-color {
+  color: white;
+  /* padding-top: 50px; */
+  /* margin-bottom: -20px; */
+/* } */ 
+
+  /* h1 {
     font-size: 2rem;
-  }
+  } */
+
+.page-content list {
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: #8246af;
+  padding-left: 1rem;
+}
+
+/* .list-header {
+  text-align: justify;
+  color: white; /* or 8246af*/
+  /* padding-right: 1rem; */
+  /* padding-left: 1rem; */
+/* } */
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
+
+.create-button {
+  background-color: #8246af;
+  color:white
+
+}
+
+th {
+  color: #8246af;
+}

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import "./SessionListPage.css"; // import CSS file
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
+import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSessionBar";
 
 
 function SessionListPage() {
@@ -46,7 +47,7 @@ function SessionListPage() {
         return sessions.map((session) => ({ ...session, program_type, program_name }))
     })
 
-    const tableHeaders = ["Session", "Date", "Program Name", "Program Type", "Module", "Location", "Mentors"];
+    const tableHeaders = ["Sessions", "Date", "Name", "Program", "Module", "Location", "Mentors"];
 
     return (
 
