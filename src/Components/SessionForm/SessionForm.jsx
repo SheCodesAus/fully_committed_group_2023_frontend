@@ -128,7 +128,7 @@ function SessionForm() {
         {loggedIn ? (
           <div className="session-form">
             <form onSubmit={handleSubmit}>
-              <h2>Create a session</h2>
+              <h1>CREATE A SESSION</h1>
               <div className="session-inputs">
                 {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}
                 <label htmlFor="program">PROGRAM:</label>

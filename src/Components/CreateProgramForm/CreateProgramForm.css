@@ -30,9 +30,9 @@ h1 {
   }
 
   .program-inputs select,
-  input[type="datetime-local"] {
+  .program-dates input {
     min-width: 250px;
-    height: 40px;
+    /* height: 40px; */
     padding: 10px;
     border-radius: 5px;
     background-color: #f2f2f2;
@@ -55,7 +55,7 @@ h1 {
 
 
 select:focus,
-input[type="datetime-local"]:focus {
+.program-dates input:focus {
     outline: none;
     box-shadow: 0 0 5px 0 #646cff;
 }
