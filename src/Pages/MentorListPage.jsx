@@ -61,14 +61,12 @@ function MentorListPage() {
                             /></td>
                             <td><Link to={`/mentors/${mentor.id}`}>{mentor.first_name} {mentor.last_name}</Link></td>
                             <td>{currentStepMapping[mentor.current_step]}</td>
-                            <div className="skills-table">
                                 <td><ToggleButtonReadOnly value={mentor.html_css} checkedCharacter="H" readOnly={true} /></td>
                                 <td><ToggleButtonReadOnly value={mentor.python} checkedCharacter="P" readOnly={true} /></td>
                                 <td><ToggleButtonReadOnly value={mentor.django} checkedCharacter="D" readOnly={true} /></td>
                                 <td><ToggleButtonReadOnly value={mentor.drf} checkedCharacter="Drf" readOnly={true} /></td>
                                 <td><ToggleButtonReadOnly value={mentor.javascript} checkedCharacter="J" readOnly={true} /></td>
                                 <td><ToggleButtonReadOnly value={mentor.react} checkedCharacter="R" readOnly={true} /></td>
-                            </div>
                             <td>{mentor.city}</td>
                             <td><ToggleButtonReadOnly
                             value={mentor.will_travel}
