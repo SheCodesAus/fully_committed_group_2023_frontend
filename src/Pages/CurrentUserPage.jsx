@@ -17,6 +17,7 @@ import AdminBlock from "../Components/AdminBlock/AdminBlock";
 import UserCard from "../Components/UserCard/UserCard"
 import PageContent from  '../Components/PageContent/PageContent.jsx';
 
+import "../Components/CreateButton/CreateButton.css";
 //CSS
 // import "../App.css";
 
@@ -70,7 +71,7 @@ function CurrentUserPage() {
                         )}
                 </div>
                 <div id="user-block">
-                    {user.id > 1 && !isAdmin() && (
+                    {!isAdmin() && (
                         <>
                             <h1>Welcome back {user.first_name}!</h1>
                             <p>Please contact admin to change your profile details</p>
@@ -81,6 +82,10 @@ function CurrentUserPage() {
                             <h1>Login to view your profile</h1>
                         </>
                     )}
+                    <button type="button" className="create-button">
+                    <Link to="/users/current/change-password" style={{ textDecoration: 'none', color: 'white' }}>Change Password</Link>
+                    </button>
+
                     {/* -- USER DETAILS -- */}
                     {user.id && (
                         <UserCard user={user} />
