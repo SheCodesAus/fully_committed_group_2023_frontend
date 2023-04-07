@@ -60,6 +60,6 @@
     .session-inputs input:focus,
     .session-dates input:focus{
       outline: none;
-      box-shadow: 0 0 5px 0 #646cff;
+      box-shadow: 0 0 5px 0 #8246af;
   }
   
