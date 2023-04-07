@@ -1,9 +1,9 @@
 // TODO - change import/return when we change the form names to remove the 'create'
 
-import MentorForm from "../Components/MentorForm/MentorForm";
+import CreateMentorForm from "../Components/CreateMentorForm/CreateMentorForm";
 
 function MentorCreationPage () {
-  return <MentorForm />
+  return <CreateMentorForm />
 }
 
 export default MentorCreationPage;

@@ -7,9 +7,9 @@ import { useNavigate, useOutletContext, Link } from "react-router-dom";
 import ToggleButton2 from "../ToggleButton/ToggleButton2.jsx";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import PageContent from "../PageContent/PageContent.jsx";
-import "./MentorForm.css";
+import "./CreateMentorForm.css";
 
-function MentorForm() {
+function MentorCreateForm() {
   // ------- AUTH -------
   const authToken = window.localStorage.getItem("token");
   const [loggedIn] = useOutletContext();
@@ -294,7 +294,7 @@ function MentorForm() {
                   value={mentors.current_step}
                   onChange={handleChange}
                 >
-                  <option value="">-- Select a step --</option>
+                  <option value="">-- Select a Step --</option>
                   <option value="step_0_expression_of_interest_sent">
                     Expression of Interest Sent
                   </option>
@@ -423,4 +423,4 @@ function MentorForm() {
   );
 }
 
-export default MentorForm;
+export default MentorCreateForm;
