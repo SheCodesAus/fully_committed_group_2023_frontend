@@ -101,7 +101,7 @@ function ProgramForm() {
         </select>
         <label htmlFor="city">Location</label>
         <select value={programFormData.city} id="city" name="city" onChange={handleChange} required>
-        <option value="">-- Select a city --</option>
+        <option value="">-- Select a location --</option>
         <option value="Perth">Perth</option>
         <option value="Sydney">Sydney</option>
         <option value="Brisbane">Brisbane</option>
