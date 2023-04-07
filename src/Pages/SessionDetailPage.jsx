@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import EditButton from "../Components/EditButton/EditButton";
+import ToggleButton from "../Components/ToggleButton/ToggleButton";
+import "./SessionDetailPage.css";
+import MentorNoteForm from "../Components/MentorNoteForm/MentorNoteForm";
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -54,62 +57,66 @@ function SessionDetailPage() {
   };
   // May need to revisit this logic if we do the lead must be industry mentor thing
   return (
-    <PageContent>
-      <div className="login"></div>
+    <>
       {sessionData && programData && (
-        <>
-          <h1>{sessionData.session_name}</h1>
+        <h1 className="heading-color">{sessionData.session_name}</h1>
+      )}
+      <PageContent>
+        <div className="login"></div>
+        {sessionData && programData && (
+          <>
+            <div>
+              <h2 className="section-header">SESSION DETAILS</h2>
 
-          <div>
-            <h2 className="section-header">SESSION DETAILS</h2>
+              <div className="container-session-details">
+                <table className="session-table">
+                  <tbody>
+                    <tr>
+                      <td className="label">
+                        <strong className="sub-header">Program </strong>{" "}
+                      </td>
+                      <td className="input">
+                        <Link to={`/programs/${programData.id}`}>
+                          {programData?.program_name}
+                        </Link>{" "}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="label">
+                        <strong className="sub-header">Location </strong>
+                      </td>
+                      <td className="input"> {sessionData.city}</td>
+                      <td className="separator"></td>
+                      <td className="label">
+                        <strong className="sub-header">Module </strong>
+                      </td>
+                      <td className="input"> {sessionData.module_type}</td>
+                    </tr>
+                    <tr>
+                      <td className="label">
+                        <strong className="sub-header">Date </strong>
+                      </td>
+                      <td className="input">
+                        {" "}
+                        {new Date(sessionData.start_date).toLocaleDateString()}
+                      </td>
+                      <td className="separator"></td>
+                      <td className="label">
+                        <strong className="sub-header">Time </strong>
+                      </td>
+                      <td className="input">
+                        {" "}
+                        {new Date(
+                          sessionData.start_date
+                        ).toLocaleTimeString()}{" "}
+                        - {new Date(sessionData.end_date).toLocaleTimeString()}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-            <table className="session-table">
-              <tbody>
-                <tr>
-                  <td className="label">
-                    <strong>Program </strong>{" "}
-                  </td>
-                  <td className="input">
-                    <Link to={`/programs/${programData.id}`}>
-                      {programData?.program_name}
-                    </Link>{" "}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="label">
-                    <strong>Location </strong>
-                  </td>
-                  <td className="input"> {sessionData.city}</td>
-                  <td className="separator"></td>
-                  <td className="label">
-                    <strong>Module </strong>
-                  </td>
-                  <td className="input"> {sessionData.module_type}</td>
-                </tr>
-                <tr>
-                  <td className="label">
-                    <strong>Date </strong>
-                  </td>
-                  <td className="input">
-                    {" "}
-                    {new Date(sessionData.start_date).toLocaleDateString()}
-                  </td>
-                  <td className="separator"></td>
-                  <td className="label">
-                    <strong>Time </strong>
-                  </td>
-                  <td className="input">
-                    {" "}
-                    {new Date(
-                      sessionData.start_date
-                    ).toLocaleTimeString()} -{" "}
-                    {new Date(sessionData.end_date).toLocaleTimeString()}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            {/* <div>
+              {/* <div>
                         <div>
                             <span>Program </span> 
                             <span>{programData?.program_name}</span>
@@ -127,83 +134,87 @@ function SessionDetailPage() {
                             <span> {new Date(sessionData.start_date).toLocaleDateString()}</span>
                             <span>Start Time </span>
                             <span> {new Date(sessionData.start_date).toLocaleTimeString()}</span> */}
-            {/* <span>End Date </span>
+              {/* <span>End Date </span>
                             <span>{new Date(sessionData.end_date).toLocaleDateString()}</span> */}
-            {/* <span>End Time </span>
+              {/* <span>End Time </span>
                             <span> {new Date(sessionData.end_date).toLocaleTimeString()}</span>
                         </div>
                         <div>
                             <span>End Date </span>
                             <span> {sessionData.end_date}</span>
                             {/* Extracted Date and time */}
-            {/* </div> */}
-            {/* </div> */}
-          </div>
+              {/* </div> */}
+              {/* </div> */}
+            </div>
 
-          {/* MENTOR ALLOCATION SECTION */}
+            {/* MENTOR ALLOCATION SECTION */}
 
-          <div>
-            <h2 className="section-header">MENTORS ASSIGNED</h2>
-          </div>
+            <div>
+              <h2 className="section-header">MENTOR ALLOCATION</h2>
+            </div>
 
-          {/* Progress bar summary */}
+            {/* Progress bar summary */}
 
-          <div>
-            {/* <span>Total Mentors Assigned</span> */}
+            <div>
+              {/* <span>Total Mentors Assigned</span> */}
 
-            <ProgressBar
-              completed={
-                sessionData.mentors_required > 0
-                  ? Math.ceil(
-                      (sessionData.mentors_assigned /
-                        sessionData.mentors_required) *
-                        100
-                    )
-                  : 0
-              }
-            ></ProgressBar>
+              <ProgressBar
+                completed={
+                  sessionData.mentors_required > 0
+                    ? Math.ceil(
+                        (sessionData.mentors_assigned /
+                          sessionData.mentors_required) *
+                          100
+                      )
+                    : 0
+                }
+              ></ProgressBar>
 
-            <span>
-              {" "}
-              {sessionData.mentors_assigned} / {sessionData.mentors_required}{" "}
-            </span>
-          </div>
+              <span>
+                {" "}
+                {sessionData.mentors_assigned} / {sessionData.mentors_required}{" "}
+              </span>
+            </div>
 
-          {/* Table of mentors assigned */}
+            {/* Table of mentors assigned */}
 
-          {sessionData.mentors.length > 0 && (
-            <table>
-              <thead>
-                <tr>
-                  {tableHeaders.map((header) => (
-                    <th key={header}>{header}</th>
-                  ))}
-                </tr>
-              </thead>
+            {sessionData.mentors.length > 0 && (
+              <div className="container-mentor-details">
+                <table>
+                  <thead>
+                    <tr>
+                      {tableHeaders.map((header) => (
+                        <th key={header}>{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
 
-              <tbody>
-                {sessionData.mentors.map((mentor) => (
-                  <tr key={mentor.id}>
-                    <td>
-                      <Link to={`/mentors/${mentor.id}`}>
-                        {mentor.first_name} {mentor.last_name}
-                      </Link>
-                    </td>
-                    <td>{getMentorType(mentor)}</td>
-                    <td>
-                      <input type="checkbox" checked={mentor.is_active} />
-                    </td>
-                    <td>{mentor.current_step}</td>
-                    {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </>
-      )}
-      <EditButton />
-    </PageContent>
+                  <tbody>
+                    {sessionData.mentors.map((mentor) => (
+                      <tr key={mentor.id}>
+                        <td>
+                          <Link to={`/mentors/${mentor.id}`}>
+                            {mentor.first_name} {mentor.last_name}
+                          </Link>
+                        </td>
+                        <td>{getMentorType(mentor)}</td>
+                        <td>
+                          <ToggleButton uncheckedCharacter="✓"></ToggleButton>
+                          {/* <input type="checkbox" checked={mentor.is_active} /> */}
+                        </td>
+                        <td>{mentor.current_step}</td>
+                        {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </>
+        )}
+        <EditButton />
+      </PageContent>
+    </>
   );
 }
 
