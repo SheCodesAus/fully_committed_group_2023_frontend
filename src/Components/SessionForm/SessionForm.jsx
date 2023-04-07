@@ -128,10 +128,10 @@ function SessionForm() {
         {loggedIn ? (
           <div className="session-form">
             <form onSubmit={handleSubmit}>
-              <h1>CREATE A SESSION</h1>
+              <h1>New Session</h1>
               <div className="session-inputs">
                 {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}
-                <label htmlFor="program">PROGRAM:</label>
+                <label htmlFor="program">Program</label>
                 <select id="program" name="program" onChange={handleChange}>
                   <option value="">-- Select a program --</option>
                   {programs.map((program) => (
@@ -144,7 +144,7 @@ function SessionForm() {
               </div>
               <div className="session-inputs">
                 {/* -------------------- MODULE DROP DOWN BOX ------------- */}
-                <label htmlFor="module_type">MODULE TYPE:</label>
+                <label htmlFor="module_type">Module</label>
                 <select
                   id="module_type"
                   name="module_type"
@@ -159,17 +159,17 @@ function SessionForm() {
                   <option value="drf">DRF</option>
                   <option value="group">Group</option>
                   <option value="one_day_workshop">One Day Workshop</option>
-                  <option value="n/a">Not Applicable</option>
+                  <option value="n/a">N/A</option>
                 </select>
                 {/* -------------------- CITY DROP DOWN BOX ------------- */}
-                <label htmlFor="city">CITY:</label>
+                <label htmlFor="city">Location</label>
                 <select
                   id="city"
                   name="city"
                   value={session.city}
                   onChange={handleChange}
                 >
-                  <option value="">-- Select a city --</option>
+                  <option value="">-- Select a location --</option>
                   <option value="Brisbane">Brisbane</option>
                   <option value="Sydney">Sydney</option>
                   <option value="Perth">Perth</option>
@@ -177,7 +177,7 @@ function SessionForm() {
               </div>
               <div className="session-dates">
                 {/* -------------------- SESSION TIMES ------------- */}
-                <label htmlFor="start_date">SESSION START:</label>
+                <label htmlFor="start_date">Session Start</label>
                 <input
                   type="datetime-local"
                   id="start_date"
@@ -186,7 +186,7 @@ function SessionForm() {
                   value={session.start_date}
                   onChange={handleChange}
                 />
-                <label htmlFor="end_date">SESSION END:</label>
+                <label htmlFor="end_date">Session End</label>
                 <input
                   type="datetime-local"
                   id="end_date"
@@ -197,7 +197,7 @@ function SessionForm() {
                 />
               </div>
               <div className="session-inputs">
-                <label htmlFor="mentors_required">MENTORS REQUIRED:</label>
+                <label htmlFor="mentors_required">Mentors Required</label>
                 <input
                   type="number"
                   id="mentors_required"
