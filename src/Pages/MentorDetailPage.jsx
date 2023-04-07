@@ -341,6 +341,14 @@ function MentorDetailPage() {
             </React.Fragment>
           ))}
         </div>
+        <button type="button" className="edit-button">
+        <Link
+            to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/mentors/mentor/${id}/change/`}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Edit
+          </Link>
+        </button>
       </PageContent>
     </>
   );
