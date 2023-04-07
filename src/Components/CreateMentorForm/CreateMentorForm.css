@@ -50,17 +50,22 @@ form {
 .location-inputs select,
 .recruitment-inputs select {
   min-width: 45%;
-  height: 40px;
+  /* height: 40px; */
   padding: 10px;
   border-radius: 5px;
   background-color: #f2f2f2;
   border: none;
   font-size: 1rem;
   color: black;
+  font-family: Raleway;
 }
 
 .location-inputs select {
   width:fit-content;   /* for the location drop down work around */
+}
+
+.recruitment-inputs #session {
+  height: 200px;            /* for the session scroll work around to make higher than others*/
 }
 .contact-inputs input:hover,
 .contact-inputs select:hover {

@@ -373,7 +373,7 @@ function MentorCreateForm() {
                 </select>
               </div>
 
-              <div className="container">
+              <div className="recruitment-inputs">
                 {/* -------------------- MULTIPLE CHOICE SESSIONS ------------- */}
                 <label htmlFor="session">SESSION</label>
                 <select
@@ -392,7 +392,7 @@ function MentorCreateForm() {
                 </select>
               </div>
 
-              <div className="container">
+              <div className="recruitment-inputs">
                 {/* -------------------- PAYMENT TYPE DROP DOWN BOX ------------- */}
                 <label htmlFor="payment_type">PAYMENT TYPE</label>
                 <select
