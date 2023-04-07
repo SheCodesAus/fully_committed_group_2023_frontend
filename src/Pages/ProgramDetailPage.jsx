@@ -90,6 +90,9 @@ function ProgramDetailPage() {
     <PageContent>
       <div className="page-content-wrapper">
         <h1>{`${program_name}`}</h1>
+      <button type="button" className="edit-button">
+        <Link to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/${id}/change/`} style={{ textDecoration: 'none', color: 'white' }}>Edit</Link>
+        </button>
         {sectionHeaders.map(([header], index) => (
           <React.Fragment key={index}>
             <h2 className="section-header">{header || " "}</h2>
