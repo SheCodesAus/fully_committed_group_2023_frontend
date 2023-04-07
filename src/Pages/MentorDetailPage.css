@@ -1,0 +1,20 @@
+.title-mentor-name {
+  color: white;
+  margin-bottom: -20px;
+  margin-top: 50px;
+}
+
+.personal-information-container {
+  background-color: whitesmoke;
+  padding: 1rem;
+}
+
+.tick-table {
+  display: flex;
+  vertical-align: middle;
+  justify-items: space-between;
+}
+.tick-table-item {
+  display: flex;
+  vertical-align: middle;
+}

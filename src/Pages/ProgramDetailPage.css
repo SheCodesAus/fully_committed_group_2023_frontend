@@ -1,0 +1,29 @@
+.title-program-name {
+  color: white;
+  margin-bottom: -20px;
+  margin-top: 50px;
+}
+
+.program-information-container {
+  background-color: whitesmoke;
+  padding: 1rem;
+}
+
+.progress-bar {
+  width: 80vw;
+  /* margin-top: 15px; */
+  padding-top: 25px;
+  /* height: 100px; */
+}
+
+.progress-bar-container {
+  /* height: 100px; */
+  background-color: white;
+  width: 91vw;
+  height: 5vw;
+  /* padding: -20px; */
+  /* height: 100px; */
+  margin: -25px;
+
+  /* vertical-align: middle; */
+}

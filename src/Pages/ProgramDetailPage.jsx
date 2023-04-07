@@ -4,19 +4,20 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import PageContent from "../Components/PageContent/PageContent";
+import "./ProgramDetailPage.css";
 
 // import { allPrograms } from "../programdata";
 
 function ProgramDetailPage() {
   const { id } = useParams();
   const [programData, setProgramData] = useState({
-    program_name: '',
-    start_date: '',
-    end_date: '',
-    city: '',
-    program_type: '',
-    mentors_required: '',
-    mentors_assigned: '',
+    program_name: "",
+    start_date: "",
+    end_date: "",
+    city: "",
+    program_type: "",
+    mentors_required: "",
+    mentors_assigned: "",
     sessions: [],
   });
 
@@ -31,11 +32,11 @@ function ProgramDetailPage() {
   }, [id]);
 
   const sectionHeaders = [
-    ["Program Details"],
-    ["Mentors Assigned - Program"],
-    ["Mentors"],
-    ["Sessions"],
-    ["Notes"]
+    ["PROGRAM DETAILS"],
+    ["MENTORS ASSIGNED - PROGRAM"],
+    ["MENTORS"],
+    ["SESSIONS"],
+    ["NOTES"],
   ];
 
   const tableHeaders = [
@@ -44,7 +45,7 @@ function ProgramDetailPage() {
     ["Mentor Name", "Mentor Type"],
     ["Date", "Module", "Start Time", "End Time", "Mentors Assigned"],
     [""],
-  ]
+  ];
 
   const program_name = programData.program_name;
 
@@ -52,123 +53,122 @@ function ProgramDetailPage() {
     program_type: programData.program_type,
     city: programData.city,
     start_date: programData.start_date,
-    end_date: programData.end_date
+    end_date: programData.end_date,
   };
 
-  const secondTableData = {
+  const secondTableData = {};
 
-  };
+  const thirdTableData = {};
 
-  const thirdTableData = {
+  const fourthTableData = {};
 
-  };
-
-  const fourthTableData = {
-
-  };
-
-  const fifthTableData = {
-
-  };
+  const fifthTableData = {};
 
   return (
-    <PageContent>
-      <div className="page-content-wrapper">
-        <h1>{`${program_name}`}</h1>
-        {sectionHeaders.map(([header], index) => (
-          <React.Fragment key={index}>
-            <h2 className="section-header">{header || " "}</h2>
-            <table>
-              <thead>
-                <tr>
-                  {tableHeaders[index].map((header, idx) => (
-                    <th key={idx}>{header}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {/* --------------------- PROGRAM DETAILS --------------------- */}
-                {index === 0 && (
-                  <>
+    <>
+      <h1 className="title-program-name">{`${program_name}`}</h1>
+
+      <PageContent>
+        <div className="page-content-wrapper">
+          {sectionHeaders.map(([header], index) => (
+            <React.Fragment key={index}>
+              <h2 className="section-header">{header || " "}</h2>
+              <div className="program-information-container">
+                <table>
+                  <thead>
                     <tr>
-                      <td className="label">
-                        <strong>Program</strong>{" "}
-                      </td>
-                      <td className="input">{`She Codes ${
-                        programData.program_type
-                      } Program`}</td>
+                      {tableHeaders[index].map((header, idx) => (
+                        <th key={idx}>{header}</th>
+                      ))}
                     </tr>
-                    <tr>
-                      <td className="label">
-                        <strong>Location</strong>
-                      </td>
-                      <td className="input">{programData.city}</td>
-                    </tr>
-                    <tr>
-                      <td className="label">
-                        <strong>Start Date</strong>
-                      </td>
-                      <td className="input">{programData.start_date}</td>
-                      <td className="label">
-                        <strong>End Date</strong>
-                      </td>
-                      <td className="input">{programData.end_date}</td>
-                    </tr>
-                  </>
-                )}
-                {/* ---------------------- PROGRESS BAR ---------------------- */}
-                {index === 1 && (
-                  <>
-                    <tr>
-                      <td colSpan={tableHeaders[index].length}>
+                  </thead>
+                  <tbody>
+                    {/* --------------------- PROGRAM DETAILS --------------------- */}
+                    {index === 0 && (
+                      <>
+                        <tr>
+                          <td className="label">
+                            <strong>Program</strong>{" "}
+                          </td>
+                          <td className="input">{`She Codes ${programData.program_type} Program`}</td>
+                        </tr>
+                        <tr>
+                          <td className="label">
+                            <strong>Location</strong>
+                          </td>
+                          <td className="input">{programData.city}</td>
+                        </tr>
+                        <tr>
+                          <td className="label">
+                            <strong>Start Date</strong>
+                          </td>
+                          <td className="input">{programData.start_date}</td>
+                          <td className="label">
+                            <strong>End Date</strong>
+                          </td>
+                          <td className="input">{programData.end_date}</td>
+                        </tr>
+                      </>
+                    )}
+                    {/* ---------------------- PROGRESS BAR ---------------------- */}
+                    {index === 1 && (
+                      <>
                         {programData ? (
-                          <ProgressBar
-                            completed={
-                              programData.mentors_required > 0
-                                ? Math.ceil(
-                                    (programData.mentors_assigned /
-                                      programData.mentors_required) *
-                                      100
-                                  )
-                                : 0
-                            }
-                          />
+                          <div className="progress-bar-container">
+                            <div className="progress-bar">
+                              <ProgressBar
+                                completed={
+                                  programData.mentors_required > 0
+                                    ? Math.ceil(
+                                        (programData.mentors_assigned /
+                                          programData.mentors_required) *
+                                          100
+                                      )
+                                    : 0
+                                }
+                              />
+                            </div>
+                          </div>
                         ) : null}
-                      </td>
-                    </tr>
-                  </>
-                )}
-                {/* ------------------------ MENTORS ------------------------ */}
-                {index === 2 && (
-                  <>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </>
-                )}
-                {/* ------------------------ SESSIONS ------------------------ */}
-                {index === 3 && (
-                  <>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </>
-                )}
-  
-                {/* ------------------------ NOTES ------------------------ */}
-                {index === 4 && (
-                  <>
-                    <tr>
-                      <td></td>
-                    </tr>
-                  </>
-                )}
-              </tbody>
-            </table>
-          </React.Fragment>
-        ))}
-      </div>
-    </PageContent>
-  );  
-};
+                        <tr>
+                          <td colSpan={tableHeaders[index].length}></td>
+                        </tr>
+                      </>
+                    )}
+
+                    {/* ------------------------ MENTORS ------------------------ */}
+                    {index === 2 && (
+                      <>
+                        <tr>
+                          <td></td>
+                        </tr>
+                      </>
+                    )}
+                    {/* ------------------------ SESSIONS ------------------------ */}
+                    {index === 3 && (
+                      <>
+                        <tr>
+                          <td></td>
+                        </tr>
+                      </>
+                    )}
+
+                    {/* ------------------------ NOTES ------------------------ */}
+                    {index === 4 && (
+                      <>
+                        <tr>
+                          <td></td>
+                        </tr>
+                      </>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+      </PageContent>
+    </>
+  );
+}
 export default ProgramDetailPage;
