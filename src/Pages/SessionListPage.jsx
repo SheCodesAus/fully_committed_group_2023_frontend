@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./SessionListPage.css"; // import CSS file
+import ProgressBar from "../Components/ProgressBar/ProgressBar";
 
 
 function SessionListPage() {
@@ -75,13 +76,29 @@ function SessionListPage() {
                             <td>{session.program_type}</td>
                             <td>{session.module_type}</td>
                             <td>{session.city}</td>
-                            <td>{session.mentors_assigned}/{session.mentors_required} </td>
-                        </tr>))}
-                </tbody>
+                            
+                            <div>
+                                <ProgressBar 
+                                completed={
+                                    session.mentors_required > 0 
+                                    ?  Math.ceil(
+                                        (session.mentors_assigned/session.mentors_required)*    100
+                                        )
+                                    :0
+                                }
+                                ></ProgressBar>
+                                
+                                <span>
+                                {""}
+                                {session.mentors_assigned} / {session.mentors_required} {""}
+                                </span>
+                                </div>
+                            </tr>))}
+                    </tbody>
 
-            </table>
+                </table>
 
-        </div>
+            </div>
         // </div>
 
 
