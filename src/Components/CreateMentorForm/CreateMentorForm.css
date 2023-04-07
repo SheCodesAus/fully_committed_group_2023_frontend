@@ -23,7 +23,19 @@ form {
   padding: 1%;
 }
 
+.location-inputs,
+.recruitment-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 1%;
+}
 .contact-inputs label,
+.location-inputs label,
+.recruitment-inputs label,
 .container label {
   font-size: 1rem;
   font-weight: bold;
@@ -34,8 +46,10 @@ form {
 }
 
 .contact-inputs input,
-.contact-inputs select {
-  width: 45%;
+.contact-inputs select,
+.location-inputs select,
+.recruitment-inputs select {
+  min-width: 45%;
   height: 40px;
   padding: 10px;
   border-radius: 5px;
@@ -45,7 +59,7 @@ form {
   color: black;
 }
 
-.contact-inputs select {
+.location-inputs select {
   width:fit-content;   /* for the location drop down work around */
 }
 .contact-inputs input:hover,
@@ -53,6 +67,20 @@ form {
   outline: none;
   box-shadow: 0 0 5px 0 #646cff;
 }
+
+.inputs-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  /* width: 100%; */
+  margin-bottom: 20px;
+  padding: 1%;
+  gap: 10%;
+}
+
+
+
 
 .container {
   display: flex;
