@@ -38,9 +38,9 @@ function ProgramDetailPage() {
   }, [id]);
 
   const sectionHeaders = [
-    ["Program Details"],
-    ["Mentors Summary"],
-    ["Sessions"],
+    ["PROGRAM DETAILS"],
+    ["MENTORS SUMMARY"],
+    ["SESSIONS"],
   ];
 
   const tableHeaders = [
@@ -109,7 +109,7 @@ function ProgramDetailPage() {
             <React.Fragment key={index}>
               <h2 className="section-header">{header || " "}</h2>
               <div className="program-information-container">
-                <table>
+                <table className="program-information-container-table">
                   <thead>
                     <tr>
                       {tableHeaders[index].map((header, idx) => (

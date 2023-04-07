@@ -7,6 +7,15 @@
 .program-information-container {
   background-color: whitesmoke;
   padding: 1rem;
+  /* width: 100%; */
+  /* text-align: center; */
+}
+
+.program-information-container-table {
+  /* background-color: whitesmoke;
+  padding: 1rem; */
+  width: 100%;
+  text-align: left;
 }
 
 .progress-bar {
