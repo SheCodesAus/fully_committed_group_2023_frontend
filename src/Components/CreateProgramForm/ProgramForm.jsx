@@ -10,7 +10,7 @@ import ProgramName from '../ProgramName/ProgramName.jsx';
 import ReactDOMServer from 'react-dom/server';
 import PageContent from  '../PageContent/PageContent.jsx';
 import SubmitButton from '../SubmitButton/SubmitButton';
-import './CreateProgramForm.css';
+import './ProgramForm.css';
 
 function ProgramForm() {
 
@@ -94,7 +94,7 @@ function ProgramForm() {
             name="program_type"
             onChange={handleChange}
             required>
-            <option value="">-- Select a Program Type --</option>
+            <option value="">-- Select a program type --</option>
             <option value="Plus">Plus</option>
             <option value="Sydney">Flash</option>
             <option value="Workshop">Workshop</option>
