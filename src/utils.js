@@ -35,3 +35,17 @@ export const currentStepMapping = {
     step_9a_offboarding_in_progress: "Step 9 - Offboarding in Progress",
     step_9b_mentor_offboarded: "Step 9 - Mentor Offboarded",
 }
+
+
+
+
+export const getModuleType = {
+    html_css: "HTML/CSS",
+    python: "Python",
+    javascript_react: "JavaScript/React",
+    django: "Django",
+    drf: "DRF",
+    group: "Group",
+    one_day_workshop: "One Day Workshop",
+    // n/a: "Not Applicable",
+}

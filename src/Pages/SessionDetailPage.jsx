@@ -11,6 +11,8 @@ import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import EditButton from "../Components/EditButton/EditButton";
 import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly";
 import "./SessionDetailPage.css";
+import { currentStepMapping } from "../utils";
+import { getModuleType } from "../utils";
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -46,7 +48,7 @@ function SessionDetailPage() {
   }, [sessionData]);
 
   // For Mentor Allocation: Table headings for list of mentors
-  const tableHeaders = ["Name", "Type", "Is Active", "Current Step"];
+  const tableHeaders = ["Name", "Type", "Active", "Current Step"];
 
   // For Mentor Allocation: Generating the value for mentor type
   const getMentorType = ({ lead_mentor, industry_mentor, junior_mentor }) => {
@@ -57,19 +59,20 @@ function SessionDetailPage() {
   // May need to revisit this logic if we do the lead must be industry mentor thing
   return (
     <>
-      {sessionData && programData && (
-        <h1 className="heading-color">{sessionData.session_name}</h1>
-      )}
+
       <PageContent>
         <div className="login"></div>
         {sessionData && programData && (
           <>
             <div>
-              <h2 className="section-header">SESSION DETAILS</h2>
+                    {sessionData && programData && (
+              <h1 className="heading-color">{sessionData.session_name}</h1>
+      )}
+              <h2 className="section-header">Session Details</h2>
 
               <div className="container-session-details">
                 <table className="session-table">
-                  <tbody>
+                  <tbody className="session-details-table mentor-table">
                     <tr>
                       <td className="label">
                         <strong className="sub-header">Program </strong>{" "}
@@ -89,7 +92,7 @@ function SessionDetailPage() {
                       <td className="label">
                         <strong className="sub-header">Module </strong>
                       </td>
-                      <td className="input"> {sessionData.module_type}</td>
+                      <td className="input"> {getModuleType[sessionData.module_type]}</td>
                     </tr>
                     <tr>
                       <td className="label">
@@ -149,7 +152,7 @@ function SessionDetailPage() {
             {/* MENTOR ALLOCATION SECTION */}
 
             <div>
-              <h2 className="section-header">MENTOR ALLOCATION</h2>
+              <h2 className="section-header">Mentor Allocation</h2>
             </div>
 
             {/* Progress bar summary */}
@@ -188,7 +191,7 @@ function SessionDetailPage() {
                     </tr>
                   </thead>
 
-                  <tbody>
+                  <tbody className="mentor-table">
                     {sessionData.mentors.map((mentor) => (
                       <tr key={mentor.id}>
                         <td>
@@ -197,14 +200,10 @@ function SessionDetailPage() {
                           </Link>
                         </td>
                         <td>{getMentorType(mentor)}</td>
-                        <td>
-                          <ToggleButtonReadOnly
-                            readOnly={"true"}
+                        <td><ToggleButtonReadOnly value={mentor.is_active} readOnly={true}
                           ></ToggleButtonReadOnly>
-                          {/* <input type="checkbox" checked={mentor.is_active} /> */}
                         </td>
-                        <td>{mentor.current_step}</td>
-                        {/* NICE TO HAVE: CURRENT STEP - FORMAT/PULL THE STRING FROM BACKEND */}
+                        <td>{currentStepMapping[mentor.current_step]}</td>
                       </tr>
                     ))}
                   </tbody>

@@ -82,13 +82,13 @@ function MentorDetailPage() {
   };
 
   const sectionHeaders = [
-    ["PERSONAL INFORMATION"],
-    ["SKILLS"],
-    ["OTHER INFORMATION"],
+    ["Personal Information"],
+    ["Skills"],
+    ["Other Information"],
     [""],
     [""],
-    ["SESSIONS"],
-    ["NOTES"],
+    ["Session Allocation"],
+    ["Notes"],
   ];
 
   const firstTableData = {
@@ -192,15 +192,16 @@ function MentorDetailPage() {
   };
   return (
     <>
-      <h1 className="title-mentor-name">{`${mentorData.first_name} ${mentorData.last_name}`}</h1>
       <PageContent>
         <div className="page-content-wrapper">
+        <h1 className="title-mentor-name">{`${mentorData.first_name} ${mentorData.last_name}`}</h1>
+
           {sectionHeaders.map(([header], index) => (
             <React.Fragment key={index}>
               <h2 className="section-header">{header || " "}</h2>
               <div className="personal-information-container">
                 <table>
-                  <tbody>
+                  <tbody className="mentor-detail-table">
                     {index === 0 && (
                       <>
                         <tr>
@@ -229,7 +230,7 @@ function MentorDetailPage() {
                         </tr>
                         <tr>
                           <td className="label">
-                            <strong>City </strong>
+                            <strong>Location </strong>
                           </td>
                           <td className="input">{mentorData.city}</td>
                         </tr>
@@ -341,6 +342,14 @@ function MentorDetailPage() {
             </React.Fragment>
           ))}
         </div>
+        <button type="button" className="edit-button">
+        <Link
+            to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/mentors/mentor/${id}/change/`}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Edit
+          </Link>
+        </button>
       </PageContent>
     </>
   );

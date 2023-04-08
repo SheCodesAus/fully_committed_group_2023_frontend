@@ -23,13 +23,15 @@ function ProgramsListPage() {
             });
     }, []);
 
-    const tableHeaders = ["Program", "Location", "Start", "End", "Mentors Allocated"];
+    const tableHeaders = ["Program", "Start", "End", "Program Type", "Location", , "Mentors Allocated"];
+
+  const program_name = programData.program_name;
 
 
     return (
         <div className="page-content list" id="program-list">
             <div className="list-header">
-                <h1>PROGRAMS</h1>
+                <h1>Programs</h1>
                 <Link className="create-button" to={`/programs/create`}>Create</Link>
             </div>
 
@@ -42,17 +44,19 @@ function ProgramsListPage() {
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="programs-list-table">
                     {programData?.map(program => (
+                        
                         <tr key={program.id}>
-                            <td>{program.program_type}</td>
-                            <td>{program.city}</td>
+                            <td><Link to={`/programs/${program.id}`} className="progress-link">{program.program_name}</Link></td>
 
                             <td>{new Date(program.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
 
                             <td>{new Date(program.end_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
 
-                            <td><Link to={`/programs/${program.id}`} className="progress-link"><ProgressBar className="progress-bar"
+                            <td>{program.program_type}</td>
+                            <td>{program.city}</td>
+                            <td><ProgressBar className="progress-bar"
                             completed={
                                 program.mentors_required > 0
                                 ? Math.ceil(
@@ -62,7 +66,7 @@ function ProgramsListPage() {
                                     )
                                 : 0
                             }
-                            ></ProgressBar></Link></td>
+                            ></ProgressBar></td>
 
 {/* 
                             <td><Link to={`/programs/${program.id}`}>{program.program_name}</Link></td> */}

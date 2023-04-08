@@ -103,11 +103,11 @@ function MentorCreateForm() {
       <>
         {loggedIn ? (
           <div className="mentor-form">
-            <h1>CREATE A MENTOR</h1>
+            <h1>New Mentor</h1>
             <form onSubmit={handleSubmit}>
               <div className="contact-inputs">
                 {/* -------------------- CONTACT DETAILS ------------- */}
-                <label htmlFor="first_name">FIRST NAME</label>
+                <label htmlFor="first_name">First Name</label>
                 <input
                   type="text"
                   name="first_name"
@@ -116,7 +116,7 @@ function MentorCreateForm() {
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor="last_name">LAST NAME</label>
+                <label htmlFor="last_name">Last Name</label>
                 <input
                   type="text"
                   name="last_name"
@@ -128,7 +128,7 @@ function MentorCreateForm() {
               </div>
 
               <div className="contact-inputs">
-                <label htmlFor="email">EMAIL</label>
+                <label htmlFor="email">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -143,7 +143,7 @@ function MentorCreateForm() {
               <div className="inputs-block">
                 <div className="location-inputs">
                   {/* -------------------- CITY DROP DOWN BOX ------------- */}
-                  <label htmlFor="city">LOCATION</label>
+                  <label htmlFor="city">Location</label>
                   <select
                     id="city"
                     name="city"
@@ -159,7 +159,7 @@ function MentorCreateForm() {
               <div className="container">
                 <div>
                   {/* -------------------- WILL TRAVEL ------------- */}
-                  <label htmlFor="willTravel">WILL TRAVEL</label>
+                  <label htmlFor="willTravel">Will Travel</label>
                   <ToggleButton2
                     isChecked={mentors.will_travel}
                     onChange={(newValue) =>
@@ -169,7 +169,7 @@ function MentorCreateForm() {
                 </div>
                 <div>
                   {/* -------------------- IS ALUMNI ------------- */}
-                  <label htmlFor="sheCodesAlumni">SHE CODES ALUMNI</label>
+                  <label htmlFor="sheCodesAlumni">She Codes Alumni</label>
                   <ToggleButton2
                     isChecked={mentors.she_codes_alumni}
                     onChange={(newValue) =>
@@ -180,7 +180,7 @@ function MentorCreateForm() {
               </div>
               <div className="container">
                 {/* -------------------- IS ACTIVE ------------- */}
-                <label htmlFor="is_active">IS ACTIVE</label>
+                <label htmlFor="is_active">Active</label>
                 <ToggleButton2
                   isChecked={mentors.is_active}
                   onChange={(newValue) =>
@@ -193,7 +193,7 @@ function MentorCreateForm() {
               <div className="container">
                 {/* -------------------- SKILLS TYPE TOGGLES ------------- */}
                 <div>
-                  <label htmlFor="skills">SKILLS:</label>
+                  <label htmlFor="skills">Skills</label>
                 </div>
                 <div>
                   <label htmlFor="html_css">HTML/CSS</label>
@@ -254,7 +254,7 @@ function MentorCreateForm() {
               {/* -------------------- MENTOR TYPE TOGGLES ------------- */}
               <div className="container">
                 <div>
-                  <label>MENTOR TYPE:</label>
+                  <label>Mentor Type</label>
                 </div>
                 <div>
                   <label htmlFor="junior_mentor">Junior Mentor</label>
@@ -287,7 +287,7 @@ function MentorCreateForm() {
 
               <div className="recruitment-inputs">
                 {/* -------------------- STEPS DROP DOWN ------------- */}
-                <label htmlFor="current_step">STAGE</label>
+                <label htmlFor="current_step">Stage</label>
                 <select
                   id="current_step"
                   name="current_step"
@@ -375,7 +375,7 @@ function MentorCreateForm() {
 
               <div className="recruitment-inputs">
                 {/* -------------------- MULTIPLE CHOICE SESSIONS ------------- */}
-                <label htmlFor="session">SESSION</label>
+                <label htmlFor="session">Session</label>
                 <select
                   id="session"
                   name="session"
@@ -394,7 +394,7 @@ function MentorCreateForm() {
 
               <div className="recruitment-inputs">
                 {/* -------------------- PAYMENT TYPE DROP DOWN BOX ------------- */}
-                <label htmlFor="payment_type">PAYMENT TYPE</label>
+                <label htmlFor="payment_type">Payment Type</label>
                 <select
                   id="payment_type"
                   name="payment_type"

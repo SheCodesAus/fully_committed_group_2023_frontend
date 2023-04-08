@@ -27,9 +27,9 @@ function MentorListPage() {
     };
 
     return (
-        <div className="page-content list">
+        <div className="page-content list mentor-list-page">
             <div className="list-header">
-                <h1>MENTORS</h1>
+                <h1>Mentors</h1>
                 <Link className="create-button" to={`/mentors/create`}>Create</Link>
             </div>
 
@@ -48,9 +48,9 @@ function MentorListPage() {
 
                 </thead>
 
-                <tbody>
+                <tbody className="mentors-list-table">
                     {mentorData?.map(mentor => ( 
-                        <tr key={mentor.id} >
+                        <tr key={mentor.id}>
                             <td>{getMentorType(mentor)}</td>
                             <td><ToggleButtonReadOnly
                             value={mentor.she_codes_alumni}

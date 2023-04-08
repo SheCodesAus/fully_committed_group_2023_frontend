@@ -11,12 +11,12 @@ a.progress-link {
 
 #program-list table {
     width: 100%;
-    max-width: 800px;
+    /* max-width: 800px; */
     text-align: left;
   }
 
 #program-list td {
-    width: 100px;
+    width: auto;
 }
 
 .page-content list {
@@ -39,4 +39,15 @@ a.progress-link {
     background-color: #8246af;
     color:white
   
+}
+
+.programs-list-table>tr>td a {
+    text-decoration: none;
+    color: #8246af;
+  }
+  
+.programs-list-table>tr>td a:hover {
+/* border: 1px solid #8246af; */
+/* font-weight: 600; */
+color: #8246af;
 }

@@ -38,15 +38,15 @@ function ProgramDetailPage() {
   }, [id]);
 
   const sectionHeaders = [
-    ["PROGRAM DETAILS"],
-    ["MENTORS SUMMARY"],
-    ["SESSIONS"],
+    ["Program Details"],
+    ["Mentor Allocation"],
+    ["Sessions"],
   ];
 
   const tableHeaders = [
     [""],
     [""],
-    ["Date", "Module", "Start Time", "End Time", "Mentors Assigned"],
+    ["Date", "Module", "Start", "End", "Mentors Assigned"],
   ];
 
   const program_name = programData.program_name;
@@ -69,6 +69,7 @@ function ProgramDetailPage() {
 
     return {
       date: startDate.toLocaleDateString(),
+      // session: session.session_name,
       startTime: startDate.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
@@ -93,18 +94,12 @@ function ProgramDetailPage() {
 
   return (
     <>
-      <h1 className="title-program-name">{`${program_name}`}</h1>
       <PageContent>
         <div className="page-content-wrapper">
+        <h1 className="title-program-name">{`${program_name}`}</h1>
+
           {/* <h1>{`${program_name}`}</h1> */}
-          <button type="button" className="edit-button">
-            <Link
-              to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/${id}/change/`}
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              Edit
-            </Link>
-          </button>
+
           {sectionHeaders.map(([header], index) => (
             <React.Fragment key={index}>
               <h2 className="section-header">{header || " "}</h2>
@@ -125,7 +120,7 @@ function ProgramDetailPage() {
                           <td className="label">
                             <strong>Program</strong>{" "}
                           </td>
-                          <td className="input">{`She Codes ${firstTableData.program_type} Program`}</td>
+                          <td className="input">{firstTableData.program_type}</td>
                         </tr>
                         <tr>
                           <td className="label">
@@ -207,13 +202,14 @@ function ProgramDetailPage() {
                                   </Link>
                                 }
                               </td>
+                              {/* <td>{session.session_name}</td> */}
                               <td>{session.module}</td>
                               <td>{session.startTime}</td>
                               <td>{session.endTime}</td>
                               <td>
                                 {
                                   <Link to={`/sessions/${session.id}`}>
-                                    =
+                                    
                                     <ProgressBar
                                       completed={
                                         session.mentorsRequired > 0
@@ -239,6 +235,14 @@ function ProgramDetailPage() {
             </React.Fragment>
           ))}
         </div>
+        <button type="button" className="edit-button">
+            <Link
+              to={`https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/${id}/change/`}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              Edit
+            </Link>
+          </button>
       </PageContent>
     </>
   );

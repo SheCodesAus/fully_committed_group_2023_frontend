@@ -29,10 +29,25 @@
 .create-button {
   background-color: #8246af;
   color:white
-  
 
 }
 
 th {
   color: #8246af;
 }
+
+/* .session-list table {
+  width: auto;
+} */
+
+.sessions-list-table>tr>td a {
+  text-decoration: none;
+  color: #8246af;
+}
+
+.sessions-list-table>tr>td a:hover {
+  /* border: 1px solid #8246af; */
+  /* font-weight: 600; */
+  color: #8246af;
+}
+

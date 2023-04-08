@@ -20,6 +20,10 @@
   text-decoration: none;
 }
 
+/* .mentors-list-page table {
+  width: 100%;
+} */
+
 .page-content list {
   /* text-align: left; */
   text-align: center;
@@ -27,4 +31,15 @@
   font-weight: bold;
   color: #8246af;
   padding-left: 1rem;
+}
+
+.mentors-list-table>tr>td a {
+  text-decoration: none;
+  color: #8246af;
+}
+
+.mentors-list-table>tr>td a:hover {
+  /* border: 1px solid #8246af; */
+  /* font-weight: 600; */
+  color: #8246af;
 }

@@ -1,7 +1,8 @@
 .title-program-name {
-  color: white;
-  margin-bottom: -20px;
-  margin-top: 50px;
+  color: #8246af;
+  margin: 1rem auto;
+  /* margin-bottom: -20px; */
+  /* margin-top: 1rem; */
 }
 
 .program-information-container {
@@ -27,12 +28,12 @@
 
 .progress-bar-container {
   /* height: 100px; */
-  background-color: white;
-  width: 91vw;
+  background-color: none;
+  /* width: 91vw; */
   height: 5vw;
   /* padding: -20px; */
   /* height: 100px; */
-  margin: -25px;
-
+  /* margin: -25px; */
+  margin: 0 auto;
   /* vertical-align: middle; */
 }
