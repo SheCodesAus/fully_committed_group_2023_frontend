@@ -94,10 +94,10 @@ function ProgramForm() {
             name="program_type"
             onChange={handleChange}
             required>
-            <option value="">-- Select a Program Type --</option>
+            <option value="">-- Select a program type --</option>
             <option value="Plus">Plus</option>
             <option value="Sydney">Flash</option>
-            <option value="Workshop">Workshop</option>
+            <option value="Workshop">One Day Workshop</option>
         </select>
         <label htmlFor="city">Location</label>
         <select value={programFormData.city} id="city" name="city" onChange={handleChange} required>

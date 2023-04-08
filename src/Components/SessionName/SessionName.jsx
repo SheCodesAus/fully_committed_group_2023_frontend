@@ -5,6 +5,7 @@
 
 import FormatDate from "../DateTime/FormatDate";
 import FormatTime from "../DateTime/FormatTime";
+import { getModuleType } from "../../utils";
 
 function SessionName(props) {
     const {module_type, city, start_date, end_date, program_type, ...other} = props;
@@ -12,8 +13,10 @@ function SessionName(props) {
     const formattedTime = FormatTime(start_date);
 
     return( 
-        `${city} ${program_type} - ${module_type} Session - ${formattedStartDate}, ${formattedTime}`
+        `${program_type} - ${getModuleType[module_type]} - ${city} ${formattedStartDate}`
     );
 }
+
+// ${formattedTime}`
 
 export default SessionName;

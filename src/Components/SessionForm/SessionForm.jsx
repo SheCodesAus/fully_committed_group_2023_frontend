@@ -136,8 +136,9 @@ function SessionForm() {
                   <option value="">-- Select a program --</option>
                   {programs.map((program) => (
                     <option key={program.id} value={program.id}>
-                      {program.program_name} ({program.city},{" "}
-                      {program.program_type})
+                      {program.program_name} 
+                      {/* ({program.city},{" "}
+                      {program.program_type}) */}
                     </option>
                   ))}
                 </select>
@@ -151,7 +152,7 @@ function SessionForm() {
                   value={session.module_type}
                   onChange={handleChange}
                 >
-                  <option value="">-- Select a module type --</option>
+                  <option value="">-- Select a module --</option>
                   <option value="html_css">HTML/CSS</option>
                   <option value="python">Python</option>
                   <option value="javascript_react">JavaScript/React</option>

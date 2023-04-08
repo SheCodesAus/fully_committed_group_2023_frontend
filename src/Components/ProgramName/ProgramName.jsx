@@ -9,7 +9,7 @@ function ProgramName(props) {
 
     return (
 
-    `She Codes ${program_type} ${city}: ${formattedStartDate} - ${formattedEndDate}`
+    `${program_type} - ${city} - ${formattedStartDate} - ${formattedEndDate}`
 
     )
 }
