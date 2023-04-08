@@ -46,8 +46,8 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #1A1C6F;
-    border: 1.5px solid #8246af;
+    color: #ffa300;
+    border: 1.5px solid #ffa300;
     /* font-weight: 600; */
     /* background-color: yellow; */
     /* transform: scale(3); */
@@ -64,7 +64,7 @@ nav {
 } */
 .login a { 
     padding: 8px 12px;
-    color: #1A1C6F;
+    color: #8246af;
     font-weight: 500;
     /* background-color: white; */
     margin: 0.5rem;
@@ -78,16 +78,16 @@ nav {
 .login a:hover { 
     /* color: yellow; */
     /* border: 1px solid yellow; */
-    color: #1A1C6F;
-    border: 1.5px solid yellow;
+    color: #ffa300;
+    border: 1.5px solid #ffa300;
     /* font-weight: 600; */
-    background-color: yellow;
+    background-color: #FFA300;
     /* transform: scale(3); */
 }
 
 .sign-out {
     padding: 8px 12px;
-    color: #1A1C6F;
+    color: #8246af;
     font-weight: 500;
     /* background-color: white; */
     margin: 0.5rem;
@@ -100,9 +100,9 @@ nav {
 .sign-out:hover {
         /* color: yellow; */
     /* border: 1px solid yellow; */
-    color: #1A1C6F;
-    border: 1.5px solid yellow;
+    color: #FFA300;
+    border: 1.5px solid #FFA300;
     /* font-weight: 600; */
-    background-color: yellow;
+    background-color: #FFA300;
     /* transform: scale(3); */
 }
