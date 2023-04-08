@@ -1,7 +1,8 @@
 /* CLAIRE */
 
-.list-header {
-    display: flex;
+/* .list-header {
+    /* display: flex; */
+    /* display: flexbox;
     justify-content: space-between;
     align-items: center;
     background-color: #f8f8f8;
@@ -13,33 +14,57 @@
   }
   
 .create-button {
-  background-color: #8246af;
-  color: #fff;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-}
-
-/* .mentors-list-page table {
-  width: 100%;
-} */
+    background-color: #8246AF;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  } 
 
 .page-content list {
-  /* text-align: left; */
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  color: #8246af;
-  padding-left: 1rem;
+    width: 100px;
+} */ */
+ 
+---------------------
+.page-content {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  float: left;
 }
 
-.mentors-list-table>tr>td a {
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.create-button {
+  padding: 10px 20px;
+  background-color: #8246a4;
+  color: #ffffff;
   text-decoration: none;
-  color: #8246af;
+  border-radius: 5px;
 }
 
-.mentors-list-table>tr>td a:hover {
-  /* border: 1px solid #8246af; */
-  /* font-weight: 600; */
-  color: #8246af;
+.create-button:hover {
+  background-color: #FFA300;
 }
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+  
