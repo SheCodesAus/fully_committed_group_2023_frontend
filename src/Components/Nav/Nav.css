@@ -2,17 +2,22 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: white;
+    background-color: #8246af;
+    width: 90%;
     /* color: white; */
     align-items: center;
+    margin: 1rem 0;
+
+    /* max-height: 20%; */
     /* border: 1px solid rgba(126, 28, 118, 0.788); */
 }
 
-.logo img {
+.logo {
     border-radius: 0px;
     /* object-fit: cover; */
     /* max-height: 150px; */
     width: 50%;
+    max-width: ;
 }
 
 /* .nav-under-logo {
@@ -25,11 +30,14 @@ nav {
 } */
 
 .nav-links {
+    display: flex;
+    flex-direction: row;
+
 }
 
 .nav-links a { 
     padding: 8px 12px;
-    color: #8246af;
+    color: white;
     font-weight: 500;
     margin: 0.5rem;
     /* border-radius: 5px; */

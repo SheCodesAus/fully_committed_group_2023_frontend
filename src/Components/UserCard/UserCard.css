@@ -16,3 +16,27 @@
     text-align: left;
 
 }
+
+table#user-card {
+    border-spacing: 10px 10px;
+    margin: 10px;
+}
+
+td {
+    text-align: start;
+}
+
+.user-item-description {
+    text-align: start;
+    margin: 10px;
+    border-radius: 8%;
+    padding: 10px;
+    background-color: #F7F7F9;
+    text-align: left;
+}
+
+.user-item-label {
+    color: #8246AF;
+    padding-right: 50px;
+    text-align: left;
+}

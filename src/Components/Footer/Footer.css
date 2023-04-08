@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px; /*sets the height of the footer, can adjust if we want it larger/smaller */
+  background-color: #FFA300;  
+  /* background-color: #F7F7F9;   */
+  /* FFA300  */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}

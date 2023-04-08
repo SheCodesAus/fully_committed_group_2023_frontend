@@ -1,4 +1,3 @@
-
 #purple_background {
   background-color: #8246af;
   display: flex;
@@ -7,19 +6,42 @@
 #white_background {
   background-color: white;
   border-radius: 40px;
-  padding: 90px;
+  padding: 70px 150px; /* Decrease the padding to make the white sheet narrower */
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   flex-direction: column;
-  align-items: space-around;
-  width: 200%;
 }
+
+.logo {
+  color: #8246af;
+  font-weight: bold;
+  font-size: 1.5rem; /* Increase the font size of the logo */
+}
+
+.login_form button {
+  margin: auto;
+  background-color: #ffa300;
+  border: none;
+  border-radius: 15px; /* increases/decreases border rounding */
+  color: white;
+  font-size: 13px;
+  padding: 0.5rem 1rem;
+}
+
+/* .login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+} */
 
 .login_form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .login_form input[type="text"],
@@ -35,37 +57,17 @@
 .login_form input[type="text"]:focus,
 .login_form input[type="password"]:focus {
   outline: none;
-  box-shadow: 0 0 5px 0 #646cff;
+  box-shadow: 0 0 5px 0 #8246af;
 }
 
 .form_field {
   display: flex;
+  width: 100;
   justify-content: flex-end;
   margin-bottom: 1rem;
   margin-right: 1rem;
 }
 
-.form_field input {
-  padding: 0.5rem;
-}
-
-/* .form_field input[type="submit"]  */
-.button
-{
-  background-color: orange;
-  border-radius: 50%;
-  color: white;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1rem; /* Change the font size to a smaller value */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease-in-out;
-  border: none; /* Remove the border */
-  outline: none; /* Remove the outline */
-}
-
 .form_field input[type="submit"]:hover {
-  background-color: darkorange;
+  background-color: #ffa300;
 }

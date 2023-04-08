@@ -1,3 +1,6 @@
+// (KRISTY) - DONE
+
+
 // function CurrentUserPage() {
 
 //     return "Profile Page Coming soon..."
@@ -12,9 +15,11 @@ import { Link } from "react-router-dom";
 // ------- COMPONENTS -------
 import AdminBlock from "../Components/AdminBlock/AdminBlock";
 import UserCard from "../Components/UserCard/UserCard"
+import PageContent from  '../Components/PageContent/PageContent.jsx';
 
+import "../Components/CreateButton/CreateButton.css";
 //CSS
-import "../App.css";
+// import "../App.css";
 
 function CurrentUserPage() {
 
@@ -49,7 +54,7 @@ function CurrentUserPage() {
         fetchUser();
     }, [authToken]);
 
-    // Check if the user is a super-user
+    // Check if the user is a super-user with edit/create abilities
     const isAdmin = () => {
         return user.is_superuser === true;
     };
@@ -57,6 +62,7 @@ function CurrentUserPage() {
     // ------- RENDER -------
 
     return (
+        <PageContent >
         <>
             <div className="page-container">
                 <div id="admin-block">
@@ -65,7 +71,7 @@ function CurrentUserPage() {
                         )}
                 </div>
                 <div id="user-block">
-                    {user.id > 1 && !isAdmin() && (
+                    {!isAdmin() && (
                         <>
                             <h1>Welcome back {user.first_name}!</h1>
                             <p>Please contact admin to change your profile details</p>
@@ -76,6 +82,10 @@ function CurrentUserPage() {
                             <h1>Login to view your profile</h1>
                         </>
                     )}
+                    <button type="button" className="create-button">
+                    <Link to="/users/current/change-password" style={{ textDecoration: 'none', color: 'white' }}>Change Password</Link>
+                    </button>
+
                     {/* -- USER DETAILS -- */}
                     {user.id && (
                         <UserCard user={user} />
@@ -83,6 +93,7 @@ function CurrentUserPage() {
                 </div>
             </div>
         </>
+        </PageContent>
         );
     }
 

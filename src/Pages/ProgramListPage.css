@@ -1,0 +1,53 @@
+/* CLAIRE */
+
+/* Remove link underline from progress bar */
+a.progress-link {
+    text-decoration: none;
+}
+
+.progress-bar {
+    text-align: left;
+}
+
+#program-list table {
+    width: 100%;
+    /* max-width: 800px; */
+    text-align: left;
+  }
+
+#program-list td {
+    width: auto;
+}
+
+.page-content list {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #8246af;
+    padding-left: 1rem;
+  }
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 1rem;
+}
+
+.create-button {
+    background-color: #8246af;
+    color:white
+  
+}
+
+.programs-list-table>tr>td a {
+    text-decoration: none;
+    color: #8246af;
+  }
+  
+.programs-list-table>tr>td a:hover {
+/* border: 1px solid #8246af; */
+/* font-weight: 600; */
+color: #8246af;
+}

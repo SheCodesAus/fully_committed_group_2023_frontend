@@ -1,3 +1,5 @@
+// (KRISTY) - DONE
+
 import { Link } from "react-router-dom";
 
 // RENDERED ON CURRENTUSERPAGE.JSX

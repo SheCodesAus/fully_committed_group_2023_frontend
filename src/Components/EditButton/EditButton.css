@@ -1,5 +1,5 @@
 button.edit-button {
-    background-color: #8246AF; 
+    background-color: #FFA300; 
     /* #8246AF purple and #FFA300 orange */
  
     color: #fff;
@@ -11,5 +11,5 @@ button.edit-button {
   }
   
   button.edit-button:hover {
-    background-color: #4f5051;
+    background-color: #8246AF;
   }
