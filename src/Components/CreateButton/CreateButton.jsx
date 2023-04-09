@@ -13,4 +13,15 @@ function CreateButton(props) {
 }
 
 
+export function ShowAllButton({ children, onClick }) {
+
+
+  return (
+    <button className="create-button" onClick={onClick}>
+    { children } 
+    </button>
+  );
+}
+
+
 export default CreateButton;

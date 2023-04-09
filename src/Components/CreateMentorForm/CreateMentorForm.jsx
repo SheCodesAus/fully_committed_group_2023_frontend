@@ -96,6 +96,23 @@ function MentorCreateForm() {
       .catch((error) => console.error(error));
   }, []);
 
+
+  const setMentorType = (mentor_type) => (newValue) => {
+    switch(mentor_type){
+      case 'junior_mentor':
+        setMentors({ ...mentors, junior_mentor: newValue, industry_mentor: !newValue, lead_mentor: newValue ? false : mentors.lead_mentor })
+        break;
+      case 'industry_mentor':
+        setMentors({ ...mentors, junior_mentor: !newValue, industry_mentor: newValue })
+        break;
+      case 'lead_mentor':
+        setMentors({ ...mentors, lead_mentor: mentors.industry_mentor && newValue })
+        break;
+      default:
+        break;
+    }
+  };
+
   // ----------- RENDER
 
   return (
@@ -260,27 +277,23 @@ function MentorCreateForm() {
                   <label htmlFor="junior_mentor">Junior Mentor</label>
                   <ToggleButton2
                     isChecked={mentors.junior_mentor}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, junior_mentor: newValue })
-                    }
+                    onChange={setMentorType('junior_mentor')}
                   />
                 </div>
                 <div>
                   <label htmlFor="industry_mentor">Industry Mentor</label>
                   <ToggleButton2
                     isChecked={mentors.industry_mentor}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, industry_mentor: newValue })
-                    }
+                    onChange={setMentorType('industry_mentor')}
+
                   />
                 </div>
                 <div>
                   <label htmlFor="lead_mentor">Lead Mentor</label>
                   <ToggleButton2
                     isChecked={mentors.lead_mentor}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, lead_mentor: newValue })
-                    }
+                    onChange={setMentorType('lead_mentor')}
+
                   />
                 </div>
               </div>

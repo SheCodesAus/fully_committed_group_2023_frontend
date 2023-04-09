@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
+import { ShowAllButton } from "../Components/CreateButton/CreateButton"
 
 import "./ProgramListPage.css"; 
 
@@ -16,12 +17,22 @@ function ProgramsListPage() {
             });
     }, []);
 
+    // Filter
+    const [hideCompleted, setHideCompleted] = useState(true)
+
+    // const filteredProgramData = programData.filter(({ end_date }) => {
+    //     return !hideCompleted || (new Date() < new Date(end_date))
+    // });
+
+    const filteredProgramData = hideCompleted ? programData.filter(({ end_date }) => {
+        return new Date() < new Date(end_date)
+    }) : programData;
 
     // SORTING
-    const [sortAttribute, setSortAttribute] = useState(null);
+    const [sortAttribute, setSortAttribute] = useState("start_date");
     const [reverseSort, setReverseSort] = useState(false);
 
-    const sortedProgramData = [...programData];
+    const sortedProgramData = [...filteredProgramData];
     if (sortAttribute != null){
         sortedProgramData.sort((a, b) => {
             if (b[sortAttribute] < a[sortAttribute]){
@@ -89,7 +100,7 @@ function ProgramsListPage() {
                 </tbody>
 
             </table>
-
+            <ShowAllButton onClick={() => setHideCompleted(!hideCompleted)}>{hideCompleted ? "Show all" : "Show current"} programs</ShowAllButton>
         </div>
     )
 }
