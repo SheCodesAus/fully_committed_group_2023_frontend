@@ -94,7 +94,7 @@ select:focus,
   }
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   #program-form {
     width: 50%;
   }
@@ -103,4 +103,4 @@ select:focus,
   .program-dates input {
     min-width: 250px;
   }
-}
+} */
