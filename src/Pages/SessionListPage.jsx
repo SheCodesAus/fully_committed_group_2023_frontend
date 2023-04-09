@@ -77,7 +77,7 @@ function SessionListPage() {
                             <td><Link to={`/sessions/${session.id}`}>{new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</Link></td>
                             <td className="input">
                             {" "}
-                            {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}
+                            {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}
                             </td>
                             <td><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
                             <td>{session.program_type}</td>
