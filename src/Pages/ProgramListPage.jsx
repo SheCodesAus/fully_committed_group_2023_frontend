@@ -75,7 +75,7 @@ function ProgramsListPage() {
                 <tbody className="programs-list-table">
                     {sortedProgramData?.map(program => (
                         <tr key={program.id}>
-                            <td><Link to={`/programs/${program.id}`} className="progress-link">{program.program_name}</Link></td>
+                            <td id="program-name"><Link to={`/programs/${program.id}`} className="progress-link">{program.program_name}</Link></td>
                             <td>{new Date(program.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
                             <td>{new Date(program.end_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
                             <td>{program.program_type}</td>

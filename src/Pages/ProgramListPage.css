@@ -49,7 +49,7 @@ a.progress-link {
 .programs-list-table>tr>td a:hover {
 /* border: 1px solid #8246af; */
 /* font-weight: 600; */
-color: #8246af;
+color: #F9A426;
 }
 
 table.programs-table{
@@ -62,3 +62,22 @@ table.programs-table{
     padding: 8px;
     border-bottom: 1px solid #ddd;
   }
+    
+/* Media query for small screens */
+@media screen and (max-width: 690px) {
+    .programs-table td {
+        display: block;
+        width: 100%;
+        border: none;
+        text-align: center;
+    }
+    .programs-table th{
+        display: none;
+    }
+    .programs-table tr {
+        border-bottom: 1px solid #ddd;
+    }
+    #program-name {
+    font-weight: bold;
+    }
+}
