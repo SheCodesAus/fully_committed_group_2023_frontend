@@ -51,7 +51,7 @@ function SessionListPage() {
         return sessions.map((session) => ({ ...session, program_type, program_name }))
     })
 
-    const tableHeaders = ["Session", "Date", "Program", "Module", "Location", "Mentors"];
+    const tableHeaders = ["Session", "Program", "Program Details",  "Module", "Location", "Mentors"];
 
     return (
 
@@ -74,14 +74,12 @@ function SessionListPage() {
                 <tbody className="sessions-list-table">
                     {annotatedSessionData?.map(session => (
                         <tr key={session.id}>
-                            <td><Link to={`/sessions/${session.id}`}>{session.session_name}</Link></td>
-                            <td>{new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
-                            <td><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
+                            <td><Link to={`/sessions/${session.id}`}>{new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</Link></td>
                             <td>{session.program_type}</td>
+                            <td><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
                             <td>{getModuleType[session.module_type]}</td>
                             <td>{session.city}</td>
-                            
-                            <div>
+                            <td>
                                 <ProgressBar 
                                 completed={
                                     session.mentors_required > 0 
@@ -96,7 +94,7 @@ function SessionListPage() {
                                 {""}
                                 {session.mentors_assigned} / {session.mentors_required} {""}
                                 </span>
-                                </div>
+                                </td>
                             </tr>))}
                     </tbody>
 
