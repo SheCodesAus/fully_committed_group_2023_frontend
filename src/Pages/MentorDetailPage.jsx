@@ -222,12 +222,12 @@ function MentorDetailPage() {
                           </td>
                           <td className="input">{mentorData.email}</td>
                         </tr>
-                        <tr>
+                        {/* <tr>
                           <td className="label">
                             <strong>Phone </strong>
                           </td>
                           <td className="input">{mentorData.phone}</td>
-                        </tr>
+                        </tr> */}
                         <tr>
                           <td className="label">
                             <strong>Location </strong>

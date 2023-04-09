@@ -33,7 +33,8 @@ function MentorListPage() {
                 <Link className="create-button" to={`/mentors/create`}>Create</Link>
             </div>
 
-            <table>
+            <div className="mentor-table-container">
+            <table className="mentors-table">
                 <thead>
                     <tr>
                         <th>Type</th>
@@ -76,6 +77,7 @@ function MentorListPage() {
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
 
 

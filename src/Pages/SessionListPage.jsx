@@ -62,7 +62,7 @@ function SessionListPage() {
             </div>
 
 
-            <table>
+            <table className="sessions-table">
                 <thead>
                     <tr>
                         {tableHeaders.map(header => (
@@ -74,17 +74,19 @@ function SessionListPage() {
                 <tbody className="sessions-list-table">
                     {annotatedSessionData?.map(session => (
                         <tr key={session.id}>
-                            <td><Link to={`/sessions/${session.id}`}>{new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</Link></td>
-                            <td className="input">
+                            <td id="session-name" className="hide"><Link to={`/sessions/${session.id}`}>Session: {new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })} @ {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}</Link> </td>
+
+                            <td className="hide2"><Link to={`/sessions/${session.id}`}>{new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</Link></td>
+                            <td className="hide2">
                             {" "}
                             {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}
                             </td>
-                            <td><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
+                            <td id="program-name"><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
                             <td>{session.program_type}</td>
                             <td>{getModuleType[session.module_type]}</td>
                             <td>{session.city}</td>
                             <td>
-                                <ProgressBar 
+                                {/* <ProgressBar 
                                 completed={
                                     session.mentors_required > 0 
                                     ?  Math.ceil(
@@ -92,7 +94,8 @@ function SessionListPage() {
                                         )
                                     :0
                                 }
-                                ></ProgressBar>
+                                ></ProgressBar> */}
+                                {session.mentors_assigned}/{session.mentors_required}
                                 </td>
                             </tr>))}
                     </tbody>
