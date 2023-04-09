@@ -6,7 +6,7 @@
   padding: 2%;
 }
 
-form {
+#mentor-form {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ form {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */ /*doesn't look great but missing phone */
   width: 100%;
   margin-bottom: 20px;
   padding: 1%;
@@ -61,16 +61,18 @@ form {
 }
 
 .location-inputs select {
-  width:fit-content;   /* for the location drop down work around */
+  width: fit-content; /* for the location drop down work around */
 }
 
-.location-inputs {    /* getting location drop down to sit better in inputs-block */
-  padding: 0%;        
+.location-inputs {
+  /* getting location drop down to sit better in inputs-block */
+  padding: 0%;
   flex-direction: column;
 }
 
 .recruitment-inputs #session {
-  height: 200px;            /* for the session scroll work around to make higher than others*/
+  height: 200px; /* for the session scroll work around to make higher than others*/
+  min-width: 100%;
 }
 .contact-inputs input:hover,
 .contact-inputs select:hover {
@@ -88,9 +90,6 @@ form {
   padding: 1%;
   gap: 15px; /* this needs to be px otherwise labels in .container get squished*/
 }
-
-
-
 
 .container {
   display: flex;
@@ -113,87 +112,94 @@ form {
   margin-right: 20px;
 }
 
-/* .contact-inputs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 2%;
-} */
+/*mobile*/
+@media screen and (max-width: 670px) {
+  .mentor-form {
+    padding: 5%;
+  }
 
-/* #mentor_creation_form {
-  color: purple;
-}
+  #mentor-form {
+    width: 100%;
+  }
 
-#mentor_info_banner {
-  display: flex;
-  justify-content: space-evenly;
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
-  align-content: space-around;
-}
+  .contact-inputs,
+  .location-inputs,
+  .recruitment-inputs {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
-.container_column {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+  .contact-inputs input,
+  .contact-inputs select,
+  .location-inputs select,
+  .recruitment-inputs select,
+  .recruitment-inputs textarea {
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
 
-#container_radio {
-  display: flex;
-  flex-direction: row;
-}
+  .recruitment-inputs #session {
+    height: 150px;
+  }
 
-.container_label {
-  display: block;
-  padding-left: 50px;
-  position: relative;
-  padding-left: 60px;
-}
-.container_label_input {
-  display: none;
-  background: rgb(96, 96, 99);
-}
-.container_label_span {
-  border: 1px solid #ccc;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  overflow: hidden;
-  line-height: 1;
-  text-align: center;
-  border-radius: 100%;
-  font-size: 35pt;
-  left: 0;
-  top: 50%;
-  margin-top: -7.5px;
-  background: rgb(96, 96, 99);
-  padding: 50px;
-}
-.container_label_input:checked + span {
-  background: purple;
-  border-color: rgb(96, 96, 99);
+  .container {
+    flex-direction: column;
+  }
+
+  .container div {
+    flex-direction: row;
+    padding: 10px;
+    justify-content: flex-end;
+  }
+  .inputs-block {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .recruitment-inputs #payment_type,
+  .recruitment-inputs #current_step {
+    max-width: 80%;
+  }
+  .recruitment-inputs #session {
+    max-width: 120%;
+  }
 }
 
-#purple_background {
-  background-color: purple;
+@media screen and (min-width: 671px) and (max-width: 768px) {
+  .mentor-form {
+    padding: 5%;
+  }
 
-  display: flex;
+  #mentor-form {
+    width: 100%;
+  }
+
+  .contact-inputs,
+  .location-inputs,
+  .recruitment-inputs {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .contact-inputs input,
+  .contact-inputs select,
+  .location-inputs select,
+  .recruitment-inputs select,
+  .recruitment-inputs textarea {
+    min-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .recruitment-inputs #session {
+    height: 150px;
+  }
+
+  .container {
+    flex-direction: row;
+    width: fit-content;
+  }
 }
-
-#white_background {
-  background-color: white;
-  border-radius: 40px;
-  padding: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  align-items: space-around;
-}
-
-.purple_container {
-  background-color: rgb(222, 159, 222);
-  color: white;
-  min-height: 150px;
-} */
