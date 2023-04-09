@@ -127,7 +127,7 @@ function SessionForm() {
       <>
         {loggedIn ? (
           <div className="session-form">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id='session-form'>
               <h1>New Session</h1>
               <div className="session-inputs">
                 {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}
