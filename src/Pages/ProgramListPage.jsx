@@ -60,7 +60,7 @@ function ProgramsListPage() {
                 <Link className="create-button" to={`/programs/create`}>Create</Link>
             </div>
 
-            <table>
+            <table className="programs-table">
                 <thead>
                     <tr>
                         <SortableTableHeader sortKey="program_name">Program</SortableTableHeader>

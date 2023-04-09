@@ -51,3 +51,14 @@ a.progress-link {
 /* font-weight: 600; */
 color: #8246af;
 }
+
+table.programs-table{
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .programs-table th, .programs-table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }

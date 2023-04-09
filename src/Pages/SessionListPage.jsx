@@ -62,7 +62,7 @@ function SessionListPage() {
             </div>
 
 
-            <table>
+            <table className="sessions-table">
                 <thead>
                     <tr>
                         {tableHeaders.map(header => (
