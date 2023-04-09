@@ -82,9 +82,6 @@ function CurrentUserPage() {
                             <h1>Login to view your profile</h1>
                         </>
                     )}
-                    <button type="button" className="create-button">
-                    <Link to="/users/current/change-password" style={{ textDecoration: 'none', color: 'white' }}>Change Password</Link>
-                    </button>
 
                     {/* -- USER DETAILS -- */}
                     {user.id && (

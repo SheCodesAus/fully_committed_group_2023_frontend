@@ -14,6 +14,7 @@ function UserCard(props) {
             <table id="user-card">
                 <tbody>
                     <tr>
+
                         <td className="user-item-label"><strong>Username</strong></td>
                         <td className="user-item-description">{user.username}</td>
                     </tr>
@@ -32,10 +33,21 @@ function UserCard(props) {
                     <tr>
                         <td className="user-item-label"><strong>Permissions</strong></td>
                         <td className="user-item-description">Create/edit: {user.is_superuser ? "✓" : "✗"}</td>
+                    </tr>
+
+                    <tr>
+                    <td><button type="button" className="create-button">
+                    <Link to="/users/current/change-password" style={{ textDecoration: 'none', color: 'white' }}>Change Password</Link>
+                    </button></td>
                         <td className="user-item-description">Admin portal: {user.is_staff ? "✓" : "✗"}</td>
+                    </tr>
+                    <tr>
+                    <td></td>
                         <td className="user-item-description">Active Employee: {user.is_active ? "✓" : "✗"}</td>
                     </tr>
+
                 </tbody>
+
             </table>
         </>
   );

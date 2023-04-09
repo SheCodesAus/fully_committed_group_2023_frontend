@@ -33,7 +33,8 @@ function MentorListPage() {
                 <Link className="create-button" to={`/mentors/create`}>Create</Link>
             </div>
 
-            <table>
+            <div className="mentor-table-container">
+            <table id="mentors-table">
                 <thead>
                     <tr>
                         <th>Type</th>
@@ -41,7 +42,7 @@ function MentorListPage() {
                         <th>Alumni</th>
                         <th>Name</th>
                         <th>Current Step</th>
-                        <th colSpan={6}>Skills</th>
+                        <th colSpan={6} className="skill-cells">Skills</th>
                         <th>Location</th>
                         <th>Travel</th>
                     </tr>
@@ -50,8 +51,8 @@ function MentorListPage() {
 
                 <tbody className="mentors-list-table">
                     {mentorData?.map(mentor => ( 
-                        <tr key={mentor.id}>
-                            <td>{getMentorType(mentor)}</td>
+                        <tr key={mentor.id} className="skills-row-divider">
+                            <td className="skill-type">{getMentorType(mentor)}</td>
                             <td><ToggleButtonReadOnly
                             value={mentor.she_codes_alumni}
                             readOnly={true} /></td>
@@ -76,6 +77,7 @@ function MentorListPage() {
                     ))}
                 </tbody>
             </table>
+            </div>
         </div>
 
 
