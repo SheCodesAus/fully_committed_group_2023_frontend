@@ -53,12 +53,12 @@ function MentorListPage() {
                         <tr key={mentor.id}>
                             <td>{getMentorType(mentor)}</td>
                             <td><ToggleButtonReadOnly
-                            value={mentor.she_codes_alumni}
-                            readOnly={true} /></td>
-                            <td><ToggleButtonReadOnly
                             value={mentor.lead_mentor}
                             readOnly={true}
                             /></td>
+                            <td><ToggleButtonReadOnly
+                            value={mentor.she_codes_alumni}
+                            readOnly={true} /></td>
                             <td><Link to={`/mentors/${mentor.id}`}>{mentor.first_name} {mentor.last_name}</Link></td>
                             <td>{currentStepMapping[mentor.current_step]}</td>
                                 <td><ToggleButtonReadOnly value={mentor.html_css} checkedCharacter="H" readOnly={true} /></td>
