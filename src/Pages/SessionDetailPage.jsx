@@ -106,12 +106,14 @@ function SessionDetailPage() {
                       <td className="label">
                         <strong className="sub-header">Time </strong>
                       </td>
+
                       <td className="input">
                         {" "}
-                        {new Date(
+                        {/* {new Date(
                           sessionData.start_date
                         ).toLocaleTimeString()}{" "}
-                        - {new Date(sessionData.end_date).toLocaleTimeString()}
+                        - {new Date(sessionData.end_date).toLocaleTimeString()} */}
+                        {new Date(sessionData.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})} - {new Date(sessionData.end_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC' })}
                       </td>
                     </tr>
                   </tbody>
