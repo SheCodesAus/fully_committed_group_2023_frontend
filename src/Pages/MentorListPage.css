@@ -59,7 +59,7 @@ table.mentors-table{
 .mentor-table-container {
   overflow-x: scroll;
   max-width: 100%;
-  height: 500px; /* or any other fixed height */
+  /* height: 500px; or any other fixed height */
 }
 
 #mentors-table {

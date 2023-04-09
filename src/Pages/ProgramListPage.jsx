@@ -17,7 +17,7 @@ function ProgramsListPage() {
             });
     }, []);
 
-    // Filter
+    // FILTER
     const [hideCompleted, setHideCompleted] = useState(true)
 
     // const filteredProgramData = programData.filter(({ end_date }) => {
