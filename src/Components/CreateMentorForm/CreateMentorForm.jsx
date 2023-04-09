@@ -121,7 +121,7 @@ function MentorCreateForm() {
         {loggedIn ? (
           <div className="mentor-form">
             <h1>New Mentor</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="mentor-form">
               <div className="contact-inputs">
                 {/* -------------------- CONTACT DETAILS ------------- */}
                 <label htmlFor="first_name">First Name</label>
@@ -173,38 +173,38 @@ function MentorCreateForm() {
                     <option value="Perth">Perth</option>
                   </select>
                 </div>
-              <div className="container">
-                <div>
-                  {/* -------------------- WILL TRAVEL ------------- */}
-                  <label htmlFor="willTravel">Will Travel</label>
+                <div className="container">
+                  <div>
+                    {/* -------------------- WILL TRAVEL ------------- */}
+                    <label htmlFor="willTravel">Will Travel</label>
+                    <ToggleButton2
+                      isChecked={mentors.will_travel}
+                      onChange={(newValue) =>
+                        setMentors({ ...mentors, will_travel: newValue })
+                      }
+                    />
+                  </div>
+                  <div>
+                    {/* -------------------- IS ALUMNI ------------- */}
+                    <label htmlFor="sheCodesAlumni">She Codes Alumni</label>
+                    <ToggleButton2
+                      isChecked={mentors.she_codes_alumni}
+                      onChange={(newValue) =>
+                        setMentors({ ...mentors, she_codes_alumni: newValue })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="container">
+                  {/* -------------------- IS ACTIVE ------------- */}
+                  <label htmlFor="is_active">Active</label>
                   <ToggleButton2
-                    isChecked={mentors.will_travel}
+                    isChecked={mentors.is_active}
                     onChange={(newValue) =>
-                      setMentors({ ...mentors, will_travel: newValue })
+                      setMentors({ ...mentors, is_active: newValue })
                     }
                   />
                 </div>
-                <div>
-                  {/* -------------------- IS ALUMNI ------------- */}
-                  <label htmlFor="sheCodesAlumni">She Codes Alumni</label>
-                  <ToggleButton2
-                    isChecked={mentors.she_codes_alumni}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, she_codes_alumni: newValue })
-                    }
-                  />
-                </div>
-              </div>
-              <div className="container">
-                {/* -------------------- IS ACTIVE ------------- */}
-                <label htmlFor="is_active">Active</label>
-                <ToggleButton2
-                  isChecked={mentors.is_active}
-                  onChange={(newValue) =>
-                    setMentors({ ...mentors, is_active: newValue })
-                  }
-                />
-              </div>
               </div>
 
               <div className="container">

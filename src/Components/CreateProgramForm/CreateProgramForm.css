@@ -6,7 +6,7 @@
   padding: 2%;
 }
 
-form {
+#program-form {
   width: 80%;
   display: flex;
   flex-direction: column;
@@ -14,48 +14,93 @@ form {
 }
 
 h1 {
-    color: #8246af;
-    text-decoration: none;
+  color: #8246af;
+  text-decoration: none;
 }
 .program-inputs,
 .program-dates {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: fit-content;
-    margin-bottom: 20px;
-    padding: 2%;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 2%;
+  gap: 10px;
+}
+
+.program-inputs select,
+.program-dates input {
+  min-width: 250px;
+  /* height: 40px; */
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  font-family: Raleway;
+}
+
+.program-inputs label,
+.program-dates label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #8246af;
+  text-decoration: none;
+}
+
+select:focus,
+.program-dates input:focus {
+  outline: none;
+  box-shadow: 0 0 5px 0 #8246af;
+}
+/*mobile*/
+@media screen and (max-width: 767px) {
+  #program-form {
+    width: 90%;
+  }
+
+  .program-inputs,
+  .program-dates {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .program-inputs label,
+  .program-dates label {
+    font-size: 0.8rem;
+  }
+
+  .program-inputs select,
+  .program-dates input {
+    min-width: 200px;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+/*tablet*/
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #program-form {
+    width: 70%;
+  }
+
+  .program-inputs select,
+  .program-dates input {
+    min-width: 200px;
+  }
+}
+
+/* @media screen and (min-width: 1024px) {
+  #program-form {
+    width: 50%;
   }
 
   .program-inputs select,
   .program-dates input {
     min-width: 250px;
-    /* height: 40px; */
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    border: none;
-    font-size: 1rem;
-    color: black;
-    font-family: Raleway;
   }
-  
-  .program-inputs label,
-  .program-dates label {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #8246af;
-    text-decoration: none;
-  }
-
-
-
-select:focus,
-.program-dates input:focus {
-    outline: none;
-    box-shadow: 0 0 5px 0 #8246af;
-}
+} */
