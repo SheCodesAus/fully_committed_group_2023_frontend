@@ -72,16 +72,16 @@ table.sessions-table{
   .hide2{
     display: none !important;
   }
-  table#sessions-table td {
+  table.sessions-table td {
     display: block;
     width: 100%;
     border: none;
     text-align: center;
   }
-  table#sessions-table th{
+  table.sessions-table th{
     display: none;
   }
-  table#sessions-table tr {
+  table.sessions-table tr {
     border-bottom: 1px solid #ddd;
 }
 
