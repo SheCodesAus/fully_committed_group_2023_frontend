@@ -57,7 +57,7 @@ select:focus,
   outline: none;
   box-shadow: 0 0 5px 0 #8246af;
 }
-
+/*mobile*/
 @media screen and (max-width: 767px) {
   #program-form {
     width: 90%;
@@ -82,7 +82,7 @@ select:focus,
     padding: 8px;
   }
 }
-
+/*tablet*/
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   #program-form {
     width: 70%;
