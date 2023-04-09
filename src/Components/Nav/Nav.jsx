@@ -22,9 +22,7 @@ function Nav(props) {
 
   return (
     <nav>
-      {/* <div className="logo" > */}
-      <img className="logo" src="/white_no_circle.svg" />
-      {/* </div> */}
+        <img className="logo" src="/white_no_circle.svg" />
 
       <div className="nav-links">
         {/* {!loggedIn && (
@@ -35,11 +33,11 @@ function Nav(props) {
           {/* <button id="logout-button" onClick={handleClick}>
               Log Out
             </button> */}
-          <Link to="/programs">PROGRAMS</Link>
-          <Link to="/sessions">SESSIONS</Link>
-          <Link to="/mentors">MENTORS</Link>
-          <Link to="/users/current">PROFILE</Link>
-          <Link to="#" onClick={handleClick}>
+          <Link to="/programs" className="button-link">PROGRAMS</Link>
+          <Link to="/sessions" className="button-link">SESSIONS</Link>
+          <Link to="/mentors" className="button-link">MENTORS</Link>
+          <Link to="/users/current" className="button-link">PROFILE</Link>
+          <Link to="#" onClick={handleClick} className="button-link">
             LOGOUT
           </Link>
         </>
