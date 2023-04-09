@@ -97,6 +97,7 @@ function MentorCreateForm() {
   }, []);
 
 
+// ------------Mentor type conditional logic
   const setMentorType = (mentor_type) => (newValue) => {
     switch(mentor_type){
       case 'junior_mentor':
