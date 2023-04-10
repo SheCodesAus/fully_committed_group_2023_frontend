@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import "./MentorListPage.css"; // import CSS file
 import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly.jsx";
 import { currentStepMapping } from "../utils.js";
+import ToggleButton3 from "../Components/ToggleButton/ToggleButton3";
 
 
 function MentorListPage() {
@@ -40,11 +41,18 @@ function MentorListPage() {
         }
     })
 
+    const [filterSkill, setFilterSkill] = useState(null)
+
+    const filteredMentorData = (filterSkill != null) ? annotatedMentorData.filter((mentor) => {
+        return mentor[filterSkill];
+    }) : annotatedMentorData;
+
+
     // SORTING
     const [sortAttribute, setSortAttribute] = useState("capitalisedFullName");
     const [reverseSort, setReverseSort] = useState(false);
 
-    const sortedMentorData = [...annotatedMentorData];
+    const sortedMentorData = [...filteredMentorData];
     if (sortAttribute != null){
         sortedMentorData.sort((a, b) => {
             if (b[sortAttribute] < a[sortAttribute]){
@@ -75,6 +83,14 @@ function MentorListPage() {
         return <th onClick={() => changeSort(sortKey)}>{children}{sortKey === sortAttribute && (<span> &#8595;&#8593;</span>)}</th>
     }
 
+    function SkillFilterButton ({ children, skillProp }) {
+        return <ToggleButton3
+            isChecked={filterSkill === skillProp}
+            onChange={() => setFilterSkill(filterSkill === skillProp ? null : skillProp)}>
+        {children}
+        </ToggleButton3>
+    }
+
     return (
         <div className="page-content list mentor-list-page">
             <div className="list-header">
@@ -91,21 +107,18 @@ function MentorListPage() {
                         <SortableTableHeader sortKey="she_codes_alumni">Alumni</SortableTableHeader>
                         <SortableTableHeader sortKey="capitalisedFullName">Name</SortableTableHeader>
                         <SortableTableHeader sortKey="current_step">Step</SortableTableHeader>
-                        <th colSpan={6}>Skills</th>
+                        <th colSpan={6}>
+                            Skills
+                            <SkillFilterButton skillProp={`html_css`}>H</SkillFilterButton>
+                            <SkillFilterButton skillProp={`python`}>P</SkillFilterButton>
+                            <SkillFilterButton skillProp={`django`}>D</SkillFilterButton>
+                            <SkillFilterButton skillProp={`drf`}>Drf</SkillFilterButton>
+                            <SkillFilterButton skillProp={`javascript`}>J</SkillFilterButton>
+                            <SkillFilterButton skillProp={`react`}>R</SkillFilterButton>
+                        </th>
                         <SortableTableHeader sortKey="city">Location</SortableTableHeader>
                         <SortableTableHeader sortKey="will_travel">Travel</SortableTableHeader>
-
-                        {/* <th>Mentors</th> */}
                     </tr>
-                    {/* <tr>
-                        <th>Type</th>
-                        <th>Lead</th>
-                        <th>Alumni</th>
-                        <th>Name</th>
-                        <th>Current Step</th>
-                        <th>Location</th>
-                        <th>Travel</th>
-                    </tr> */}
 
                 </thead>
 

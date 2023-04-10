@@ -6,6 +6,7 @@ import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import PageContent from "../Components/PageContent/PageContent";
 import EditButton from "../Components/EditButton/EditButton";
 import "./ProgramDetailPage.css";
+import { getModuleType } from "../utils";
 // import { allPrograms } from "../programdata";
 
 function ProgramDetailPage() {
@@ -73,12 +74,14 @@ function ProgramDetailPage() {
       startTime: startDate.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
+        timeZone: "UTC"
       }),
       endTime: endDate.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
+        timeZone: "UTC"
       }),
-      module: session.module_type,
+      module: getModuleType[session.module_type],
       id: session.id,
       mentorsRequired: session.mentors_required,
       mentorsAssigned: session.mentors_assigned,
@@ -208,7 +211,7 @@ function ProgramDetailPage() {
                               <td>{session.endTime}</td>
                               <td>
                                 {
-                                  <Link to={`/sessions/${session.id}`}>
+                                  // <Link to={`/sessions/${session.id}`}>
                                     
                                     <ProgressBar
                                       completed={
@@ -221,7 +224,7 @@ function ProgramDetailPage() {
                                           : 0
                                       }
                                     />
-                                  </Link>
+                                  // </Link>
                                 }
                               </td>
                             </tr>
