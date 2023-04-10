@@ -19,6 +19,8 @@ import SessionDetailPage from "./Pages/SessionDetailPage.jsx";
 import SessionListPage from "./Pages/SessionListPage.jsx";
 import CurrentUserPage from "./Pages/CurrentUserPage.jsx";
 import ChangePasswordPage from "./Pages/ChangePasswordPage.jsx";
+import CreateUserPage from "./Pages/CreateUserPage.jsx";
+
 // Components
 import Footer from "./Components/Footer/Footer.jsx";
 import Nav from "./Components/Nav/Nav.jsx";
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <ProgramListPage /> },
       { path: "/login", element: <LoginPage /> },
+      { path: "/users/create", element: <CreateUserPage /> },
       { path: "/mentors/create", element: <MentorCreationPage /> },
       { path: "/mentors", element: <MentorListPage /> },
       { path: "/mentors/:id", element: <MentorDetailPage /> },
