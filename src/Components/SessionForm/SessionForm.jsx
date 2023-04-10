@@ -94,6 +94,10 @@ function SessionForm() {
         throw new Error(await response.text());
       }
 
+      // Navigate to session details page
+      const data = await response.json();
+      navigate(`/sessions/${data.id}`);
+
       location.reload();
     } catch (error) {
       console.error(error);
