@@ -10,13 +10,12 @@ import { getModuleType } from "../../utils";
 function SessionName(props) {
     const {module_type, city, start_date, end_date, program_type, ...other} = props;
     const formattedStartDate = FormatDate(start_date);
-    const formattedTime = FormatTime(start_date);
+    const formattedStartTime = FormatTime(start_date);
+    const formattedEndTime = FormatTime(end_date);
 
     return( 
-        `${program_type} - ${getModuleType[module_type]} - ${city} ${formattedStartDate}`
+        `${program_type} - ${getModuleType[module_type]} - ${city} ${formattedStartDate}, ${formattedStartTime} - ${formattedEndTime}`
     );
 }
-
-// ${formattedTime}`
 
 export default SessionName;

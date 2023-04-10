@@ -8,11 +8,13 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
-import EditButton from "../Components/EditButton/EditButton";
+// import EditButton from "../Components/EditButton/EditButton";
 import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly";
 import "./SessionDetailPage.css";
 import { currentStepMapping } from "../utils";
 import { getModuleType } from "../utils";
+import FormatDate from "../Components/DateTime/FormatDate";
+import FormatTime from "../Components/DateTime/FormatTime";
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -100,7 +102,7 @@ function SessionDetailPage() {
                       </td>
                       <td className="input">
                         {" "}
-                        {new Date(sessionData.start_date).toLocaleDateString()}
+                        {FormatDate(sessionData.start_date)}
                       </td>
                       <td className="separator"></td>
                       <td className="label">
@@ -113,7 +115,7 @@ function SessionDetailPage() {
                           sessionData.start_date
                         ).toLocaleTimeString()}{" "}
                         - {new Date(sessionData.end_date).toLocaleTimeString()} */}
-                        {new Date(sessionData.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})} - {new Date(sessionData.end_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC' })}
+                       {FormatTime(sessionData.start_date)} - {FormatTime(sessionData.end_date)}
                       </td>
                     </tr>
                   </tbody>

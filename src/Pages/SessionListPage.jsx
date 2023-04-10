@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "./SessionListPage.css"; // import CSS file
-import ProgressBar from "../Components/ProgressBar/ProgressBar";
+// import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import { getModuleType } from "../utils";
 import { ShowAllButton } from "../Components/CreateButton/CreateButton"
+import FormatDate from "../Components/DateTime/FormatDate";
+import FormatTime from "../Components/DateTime/FormatTime";
 
 
-import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSessionBar";
+
+// import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSessionBar";
 
 
 
@@ -51,9 +54,9 @@ function SessionListPage() {
 
     const annotatedSessionData = programData.flatMap(({ program_type, program_name, sessions }) => {
         return sessions.map((session) => {
-            const formattedStartDate = new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })
-            const start_time = new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})
-            const end_time = new Date(session.end_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})
+            const startDate = session.start_date;
+            const start_time = FormatTime(session.start_date);
+            const end_time = FormatTime(session.end_date);
             const formattedModuleType = getModuleType[session.module_type]
             return {
                 ...session,
@@ -61,7 +64,7 @@ function SessionListPage() {
                 program_name,
                 start_time,
                 end_time,
-                formattedStartDate,
+                startDate,
                 formattedModuleType
             }
         })
@@ -128,11 +131,11 @@ function SessionListPage() {
             <table className="sessions-table">
                 <thead>
                     <tr>
-                        <SortableTableHeader sortKey="program_name">Program</SortableTableHeader>
-                        <SortableTableHeader sortKey="formattedStartDate">Date</SortableTableHeader>
-                        <SortableTableHeader sortKey="formattedModuleType">Module</SortableTableHeader>
+                        <SortableTableHeader sortKey="startDate">Session Date</SortableTableHeader>
                         <SortableTableHeader sortKey="start_time">From</SortableTableHeader>
                         <SortableTableHeader sortKey="end_time">To</SortableTableHeader>
+                        <SortableTableHeader sortKey="formattedModuleType">Module</SortableTableHeader>
+                        <SortableTableHeader sortKey="program_name">Program</SortableTableHeader>
                         <SortableTableHeader sortKey="program_type">Program Type</SortableTableHeader>
                         <SortableTableHeader sortKey="city">Location</SortableTableHeader>
                         <th>Mentors</th>
@@ -147,14 +150,11 @@ function SessionListPage() {
                 <tbody className="sessions-list-table">
                     {sortedSessionData.map(session => (
                         <tr key={session.id}>
-                            <td id="program-name"><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
                             <td className="hide2">
                                 <Link to={`/sessions/${session.id}`}>
-                                    {session.formattedStartDate}
+                                    {FormatDate(session.startDate)}
                                 </Link>
                             </td>
-                            <td>{session.formattedModuleType}</td>
-
                             <td id="session-name" className="hide">
                                 <Link to={`/sessions/${session.id}`}>Session: {new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })} @ {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}</Link> </td>
                             <td className="hide2">
@@ -163,7 +163,8 @@ function SessionListPage() {
                             <td className="hide2">
                                 {session.end_time}
                             </td>
-
+                            <td>{session.formattedModuleType}</td>
+                            <td id="program-name"><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
                             <td>{session.program_type}</td>
 
                             <td>{session.city}</td>
