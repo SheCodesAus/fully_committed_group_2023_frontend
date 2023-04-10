@@ -77,3 +77,14 @@ table.mentors-table{
   justify-content: space-around;
 
 }
+
+#SkillFilterButtonBlock {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+
+}
+
+#SkillFilterButtonBlock button {
+  margin-right: 10px;
+}

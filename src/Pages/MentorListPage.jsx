@@ -109,12 +109,14 @@ function MentorListPage() {
                         <SortableTableHeader sortKey="current_step">Step</SortableTableHeader>
                         <th colSpan={6}>
                             Skills
+                            <div id="SkillFilterButtonBlock">
                             <SkillFilterButton skillProp={`html_css`}>H</SkillFilterButton>
                             <SkillFilterButton skillProp={`python`}>P</SkillFilterButton>
                             <SkillFilterButton skillProp={`django`}>D</SkillFilterButton>
                             <SkillFilterButton skillProp={`drf`}>Drf</SkillFilterButton>
                             <SkillFilterButton skillProp={`javascript`}>J</SkillFilterButton>
                             <SkillFilterButton skillProp={`react`}>R</SkillFilterButton>
+                            </div>
                         </th>
                         <SortableTableHeader sortKey="city">Location</SortableTableHeader>
                         <SortableTableHeader sortKey="will_travel">Travel</SortableTableHeader>
