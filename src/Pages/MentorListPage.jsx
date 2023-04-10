@@ -27,12 +27,24 @@ function MentorListPage() {
     };
 
 
+    const annotatedMentorData = mentorData.map((mentor) => {
+        const fullName = `${mentor.first_name} ${mentor.last_name}`
+        const capitalisedFullName = `${mentor.first_name} ${mentor.last_name}`.toUpperCase();
+        const mentorType = getMentorType(mentor)
+
+        return {
+            ...mentor,
+            fullName,
+            capitalisedFullName,
+            mentorType
+        }
+    })
 
     // SORTING
-    const [sortAttribute, setSortAttribute] = useState("start_date");
+    const [sortAttribute, setSortAttribute] = useState("capitalisedFullName");
     const [reverseSort, setReverseSort] = useState(false);
 
-    const sortedMentorData = [...mentorData];
+    const sortedMentorData = [...annotatedMentorData];
     if (sortAttribute != null){
         sortedMentorData.sort((a, b) => {
             if (b[sortAttribute] < a[sortAttribute]){
@@ -74,13 +86,13 @@ function MentorListPage() {
             <table className="mentors-table">
                 <thead>
                 <tr>
-                        <SortableTableHeader sortKey="getMentorType">Type</SortableTableHeader>
+                        <SortableTableHeader sortKey="mentorType">Type</SortableTableHeader>
                         <SortableTableHeader sortKey="lead_mentor">Lead</SortableTableHeader>
                         <SortableTableHeader sortKey="she_codes_alumni">Alumni</SortableTableHeader>
-                        <SortableTableHeader sortKey="first_name">Name</SortableTableHeader>
+                        <SortableTableHeader sortKey="capitalisedFullName">Name</SortableTableHeader>
                         <SortableTableHeader sortKey="current_step">Step</SortableTableHeader>
                         <th colSpan={6}>Skills</th>
-                        <SortableTableHeader sortKey="location">Location</SortableTableHeader>
+                        <SortableTableHeader sortKey="city">Location</SortableTableHeader>
                         <SortableTableHeader sortKey="will_travel">Travel</SortableTableHeader>
 
                         {/* <th>Mentors</th> */}
@@ -98,17 +110,12 @@ function MentorListPage() {
                 </thead>
 
                 <tbody className="mentors-list-table">
-                    {mentorData?.map(mentor => ( 
+                    {sortedMentorData.map(mentor => ( 
                         <tr key={mentor.id}>
-                            <td>{getMentorType(mentor)}</td>
-                            <td><ToggleButtonReadOnly
-                            value={mentor.lead_mentor}
-                            readOnly={true}
-                            /></td>
-                            <td><ToggleButtonReadOnly
-                            value={mentor.she_codes_alumni}
-                            readOnly={true} /></td>
-                            <td><Link to={`/mentors/${mentor.id}`}>{mentor.first_name} {mentor.last_name}</Link></td>
+                            <td>{mentor.mentorType}</td>
+                            <td><ToggleButtonReadOnly value={mentor.lead_mentor} readOnly={true} /></td>
+                            <td><ToggleButtonReadOnly value={mentor.she_codes_alumni} readOnly={true} /></td>
+                            <td><Link to={`/mentors/${mentor.id}`}>{mentor.fullName}</Link></td>
                             <td>{currentStepMapping[mentor.current_step]}</td>
                                 <td><ToggleButtonReadOnly value={mentor.html_css} checkedCharacter="H" readOnly={true} /></td>
                                 <td><ToggleButtonReadOnly value={mentor.python} checkedCharacter="P" readOnly={true} /></td>
