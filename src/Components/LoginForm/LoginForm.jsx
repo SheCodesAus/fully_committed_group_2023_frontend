@@ -56,7 +56,7 @@ function LoginForm({ redirectURL = "/programs" }) {
     <div id="purple_background">
       <PageContent>
         <div id="white_background">
-          <div className="logo">LOGIN</div>
+          <h1 className="login-header">Login</h1>
           <div id="login_form">
             <form
               action=""
@@ -65,27 +65,29 @@ function LoginForm({ redirectURL = "/programs" }) {
               onSubmit={handleSubmit}
             >
               <div className="form_field">
+                <label className="login-label" htmlFor="username">Username </label>
                 <input
                   type="text"
                   name="username"
                   id="username"
-                  placeholder="Username"
+                  placeholder="Enter username"
                   required
                   onChange={handleChange}
                 ></input>
               </div>
               <div className="form_field">
+                <label className="login-label" htmlFor="password">Password</label>
                 <input
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Password"
+                  placeholder="Enter password"
                   required
                   onChange={handleChange}
                 ></input>
               </div>
               <div className="button">
-                <button value="OK">OK</button>
+                <button value="OK">Submit</button>
               </div>
             </form>
           </div>
