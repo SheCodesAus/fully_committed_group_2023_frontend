@@ -79,6 +79,10 @@ function MentorCreateForm() {
         throw new Error(await response.text());
       }
 
+       // Navigate to mentor details page
+       const data = await response.json();
+       navigate(`/mentors/${data.id}`);
+
       location.reload();
     } catch (error) {
       console.error(error);
