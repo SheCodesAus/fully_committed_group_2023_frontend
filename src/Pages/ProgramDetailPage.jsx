@@ -184,7 +184,6 @@ function ProgramDetailPage() {
                           (session, sessionIndex) => (
                             <tr key={sessionIndex}>
                               <td>{session.module}</td>
-
                               <td>
                                 {
                                   <Link to={`/sessions/${session.id}`}>
@@ -196,9 +195,8 @@ function ProgramDetailPage() {
                               <td>{session.startTime}</td>
                               <td>{session.endTime}</td>
                               <td>
-                              {secondTableData.mentors_assigned} /
-                                              {secondTableData.mentors_required}
-                                            
+                              {session.mentorsAssigned} /
+                                              {session.mentorsRequired}       
                               </td>
                             </tr>
                           )
