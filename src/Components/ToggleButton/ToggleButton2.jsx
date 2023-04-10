@@ -4,26 +4,36 @@
     // to consolidate multiple toggle commands into on handleChange command
 
 
-    import { useState } from 'react';
+    // import { useState } from 'react';
     import './ToggleButton.css';
-    
+
     function ToggleButton2({ isChecked, onChange }) {
-        const [toggle, setToggle] = useState(isChecked);
-        
-        const handleClick = () => {
-        const newToggle = !toggle;
-        setToggle(newToggle);
-        onChange(newToggle);
-        };
-    
         return (
         <div>
-            <button className={`button-${toggle ? 'true' : 'false'}`} type="button" aria-label="Toggle" onClick={handleClick}>
+            <button className={`button-${isChecked ? 'true' : 'false'}`} type="button" aria-label="Toggle" onClick={()=> onChange(!isChecked)}>
             {isChecked ? "✓" : ""}
             </button>
         </div>
         );
     }
+
+    // function ToggleButton2({ isChecked, onChange }) {
+    //     const [toggle, setToggle] = useState(isChecked);
+        
+    //     const handleClick = () => {
+    //     const newToggle = !toggle;
+    //     setToggle(newToggle);
+    //     onChange(newToggle);
+    //     };
+    
+    //     return (
+    //     <div>
+    //         <button className={`button-${toggle ? 'true' : 'false'}`} type="button" aria-label="Toggle" onClick={handleClick}>
+    //         {isChecked ? "✓" : ""}
+    //         </button>
+    //     </div>
+    //     );
+    // }
     
     export default ToggleButton2;
     
