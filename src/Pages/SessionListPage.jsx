@@ -14,7 +14,7 @@ import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSession
 
 function SessionListPage() {
     // const [sessionData, setSessionData] = useState(null);
-    const [programData, setProgramData] = useState(null);
+    const [programData, setProgramData] = useState([]);
     // const [annotatedSessionData, setAnnotatedSessionData] = useState(null);
 
     // useEffect(() => {
@@ -47,11 +47,72 @@ function SessionListPage() {
     // }, [programData])
 
 
-    const annotatedSessionData = programData?.flatMap(({ program_type, program_name, sessions }) => {
-        return sessions.map((session) => ({ ...session, program_type, program_name }))
+    const annotatedSessionData = programData.flatMap(({ program_type, program_name, sessions }) => {
+        return sessions.map((session) => {
+            const formattedStartDate = new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })
+            const start_time = new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})
+            const end_time = new Date(session.end_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})
+            const formattedModuleType = getModuleType[session.module_type]
+            return {
+                ...session,
+                program_type,
+                program_name,
+                start_time,
+                end_time,
+                formattedStartDate,
+                formattedModuleType
+            }
+        })
     })
 
-    const tableHeaders = ["Date", "Time", "Program", "Program Type",  "Module", "Location", "Mentors"];
+    // const tableHeaders = ["Date", "Time", "Program", "Program Type",  "Module", "Location", "Mentors"];
+
+    // FILTER
+    const [hideCompleted, setHideCompleted] = useState(true)
+
+    // const filteredProgramData = programData.filter(({ end_date }) => {
+    //     return !hideCompleted || (new Date() < new Date(end_date))
+    // });
+
+    const filteredSessionData = hideCompleted ? annotatedSessionData.filter(({ end_date }) => {
+        return new Date() < new Date(end_date)
+    }) : annotatedSessionData;
+
+    // SORTING
+    const [sortAttribute, setSortAttribute] = useState("formattedStartDate");
+    const [reverseSort, setReverseSort] = useState(false);
+
+    const sortedSessionData = [...filteredSessionData];
+    if (sortAttribute != null){
+        sortedSessionData.sort((a, b) => {
+            if (b[sortAttribute] < a[sortAttribute]){
+                return 1
+            }
+            if (b[sortAttribute] > a[sortAttribute]){
+                return -1
+            }
+            return 0;
+        })
+    }
+    if (reverseSort){
+        sortedSessionData.reverse()
+    }
+    
+
+    const changeSort = (attributeName) => {
+        if (attributeName === sortAttribute) {
+            setReverseSort(!reverseSort)
+        } else {
+            setSortAttribute(attributeName);
+            setReverseSort(false);
+        }
+    }    
+
+    // Using a function like a 'local component' to sort
+    function SortableTableHeader({ children, sortKey }) {
+        return <th onClick={() => changeSort(sortKey)}>{children}{sortKey === sortAttribute && (<span> &#8595;&#8593;</span>)}</th>
+    }
+
 
     return (
 
@@ -65,25 +126,44 @@ function SessionListPage() {
             <table className="sessions-table">
                 <thead>
                     <tr>
+                        <SortableTableHeader sortKey="program_name">Program</SortableTableHeader>
+                        <SortableTableHeader sortKey="formattedStartDate">Date</SortableTableHeader>
+                        <SortableTableHeader sortKey="formattedModuleType">Module</SortableTableHeader>
+                        <SortableTableHeader sortKey="start_time">From</SortableTableHeader>
+                        <SortableTableHeader sortKey="end_time">To</SortableTableHeader>
+                        <SortableTableHeader sortKey="program_type">Program Type</SortableTableHeader>
+                        <SortableTableHeader sortKey="city">Location</SortableTableHeader>
+                        <th>Mentors</th>
+                    </tr>
+                    {/* <tr>
                         {tableHeaders.map(header => (
                             <th key={header}>{header}</th>
                         ))}
-                    </tr>
+                    </tr> */}
                 </thead>
 
                 <tbody className="sessions-list-table">
-                    {annotatedSessionData?.map(session => (
+                    {sortedSessionData.map(session => (
                         <tr key={session.id}>
-                            <td id="session-name" className="hide"><Link to={`/sessions/${session.id}`}>Session: {new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })} @ {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}</Link> </td>
-
-                            <td className="hide2"><Link to={`/sessions/${session.id}`}>{new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</Link></td>
-                            <td className="hide2">
-                            {" "}
-                            {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}
-                            </td>
                             <td id="program-name"><Link to={`/programs/${session.program}`}>{session.program_name}</Link></td>
+                            <td className="hide2">
+                                <Link to={`/sessions/${session.id}`}>
+                                    {session.formattedStartDate}
+                                </Link>
+                            </td>
+                            <td>{session.formattedModuleType}</td>
+
+                            <td id="session-name" className="hide">
+                                <Link to={`/sessions/${session.id}`}>Session: {new Date(session.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })} @ {new Date(session.start_date).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', timeZone: 'UTC'})}</Link> </td>
+                            <td className="hide2">
+                                {session.start_time}
+                            </td>
+                            <td className="hide2">
+                                {session.end_time}
+                            </td>
+
                             <td>{session.program_type}</td>
-                            <td>{getModuleType[session.module_type]}</td>
+
                             <td>{session.city}</td>
                             <td>
                                 {/* <ProgressBar 

@@ -20,11 +20,48 @@ function MentorListPage() {
         fetchMentorList();
     }, []);
 
-  // For Mentor Allocation: Generating the value for mentor type
+    // For Mentor Allocation: Generating the value for mentor type
     const getMentorType = ({ lead_mentor, industry_mentor, junior_mentor }) => {
         if (junior_mentor) return "Junior";
         if (industry_mentor) return "Industry";
     };
+
+
+
+    // SORTING
+    const [sortAttribute, setSortAttribute] = useState("start_date");
+    const [reverseSort, setReverseSort] = useState(false);
+
+    const sortedMentorData = [...mentorData];
+    if (sortAttribute != null){
+        sortedMentorData.sort((a, b) => {
+            if (b[sortAttribute] < a[sortAttribute]){
+                return 1
+            }
+            if (b[sortAttribute] > a[sortAttribute]){
+                return -1
+            }
+            return 0;
+        })
+    }
+    if (reverseSort){
+        sortedMentorData.reverse()
+    }
+    
+
+    const changeSort = (attributeName) => {
+        if (attributeName === sortAttribute) {
+            setReverseSort(!reverseSort)
+        } else {
+            setSortAttribute(attributeName);
+            setReverseSort(false);
+        }
+    }    
+
+    // Using a function like a 'local component' to sort
+    function SortableTableHeader({ children, sortKey }) {
+        return <th onClick={() => changeSort(sortKey)}>{children}{sortKey === sortAttribute && (<span> &#8595;&#8593;</span>)}</th>
+    }
 
     return (
         <div className="page-content list mentor-list-page">
@@ -36,16 +73,27 @@ function MentorListPage() {
             <div className="mentor-table-container">
             <table className="mentors-table">
                 <thead>
-                    <tr>
+                <tr>
+                        <SortableTableHeader sortKey="getMentorType">Type</SortableTableHeader>
+                        <SortableTableHeader sortKey="lead_mentor">Lead</SortableTableHeader>
+                        <SortableTableHeader sortKey="she_codes_alumni">Alumni</SortableTableHeader>
+                        <SortableTableHeader sortKey="first_name">Name</SortableTableHeader>
+                        <SortableTableHeader sortKey="current_step">Step</SortableTableHeader>
+                        <th colSpan={6}>Skills</th>
+                        <SortableTableHeader sortKey="location">Location</SortableTableHeader>
+                        <SortableTableHeader sortKey="will_travel">Travel</SortableTableHeader>
+
+                        {/* <th>Mentors</th> */}
+                    </tr>
+                    {/* <tr>
                         <th>Type</th>
                         <th>Lead</th>
                         <th>Alumni</th>
                         <th>Name</th>
                         <th>Current Step</th>
-                        <th colSpan={6}>Skills</th>
                         <th>Location</th>
                         <th>Travel</th>
-                    </tr>
+                    </tr> */}
 
                 </thead>
 
