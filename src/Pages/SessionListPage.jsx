@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import "./SessionListPage.css"; // import CSS file
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import { getModuleType } from "../utils";
+import { ShowAllButton } from "../Components/CreateButton/CreateButton"
+
 
 import ProgressSessionBar from "../Components/ProgressSessionBar/ProgressSessionBar";
 
@@ -181,7 +183,7 @@ function SessionListPage() {
                     </tbody>
 
                 </table>
-
+                <ShowAllButton onClick={() => setHideCompleted(!hideCompleted)}>{hideCompleted ? "Show all" : "Show current"} sessions</ShowAllButton>
             </div>
         // </div>
 
