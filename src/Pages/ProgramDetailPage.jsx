@@ -47,7 +47,7 @@ function ProgramDetailPage() {
   const tableHeaders = [
     [""],
     [""],
-    ["Date", "Module", "Start", "End", "Mentors Assigned"],
+    ["Module", "Date", "From", "To", "Mentors Assigned"],
   ];
 
   const program_name = programData.program_name;
@@ -191,6 +191,8 @@ function ProgramDetailPage() {
                         {thirdTableData.sessions.map(
                           (session, sessionIndex) => (
                             <tr key={sessionIndex}>
+                              <td>{session.module}</td>
+
                               <td>
                                 {
                                   <Link to={`/sessions/${session.id}`}>
@@ -206,26 +208,12 @@ function ProgramDetailPage() {
                                 }
                               </td>
                               {/* <td>{session.session_name}</td> */}
-                              <td>{session.module}</td>
                               <td>{session.startTime}</td>
                               <td>{session.endTime}</td>
                               <td>
-                                {
-                                  // <Link to={`/sessions/${session.id}`}>
-                                    
-                                    <ProgressBar
-                                      completed={
-                                        session.mentorsRequired > 0
-                                          ? Math.ceil(
-                                              (session.mentorsAssigned /
-                                                session.mentorsRequired) *
-                                                100
-                                            )
-                                          : 0
-                                      }
-                                    />
-                                  // </Link>
-                                }
+                              {secondTableData.mentors_assigned} /
+                                              {secondTableData.mentors_required}
+                                            
                               </td>
                             </tr>
                           )
