@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import { ShowAllButton } from "../Components/CreateButton/CreateButton"
+import FormatDate from "../Components/DateTime/FormatDate";
+
 
 import "./ProgramListPage.css"; 
 
@@ -87,14 +89,15 @@ function ProgramsListPage() {
                     {sortedProgramData?.map(program => (
                         <tr key={program.id}>
                             <td id="program-name"><Link to={`/programs/${program.id}`} className="progress-link">{program.program_name}</Link></td>
-                            <td>{new Date(program.start_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
-                            <td>{new Date(program.end_date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: '2-digit' })}</td>
+                            <td>{FormatDate(program.start_date)}</td>
+                            <td>{FormatDate(program.end_date)}</td>
                             <td>{program.program_type}</td>
                             <td>{program.city}</td>
                             <td>
-                                <ProgressBar className="progress-bar" completed={program.mentors_required > 0
+                                {/* <ProgressBar className="progress-bar" completed={program.mentors_required > 0
                                 ? Math.ceil((program.mentors_assigned / program.mentors_required) * 100)
-                                : 0} />
+                                : 0} /> */}
+                                {program.mentors_assigned}/{program.mentors_required}
                             </td> 
                         </tr>))}
                 </tbody>

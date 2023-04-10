@@ -7,7 +7,9 @@ import PageContent from "../Components/PageContent/PageContent";
 import EditButton from "../Components/EditButton/EditButton";
 import "./ProgramDetailPage.css";
 import { getModuleType } from "../utils";
-// import { allPrograms } from "../programdata";
+import FormatDate from "../Components/DateTime/FormatDate";
+import FormatTime from "../Components/DateTime/FormatTime";
+
 
 function ProgramDetailPage() {
   const { id } = useParams();
@@ -69,18 +71,10 @@ function ProgramDetailPage() {
     const endDate = new Date(session.end_date);
 
     return {
-      date: startDate.toLocaleDateString(),
+      date: FormatDate(startDate),
       // session: session.session_name,
-      startTime: startDate.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-        timeZone: "UTC"
-      }),
-      endTime: endDate.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-        timeZone: "UTC"
-      }),
+      startTime: FormatTime(startDate),
+      endTime: FormatTime(endDate),
       module: getModuleType[session.module_type],
       id: session.id,
       mentorsRequired: session.mentors_required,
@@ -124,8 +118,6 @@ function ProgramDetailPage() {
                             <strong>Program</strong>{" "}
                           </td>
                           <td className="input">{firstTableData.program_type}</td>
-                        </tr>
-                        <tr>
                           <td className="label">
                             <strong>Location</strong>
                           </td>
@@ -196,14 +188,7 @@ function ProgramDetailPage() {
                               <td>
                                 {
                                   <Link to={`/sessions/${session.id}`}>
-                                    {new Date(session.date).toLocaleDateString(
-                                      "en-AU",
-                                      {
-                                        day: "numeric",
-                                        month: "short",
-                                        year: "2-digit",
-                                      }
-                                    )}
+                                    {FormatDate(session.date)}
                                   </Link>
                                 }
                               </td>
