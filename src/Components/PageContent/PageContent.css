@@ -1,9 +1,7 @@
 .page-content {
   background-color: white;
   width: 90%;
-  margin: 3rem;
+  margin: 1rem 3rem 3rem 3rem;
   padding: 1rem;
 }
 
-.page-content.login {
-}
