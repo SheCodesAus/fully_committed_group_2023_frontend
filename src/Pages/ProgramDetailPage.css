@@ -19,6 +19,17 @@
   text-align: left;
 }
 
+a {
+  text-decoration: none;
+  color: #8246af;
+}
+
+a:hover {
+  color: #F9A426;
+
+}
+
+
 .progress-bar {
   width: 80vw;
   /* margin-top: 15px; */
