@@ -23,17 +23,20 @@
   justify-content: space-between;
   align-items: center;
   background-color: #f8f8f8;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem 0 1rem 0;
 }
 
 .create-button {
   background-color: #8246af;
-  color:white
+  color:white;
+  /* margin-right: 1rem;  */
 
 }
 
 th {
   color: #8246af;
+  font-size: 1rem;
 }
 
 /* .session-list table {
