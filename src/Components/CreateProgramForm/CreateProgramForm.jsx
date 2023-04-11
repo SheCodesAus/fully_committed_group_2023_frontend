@@ -96,7 +96,7 @@ function ProgramForm() {
             required>
             <option value="">-- Select a program type --</option>
             <option value="Plus">Plus</option>
-            <option value="Sydney">Flash</option>
+            <option value="Flash">Flash</option>
             <option value="Workshop">One Day Workshop</option>
         </select>
         <label htmlFor="city">Location</label>
