@@ -1,107 +1,85 @@
 .user-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    padding: 2%;
+  min-height: 50px;
+  max-height: 700px;
+  min-width: 100px;
+  text-align: center;
+  flex-basis: 15%;
+  flex-grow: 1;
+  text-align: left;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+table#user-form {
+  border-spacing: 10px 10px;
+  margin: 10px;
+}
+
+td {
+  text-align: start;
+}
+
+/* td .user-form-item-label{
+  width: 200px;
+  
+} */
+
+tr td input .user-form-item-description{
+  width: 200px;
+  align-items: start;
+  
+}
+
+.user-form-item-description {
+  text-align: start;
+  margin: 10px;
+  border-radius: 8%;
+  padding: 10px;
+  background-color: #F7F7F9;
+  text-align: left;
+}
+
+.user-form-item-label {
+  color: #8246AF;
+  /* padding-right: 50px; */
+  text-align: left;
+}
+
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+
+}
+
+.user-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px) {
+  .user-form {
+    width: 100%;
+  }
+
+@media screen and (max-width: 400px) {
+  .user-form-item-label {
+    display: block;
   }
   
-  #user-form {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .user-form-item-description {
+    display: block;
+    margin: 10px 0;
   }
-  
-  h1 {
-    color: #8246af;
-    text-decoration: none;
+}
+
+} 
+
+@media (max-width: 795px) {
+  .user-row {
+    display: block;
   }
-  .user-inputs,
-  .user-dates {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: fit-content;
-    margin-bottom: 20px;
-    padding: 2%;
-    gap: 10px;
-  }
-  
-  .user-inputs select,
-  .user-dates input {
-    min-width: 250px;
-    /* height: 40px; */
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    border: none;
-    font-size: 1rem;
-    color: black;
-    font-family: Raleway;
-  }
-  
-  .user-inputs label,
-  .user-dates label {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px;
-    color: #8246af;
-    text-decoration: none;
-  }
-  
-  select:focus,
-  .user-dates input:focus {
-    outline: none;
-    box-shadow: 0 0 5px 0 #8246af;
-  }
-  /*mobile*/
-  @media screen and (max-width: 767px) {
-    #user-form {
-      width: 90%;
-    }
-  
-    .user-inputs,
-    .user-dates {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 5px;
-    }
-  
-    .user-inputs label,
-    .user-dates label {
-      font-size: 0.8rem;
-    }
-  
-    .user-inputs select,
-    .user-dates input {
-      min-width: 200px;
-      font-size: 0.9rem;
-      padding: 8px;
-    }
-  }
-  /*tablet*/
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    #user-form {
-      width: 70%;
-    }
-  
-    .user-inputs select,
-    .user-dates input {
-      min-width: 200px;
-    }
-  }
-  
-  /* @media screen and (min-width: 1024px) {
-    #user-form {
-      width: 50%;
-    }
-  
-    .user-inputs select,
-    .user-dates input {
-      min-width: 250px;
-    }
-  } */
-  
+}
