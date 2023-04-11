@@ -3,7 +3,10 @@
 .header-layout {
   display: flex;
   flex-direction: column;
-  background-color: #8246af;
+  /* background-color: #8246af; */
+  /* background-color: rgba(255, 255, 255, 0.404); */
+  background-color: rgba(248, 248, 248, 0.822);
+
   align-items: center;
   width: 100%;
   max-width: 1800px;
