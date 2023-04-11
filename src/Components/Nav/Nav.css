@@ -65,11 +65,11 @@ nav {
     /* background-color: yellow; */
     /* transform: scale(3); */
 }
-
+/* 
 .nav-links a:focus {
     color: #F9A426;
 
-}
+} */
 
 /* .nav-links a:visited { color: yellow;} */
 
@@ -225,7 +225,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #F9A426;
+    /* color: #F9A426; */
     /* border: 1.5px solid #8246af; */
     /* font-weight: 600; */
     /* background-color: yellow; */
@@ -242,7 +242,7 @@ nav {
 } */
 
 .nav-links a:active {
-    color: #F9A426;
+    /* color: #F9A426; */
     /* border: 1.5px solid #8246af; */
     /* font-weight: 600; */
     /* background-color: yellow; */

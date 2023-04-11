@@ -4,12 +4,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
     padding: 1rem;
   }
   
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
 .create-button {
@@ -22,7 +22,7 @@
 
 .create-button:hover {
   color: white;
-  background-color: ;
+  /* background-color: ; */
 }
 
 /* .mentors-list-page table {

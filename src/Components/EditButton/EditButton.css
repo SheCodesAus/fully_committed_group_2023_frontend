@@ -1,13 +1,13 @@
 button.edit-button {
-    /* background-color: #FFA300;  */
+    background-color: #FFA300; 
     /* #8246AF purple and #FFA300 orange */
  
-    /* color: #fff;
+    color: #fff;
     border: none;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     padding: 8px 16px;
     font-size: 11px;
-    cursor: pointer; */
+    cursor: pointer;
 
 
     margin: auto;
@@ -29,7 +29,7 @@ button.edit-button {
   
   button.edit-button:hover {
     /* background-color: #8246AF; */
-    background-color: #ffa300;
+  background-color: #ffa300;
 
   }
 
