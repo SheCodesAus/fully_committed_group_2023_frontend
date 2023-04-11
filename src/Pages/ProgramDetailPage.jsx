@@ -1,4 +1,4 @@
-// (KAT) - STARTED
+// (KAT)
 
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -6,7 +6,10 @@ import ProgressBar from "../Components/ProgressBar/ProgressBar";
 import PageContent from "../Components/PageContent/PageContent";
 import EditButton from "../Components/EditButton/EditButton";
 import "./ProgramDetailPage.css";
-// import { allPrograms } from "../programdata";
+import { getModuleType } from "../utils";
+import FormatDate from "../Components/DateTime/FormatDate";
+import FormatTime from "../Components/DateTime/FormatTime";
+
 
 function ProgramDetailPage() {
   const { id } = useParams();
@@ -46,7 +49,7 @@ function ProgramDetailPage() {
   const tableHeaders = [
     [""],
     [""],
-    ["Date", "Module", "Start", "End", "Mentors Assigned"],
+    ["Module", "Date", "From", "To", "Mentors Assigned"],
   ];
 
   const program_name = programData.program_name;
@@ -68,17 +71,11 @@ function ProgramDetailPage() {
     const endDate = new Date(session.end_date);
 
     return {
-      date: startDate.toLocaleDateString(),
+      date: FormatDate(startDate),
       // session: session.session_name,
-      startTime: startDate.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      endTime: endDate.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit",
-      }),
-      module: session.module_type,
+      startTime: FormatTime(startDate),
+      endTime: FormatTime(endDate),
+      module: getModuleType[session.module_type],
       id: session.id,
       mentorsRequired: session.mentors_required,
       mentorsAssigned: session.mentors_assigned,
@@ -121,8 +118,6 @@ function ProgramDetailPage() {
                             <strong>Program</strong>{" "}
                           </td>
                           <td className="input">{firstTableData.program_type}</td>
-                        </tr>
-                        <tr>
                           <td className="label">
                             <strong>Location</strong>
                           </td>
@@ -188,41 +183,20 @@ function ProgramDetailPage() {
                         {thirdTableData.sessions.map(
                           (session, sessionIndex) => (
                             <tr key={sessionIndex}>
+                              <td>{session.module}</td>
                               <td>
                                 {
                                   <Link to={`/sessions/${session.id}`}>
-                                    {new Date(session.date).toLocaleDateString(
-                                      "en-AU",
-                                      {
-                                        day: "numeric",
-                                        month: "short",
-                                        year: "2-digit",
-                                      }
-                                    )}
+                                    {FormatDate(session.date)}
                                   </Link>
                                 }
                               </td>
                               {/* <td>{session.session_name}</td> */}
-                              <td>{session.module}</td>
                               <td>{session.startTime}</td>
                               <td>{session.endTime}</td>
                               <td>
-                                {
-                                  <Link to={`/sessions/${session.id}`}>
-                                    
-                                    <ProgressBar
-                                      completed={
-                                        session.mentorsRequired > 0
-                                          ? Math.ceil(
-                                              (session.mentorsAssigned /
-                                                session.mentorsRequired) *
-                                                100
-                                            )
-                                          : 0
-                                      }
-                                    />
-                                  </Link>
-                                }
+                              {session.mentorsAssigned} /
+                                              {session.mentorsRequired}       
                               </td>
                             </tr>
                           )

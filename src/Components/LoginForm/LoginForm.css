@@ -1,32 +1,60 @@
 #purple_background {
   background-color: #8246af;
+  background-color: rgba(248, 248, 248, 0.822);
+
   display: flex;
+  width: 70%;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  margin: auto;
 }
 
 #white_background {
   background-color: white;
+
   border-radius: 40px;
-  padding: 70px 150px; /* Decrease the padding to make the white sheet narrower */
+  padding: 0 1rem 1rem 1rem;
+  /* padding: 70px 150px; */
+ /* Decrease the padding to make the white sheet narrower */
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
+  /* width: ; */
   flex-direction: column;
 }
 
-.logo {
+.login-header {
   color: #8246af;
   font-weight: bold;
-  font-size: 1.5rem; /* Increase the font size of the logo */
+  width: 100%;
+  text-align: center;
+  /* font-size: 1.5rem; */
+   /* Increase the font size of the logo */
 }
 
 .login_form button {
   margin: auto;
-  background-color: #ffa300;
+  /* background-color: #ffa300; */
   border: none;
-  border-radius: 15px; /* increases/decreases border rounding */
+  /* border-radius: 15px; */
+   /* increases/decreases border rounding */
   color: white;
-  font-size: 13px;
-  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  /* padding: 0.5rem 1rem; */
+  background-color: #8246af;
+  color: #fff;
+  /* border-radius: 4px; */
+  /* height: 50%; */
+  margin: 2.3rem 0 1.5rem 0;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  /* height: none;
+  width: none; */
+}
+
+.login_form button:hover {
+  background-color: #ffa300;
 }
 
 /* .login_form {
@@ -36,12 +64,16 @@
   margin-top: 2rem;
 } */
 
-.login_form {
+#login_form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  width: 100%;
+  /* margin-top: 2rem; */
+  padding: 1rem 1rem 0 1rem;
   text-align: center;
+
+  /* min */
 }
 
 .login_form input[type="text"],
@@ -49,9 +81,11 @@
   background-color: #f2f2f2;
   border: none;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   font-size: 1rem;
   color: black;
+  /* border-radius: 5px; */
+  width: 50%;
 }
 
 .login_form input[type="text"]:focus,
@@ -62,12 +96,112 @@
 
 .form_field {
   display: flex;
-  width: 100;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+  width: 100%;
+  flex-direction: row;
+  
+  /* justify-content: flex-end; */
+  /* margin-bottom: 1rem;
+  margin-right: 1rem; */
+  align-items: center;
+  justify-content: center;
+
 }
 
 .form_field input[type="submit"]:hover {
   background-color: #ffa300;
+}
+
+.login-label {
+font-size: 1rem;
+/* margin: auto; */
+font-weight: bold;
+color: #8246af;
+text-decoration: none;
+/* margin: 0 1rem 1rem 1rem; */
+padding: 1rem;
+}
+
+#purple_background > .page-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.login_form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .login-page .page-content {
+    margin: 0 0rem;
+    padding: 0.2rem;
+    width: 100%;
+  }
+  
+  .login-label {
+    font-size: 1rem;
+    /* margin: auto; */
+    font-weight: bold;
+    color: #8246af;
+    text-decoration: none;
+    /* margin: 0 1rem 1rem 1rem; */
+    padding: 1rem 0 0.2rem 0;
+    text-align: left;
+    width: 92%;
+    }
+    
+  #login_form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+    /* margin-top: 2rem; */
+    /* padding: 1rem 0rem 0 0rem; */
+    text-align: center;
+    padding: 0;
+  
+    /* min */
+  }   
+  #white_background {
+    background-color: white;
+    border-radius: 40px;
+    padding: 0;
+    /* padding: 70px 150px; */
+   /* Decrease the padding to make the white sheet narrower */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* width: ; */
+    flex-direction: column;
+  }
+
+.form_field {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  
+  
+  /* justify-content: flex-end; */
+  /* margin-bottom: 1rem;
+  margin-right: 1rem; */
+  /* align-items: center; */
+  /* justify-content: center; */
+
+}
+
+.login_form input[type="text"],
+.login_form input[type="password"] {
+  background-color: #f2f2f2;
+  border: none;
+  padding: 0.5rem;
+  /* margin-bottom: 1rem; */
+  font-size: 1rem;
+  color: black;
+  border-radius: 5px;
+  width: 90%;
+}
+
 }

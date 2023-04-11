@@ -7,11 +7,11 @@
     // import { useState } from 'react';
     import './ToggleButton.css';
 
-    function ToggleButton2({ isChecked, onChange }) {
+    function ToggleButton3({ isChecked, onChange, children }) {
         return (
         <div>
             <button className={`button-${isChecked ? 'true' : 'false'}`} type="button" aria-label="Toggle" onClick={()=> onChange(!isChecked)}>
-            {isChecked ? "✓" : ""}
+            {children}
             </button>
         </div>
         );
@@ -35,5 +35,5 @@
     //     );
     // }
     
-    export default ToggleButton2;
+    export default ToggleButton3;
     

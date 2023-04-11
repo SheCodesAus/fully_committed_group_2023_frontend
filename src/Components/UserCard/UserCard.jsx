@@ -9,7 +9,6 @@ function UserCard(props) {
     const { user } = props;
 
     return (
-
         <>
             <table id="user-card">
                 <tbody>
@@ -31,13 +30,26 @@ function UserCard(props) {
                     </tr>
                     <tr>
                         <td className="user-item-label"><strong>Permissions</strong></td>
-                        <td className="user-item-description">Create/edit: {user.is_superuser ? "✓" : "✗"}</td>
-                        <td className="user-item-description">Admin portal: {user.is_staff ? "✓" : "✗"}</td>
-                        <td className="user-item-description">Active Employee: {user.is_active ? "✓" : "✗"}</td>
+                        <td colSpan="3" className="permissions">
+                            Create/edit: {user.is_superuser ? "✓" : "✗"}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="user-item-label"></td>
+                        <td colSpan="3" className="permissions">
+                            Admin portal: {user.is_staff ? "✓" : "✗"} 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="user-item-label"></td>
+                        <td colSpan="3" className="permissions">
+                            Active Employee: {user.is_active ? "✓" : "✗"}
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </>
-  );
+    );
 }
-    export default UserCard;
+
+export default UserCard;

@@ -86,7 +86,7 @@ function ProgramForm() {
         <>
       <div className='program-form'>
       <h1>New Program</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id='program-form'>
         <div className='program-inputs'>
         <label htmlFor="program_type">Program Type</label>
         <select value={programFormData.program_type}
@@ -96,7 +96,7 @@ function ProgramForm() {
             required>
             <option value="">-- Select a program type --</option>
             <option value="Plus">Plus</option>
-            <option value="Sydney">Flash</option>
+            <option value="Flash">Flash</option>
             <option value="Workshop">One Day Workshop</option>
         </select>
         <label htmlFor="city">Location</label>

@@ -94,6 +94,10 @@ function SessionForm() {
         throw new Error(await response.text());
       }
 
+      // Navigate to session details page
+      const data = await response.json();
+      navigate(`/sessions/${data.id}`);
+
       location.reload();
     } catch (error) {
       console.error(error);
@@ -127,7 +131,7 @@ function SessionForm() {
       <>
         {loggedIn ? (
           <div className="session-form">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id='session-form'>
               <h1>New Session</h1>
               <div className="session-inputs">
                 {/* -------------------- SINGLE CHOICE PROGRAMS ------------- */}

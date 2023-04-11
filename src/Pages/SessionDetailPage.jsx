@@ -8,11 +8,13 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import PageContent from "../Components/PageContent/PageContent";
 import ProgressBar from "../Components/ProgressBar/ProgressBar";
-import EditButton from "../Components/EditButton/EditButton";
+// import EditButton from "../Components/EditButton/EditButton";
 import ToggleButtonReadOnly from "../Components/ToggleButton/ToggleButtonReadOnly";
 import "./SessionDetailPage.css";
 import { currentStepMapping } from "../utils";
 import { getModuleType } from "../utils";
+import FormatDate from "../Components/DateTime/FormatDate";
+import FormatTime from "../Components/DateTime/FormatTime";
 
 function SessionDetailPage() {
   const { id } = useParams();
@@ -48,7 +50,7 @@ function SessionDetailPage() {
   }, [sessionData]);
 
   // For Mentor Allocation: Table headings for list of mentors
-  const tableHeaders = ["Name", "Type", "Active", "Current Step"];
+  const tableHeaders = ["Name", "Type", "Active","Current Step"];
 
   // For Mentor Allocation: Generating the value for mentor type
   const getMentorType = ({ lead_mentor, industry_mentor, junior_mentor }) => {
@@ -100,18 +102,20 @@ function SessionDetailPage() {
                       </td>
                       <td className="input">
                         {" "}
-                        {new Date(sessionData.start_date).toLocaleDateString()}
+                        {FormatDate(sessionData.start_date)}
                       </td>
                       <td className="separator"></td>
                       <td className="label">
                         <strong className="sub-header">Time </strong>
                       </td>
+
                       <td className="input">
                         {" "}
-                        {new Date(
+                        {/* {new Date(
                           sessionData.start_date
                         ).toLocaleTimeString()}{" "}
-                        - {new Date(sessionData.end_date).toLocaleTimeString()}
+                        - {new Date(sessionData.end_date).toLocaleTimeString()} */}
+                       {FormatTime(sessionData.start_date)} - {FormatTime(sessionData.end_date)}
                       </td>
                     </tr>
                   </tbody>
@@ -194,6 +198,7 @@ function SessionDetailPage() {
                   <tbody className="mentor-table">
                     {sessionData.mentors.map((mentor) => (
                       <tr key={mentor.id}>
+                        
                         <td>
                           <Link to={`/mentors/${mentor.id}`}>
                             {mentor.first_name} {mentor.last_name}

@@ -37,7 +37,7 @@ function MentorCreateForm() {
     payment_type: "",
     current_step: "",
     is_active: true,
-    sessions: [],
+    // sessions: [],
   });
 
   // ------- MENTOR LIST CHANGE (inc toggle changes using checked) -------
@@ -79,6 +79,10 @@ function MentorCreateForm() {
         throw new Error(await response.text());
       }
 
+       // Navigate to mentor details page
+       const data = await response.json();
+       navigate(`/mentors/${data.id}`);
+
       location.reload();
     } catch (error) {
       console.error(error);
@@ -87,14 +91,32 @@ function MentorCreateForm() {
   };
 
   // ----------- Get session data for drop down
-  const [sessions, setSessions] = useState([]);
+  // const [sessions, setSessions] = useState([]);
 
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}sessions/`)
-      .then((response) => response.json())
-      .then((data) => setSessions(data))
-      .catch((error) => console.error(error));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${import.meta.env.VITE_API_URL}sessions/`)
+  //     .then((response) => response.json())
+  //     .then((data) => setSessions(data))
+  //     .catch((error) => console.error(error));
+  // }, []);
+
+
+// ------------Mentor type conditional logic
+  const setMentorType = (mentor_type) => (newValue) => {
+    switch(mentor_type){
+      case 'junior_mentor':
+        setMentors({ ...mentors, junior_mentor: newValue, industry_mentor: !newValue, lead_mentor: newValue ? false : mentors.lead_mentor })
+        break;
+      case 'industry_mentor':
+        setMentors({ ...mentors, junior_mentor: !newValue, industry_mentor: newValue })
+        break;
+      case 'lead_mentor':
+        setMentors({ ...mentors, lead_mentor: mentors.industry_mentor && newValue })
+        break;
+      default:
+        break;
+    }
+  };
 
   // ----------- RENDER
 
@@ -104,7 +126,7 @@ function MentorCreateForm() {
         {loggedIn ? (
           <div className="mentor-form">
             <h1>New Mentor</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="mentor-form">
               <div className="contact-inputs">
                 {/* -------------------- CONTACT DETAILS ------------- */}
                 <label htmlFor="first_name">First Name</label>
@@ -156,38 +178,38 @@ function MentorCreateForm() {
                     <option value="Perth">Perth</option>
                   </select>
                 </div>
-              <div className="container">
-                <div>
-                  {/* -------------------- WILL TRAVEL ------------- */}
-                  <label htmlFor="willTravel">Will Travel</label>
+                <div className="container">
+                  <div>
+                    {/* -------------------- WILL TRAVEL ------------- */}
+                    <label htmlFor="willTravel">Will Travel</label>
+                    <ToggleButton2
+                      isChecked={mentors.will_travel}
+                      onChange={(newValue) =>
+                        setMentors({ ...mentors, will_travel: newValue })
+                      }
+                    />
+                  </div>
+                  <div>
+                    {/* -------------------- IS ALUMNI ------------- */}
+                    <label htmlFor="sheCodesAlumni">She Codes Alumni</label>
+                    <ToggleButton2
+                      isChecked={mentors.she_codes_alumni}
+                      onChange={(newValue) =>
+                        setMentors({ ...mentors, she_codes_alumni: newValue })
+                      }
+                    />
+                  </div>
+                </div>
+                <div className="container">
+                  {/* -------------------- IS ACTIVE ------------- */}
+                  <label htmlFor="is_active">Active</label>
                   <ToggleButton2
-                    isChecked={mentors.will_travel}
+                    isChecked={mentors.is_active}
                     onChange={(newValue) =>
-                      setMentors({ ...mentors, will_travel: newValue })
+                      setMentors({ ...mentors, is_active: newValue })
                     }
                   />
                 </div>
-                <div>
-                  {/* -------------------- IS ALUMNI ------------- */}
-                  <label htmlFor="sheCodesAlumni">She Codes Alumni</label>
-                  <ToggleButton2
-                    isChecked={mentors.she_codes_alumni}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, she_codes_alumni: newValue })
-                    }
-                  />
-                </div>
-              </div>
-              <div className="container">
-                {/* -------------------- IS ACTIVE ------------- */}
-                <label htmlFor="is_active">Active</label>
-                <ToggleButton2
-                  isChecked={mentors.is_active}
-                  onChange={(newValue) =>
-                    setMentors({ ...mentors, is_active: newValue })
-                  }
-                />
-              </div>
               </div>
 
               <div className="container">
@@ -260,27 +282,23 @@ function MentorCreateForm() {
                   <label htmlFor="junior_mentor">Junior Mentor</label>
                   <ToggleButton2
                     isChecked={mentors.junior_mentor}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, junior_mentor: newValue })
-                    }
+                    onChange={setMentorType('junior_mentor')}
                   />
                 </div>
                 <div>
                   <label htmlFor="industry_mentor">Industry Mentor</label>
                   <ToggleButton2
                     isChecked={mentors.industry_mentor}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, industry_mentor: newValue })
-                    }
+                    onChange={setMentorType('industry_mentor')}
+
                   />
                 </div>
                 <div>
                   <label htmlFor="lead_mentor">Lead Mentor</label>
                   <ToggleButton2
                     isChecked={mentors.lead_mentor}
-                    onChange={(newValue) =>
-                      setMentors({ ...mentors, lead_mentor: newValue })
-                    }
+                    onChange={setMentorType('lead_mentor')}
+
                   />
                 </div>
               </div>
@@ -372,10 +390,10 @@ function MentorCreateForm() {
                   </option>
                 </select>
               </div>
-
-              <div className="recruitment-inputs">
+{/* 
+              <div className="recruitment-inputs"> */}
                 {/* -------------------- MULTIPLE CHOICE SESSIONS ------------- */}
-                <label htmlFor="session">Session</label>
+                {/* <label htmlFor="session">Session</label>
                 <select
                   id="session"
                   name="session"
@@ -390,7 +408,7 @@ function MentorCreateForm() {
                     </option>
                   ))}
                 </select>
-              </div>
+              </div> */}
 
               <div className="recruitment-inputs">
                 {/* -------------------- PAYMENT TYPE DROP DOWN BOX ------------- */}

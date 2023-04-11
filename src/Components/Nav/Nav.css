@@ -3,22 +3,28 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     background-color: #8246af;
+    /* background-color: white; */
     width: 90%;
     /* color: white; */
     align-items: center;
     margin: 1rem 0;
+    padding: 1.5rem 0;
 
     /* max-height: 20%; */
     /* border: 1px solid rgba(126, 28, 118, 0.788); */
 }
 
 .logo {
-    border-radius: 0px;
-    /* object-fit: cover; */
-    /* max-height: 150px; */
-    width: 50%;
-    max-width: ;
+    /* min-width: 250px; */
+    /* min-width: 30%; */
+    /* width: 40%; */
+    /* max-width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    max-height: 90px;
 }
+
 
 /* .nav-under-logo {
     width: 90%;
@@ -32,8 +38,14 @@ nav {
 .nav-links {
     display: flex;
     flex-direction: row;
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
 
 }
+
 
 .nav-links a { 
     padding: 8px 12px;
@@ -43,15 +55,21 @@ nav {
     /* border-radius: 5px; */
     /* border: 1.1px solid white; */
     text-decoration: none;
+    font-weight: bolder;
 }
 
 .nav-links a:hover {
-    color: #1A1C6F;
-    border: 1.5px solid #8246af;
+    color: #F9A426;
+    /* border: 1.5px solid #8246af; */
     /* font-weight: 600; */
     /* background-color: yellow; */
     /* transform: scale(3); */
 }
+/* 
+.nav-links a:focus {
+    color: #F9A426;
+
+} */
 
 /* .nav-links a:visited { color: yellow;} */
 
@@ -105,4 +123,132 @@ nav {
     /* font-weight: 600; */
     background-color: yellow;
     /* transform: scale(3); */
+}
+
+@media screen and (max-width: 750px) {
+nav {
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+    
+
+    /* margin-bottom: 0; */
+}
+.nav-links {
+    justify-content:center;
+}
+
+.logo {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    max-height: 60px;
+}
+
+.nav-links a { 
+    padding: 0.5rem 0.1rem;
+    color: white;
+    font-weight: 500;
+    margin: 0.3rem;
+    /* border-radius: 5px; */
+    /* border: 1.1px solid white; */
+    text-decoration: none;
+    font-weight: bolder;
+    
+}
+}
+
+@media screen and (min-width: 751px) and (max-width: 1000px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        /* margin-bottom: 0; */
+    }
+    .nav-links {
+        justify-content:center;
+    }
+
+    .logo {
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+
+        max-height: 60px;
+
+    }
+    .nav-links a { 
+        padding: 0.5rem 0.1rem;
+        color: white;
+        font-weight: 500;
+        margin: 0.5rem;
+        /* border-radius: 5px; */
+        /* border: 1.1px solid white; */
+        text-decoration: none;
+        font-weight: bolder;
+    }
+}   
+
+
+
+
+/* TESTING CHANGES */
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: #8246af; */
+    /* background-color: white; */
+    background-color: rgba(248, 248, 248, 0.822);
+    width: 90%;
+    /* color: white; */
+    align-items: center;
+    margin: 1rem 0;
+    padding: 1.5rem 0;
+    font-size: 1.2rem;
+
+    /* max-height: 20%; */
+    /* border: 1px solid rgba(126, 28, 118, 0.788); */
+}
+
+.nav-links a { 
+    padding: 8px 12px;
+    color: #8246af;
+    font-weight: 500;
+    margin: 0.5rem;
+    border: 1px solid rgba(248, 248, 248, 0.822);
+    /* border-radius: 5px; */
+    /* border: 1.1px solid white; */
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+.nav-links a:hover {
+    /* color: #F9A426; */
+    /* border: 1.5px solid #8246af; */
+    /* font-weight: 600; */
+    /* background-color: yellow; */
+    /* transform: scale(3); */
+    color: white;
+    border: 1px solid #8246af;
+    background-color: #8246af;
+    /* border-radius: 4px; */
+}
+
+/* .nav-links a:focus {
+    color: #F9A426;
+
+} */
+
+.nav-links a:active {
+    /* color: #F9A426; */
+    /* border: 1.5px solid #8246af; */
+    /* font-weight: 600; */
+    /* background-color: yellow; */
+    /* transform: scale(3); */
+    color: white;
+    border: 1px solid #8246af;
+    background-color: #8246af;
+    /* border-radius: 4px; */
 }

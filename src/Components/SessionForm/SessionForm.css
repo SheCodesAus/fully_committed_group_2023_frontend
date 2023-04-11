@@ -1,66 +1,147 @@
 .session-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* margin-top: 30px; */
+  padding: 2%;
+}
+
+#session-form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-form h1 {
+  color: #8246af;
+  text-decoration: none;
+}
+
+.session-inputs,
+.session-dates {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 2%;
+  gap: 10px;
+}
+
+.session-inputs select,
+.session-inputs input,
+.session-dates input {
+  min-width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  border: none;
+  font-size: 1rem;
+  color: black;
+  font-family: Raleway;
+}
+
+.session-inputs input {
+  width: 100%; /* overide width for mentors required to promt fits*/
+}
+
+.session-inputs label,
+.session-dates label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #8246af;
+  text-decoration: none;
+}
+
+.session-inputs select:focus,
+.session-inputs input:focus,
+.session-dates input:focus {
+  outline: none;
+  box-shadow: 0 0 5px 0 #8246af;
+}
+
+/* Mobile */
+@media screen and (max-width: 576px) {
+
+  .session-form {
+    margin-top: 20px;
+    padding: 1%;
+  }
+
+  #session-form {
+    width: 100%;
     padding: 2%;
-  }
-  
-  form {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .session-form  h1 {
-      color: #8246af;
-      text-decoration: none;
+    box-sizing: border-box;
   }
 
   .session-inputs,
   .session-dates {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-      width: fit-content;
-      margin-bottom: 20px;
-      padding: 2%;
-      gap: 10px;
-    }
-  
-    .session-inputs select,
-    .session-inputs input,
-    .session-dates input {
-      min-width: 250px;
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #f2f2f2;
-      border: none;
-      font-size: 1rem;
-      color: black;
-      font-family: Raleway;
-    }
- 
-    .session-inputs input {
-        width: 100%;  /* overide width for mentors required to promt fits*/
-    }
-    
-    .session-inputs label,
-    .session-dates label {
-      font-size: 1rem;
-      font-weight: bold;
-      margin-right: 10px;
-      margin-left: 10px;
-      color: #8246af;
-      text-decoration: none;
-    }
-  
-    .session-inputs select:focus,
-    .session-inputs input:focus,
-    .session-dates input:focus{
-      outline: none;
-      box-shadow: 0 0 5px 0 #8246af;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 2%;
   }
-  
+
+  .session-inputs select,
+  .session-inputs input,
+  .session-dates input {
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .session-inputs label,
+  .session-dates label {
+    margin-bottom: 5px;
+  }
+
+  .select-program {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+
+  .session-form {
+    margin-top: 20px;
+    padding: 2%;
+  }
+
+  #session-form {
+    width: 90%;
+    padding: 2%;
+    box-sizing: border-box;
+  }
+
+  .session-inputs,
+  .session-dates {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 2%;
+  }
+
+  .session-inputs select,
+  .session-inputs input,
+  .session-dates input {
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+
+  .session-inputs label,
+  .session-dates label {
+    margin-bottom: 5px;
+  }
+
+  .select-program {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

@@ -1,16 +1,15 @@
 // DONE - KAT
 
 function FormatTime(dateTimeString) {
-    const date = new Date(dateTimeString);
-    let hour = date.getHours();
-    const minute = date.getMinutes();
-    const ampm = hour >= 12 ? 'pm' : 'am';
+  const date = new Date(dateTimeString);
+  const timeOptions = {
+    timeZone: 'UTC',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  };
+  const formattedTime = date.toLocaleTimeString('en-AU', timeOptions);
+  return formattedTime;
+}
 
-    if (hour > 12) {
-      hour -= 12;
-    }
-
-    return `${hour}:${minute}${ampm}`;
-  }
-  
-  export default FormatTime;
+export default FormatTime;

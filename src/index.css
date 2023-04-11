@@ -1,6 +1,7 @@
 #root {
   display: flex;
   flex-direction: column;
+  /* height: 100vh; */
   align-items: center;
   /* height: 100vh; */ /*removed - assigned min-height:100vh to body to fix footer*/
   margin: 0;
@@ -8,7 +9,10 @@
 
 body {
   margin: 0;
-  background-color: #8246af;
+  background-color: rgba(248, 248, 248, 0.822);
+
+  /* background-color: whi; */
+  /* background-color: #8246af; */
 }
 /* :root {
   display: flex;
