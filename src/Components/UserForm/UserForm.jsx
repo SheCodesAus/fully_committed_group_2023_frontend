@@ -83,16 +83,17 @@ function UserForm() {
     return (
         <PageContent>
         <div className='user-form'>
+            <form onSubmit={handleSubmit} id='user-form'>
+
+            <div className='table-container'>
+
+            <h1>New User</h1>
             {successMessage && <div className="success-message">{successMessage}</div>}
             {errorMessage && (
             <div className="error-message">
                 <pre>{errorMessage}</pre>
             </div>
             )}
-            <form onSubmit={handleSubmit} id='user-form'>
-
-            <div className='table-container'>
-            <h1>New User</h1>
 
                 <table id="user-form">
 
