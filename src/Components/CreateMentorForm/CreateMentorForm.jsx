@@ -37,7 +37,7 @@ function MentorCreateForm() {
     payment_type: "",
     current_step: "",
     is_active: true,
-    sessions: [],
+    // sessions: [],
   });
 
   // ------- MENTOR LIST CHANGE (inc toggle changes using checked) -------
@@ -91,14 +91,14 @@ function MentorCreateForm() {
   };
 
   // ----------- Get session data for drop down
-  const [sessions, setSessions] = useState([]);
+  // const [sessions, setSessions] = useState([]);
 
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}sessions/`)
-      .then((response) => response.json())
-      .then((data) => setSessions(data))
-      .catch((error) => console.error(error));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${import.meta.env.VITE_API_URL}sessions/`)
+  //     .then((response) => response.json())
+  //     .then((data) => setSessions(data))
+  //     .catch((error) => console.error(error));
+  // }, []);
 
 
 // ------------Mentor type conditional logic
@@ -390,10 +390,10 @@ function MentorCreateForm() {
                   </option>
                 </select>
               </div>
-
-              <div className="recruitment-inputs">
+{/* 
+              <div className="recruitment-inputs"> */}
                 {/* -------------------- MULTIPLE CHOICE SESSIONS ------------- */}
-                <label htmlFor="session">Session</label>
+                {/* <label htmlFor="session">Session</label>
                 <select
                   id="session"
                   name="session"
@@ -408,7 +408,7 @@ function MentorCreateForm() {
                     </option>
                   ))}
                 </select>
-              </div>
+              </div> */}
 
               <div className="recruitment-inputs">
                 {/* -------------------- PAYMENT TYPE DROP DOWN BOX ------------- */}
