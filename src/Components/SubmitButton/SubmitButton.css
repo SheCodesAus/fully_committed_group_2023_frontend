@@ -1,13 +1,29 @@
 button.submit-button {
-    background-color: #FFA300; 
+    /* background-color: #FFA300;  */
 /* #8246AF - purple */ 
 /* FFA300 orange */
-    color: #fff;
+    /* color: #fff;
     border: none;
     border-radius: 4px;
     padding: 8px 16px;
     font-size: 11px;
-    cursor: pointer;
+    cursor: pointer; */
+
+    margin: auto;
+    /* background-color: #ffa300; */
+    border: none;
+    /* border-radius: 15px; */
+    /* increases/decreases border rounding */
+    color: white;
+    font-size: 1rem;
+    /* padding: 0.5rem 1rem; */
+    background-color: #8246af;
+    color: #fff;
+    border-radius: 4px;
+    /* height: 50%; */
+    margin: 2.3rem 0 1.5rem 0;
+    padding: 0.5rem 1.2rem;
+    text-decoration: none;    
   }
   
   button.submit-button:hover {
