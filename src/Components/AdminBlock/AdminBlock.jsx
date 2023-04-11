@@ -14,31 +14,31 @@ function AdminBlock() {
             <h2>Admin Dashboard</h2>
             <p>Create, Edit and Configure content in the She Codes Admin Portal</p>
             <button 
-                onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin")} 
+                onClick={() => window.open("create")} 
                 className="admin-button">
-                Database
+                Create a user
             </button>
             <button 
                 onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/users/customuser/")} 
                 className="admin-button">
-                Users
+                View/Edit Users
             </button>
             <button 
                 onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/programs/program/")} 
                 className="admin-button">
-                Programs
+                Edit Programs
             </button>
 
             <button 
                 onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/sess/session/")} 
                 className="admin-button">
-                Sessions
+                Edit Sessions
             </button>
 
             <button 
                 onClick={() => window.open("https://fully-committed-mentor-scheduling-tool.fly.dev/admin/mentors/mentor/")} 
                 className="admin-button">
-                Mentors
+                Edit Mentors
             </button>
         </div>
     );
