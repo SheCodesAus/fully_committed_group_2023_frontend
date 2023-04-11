@@ -240,3 +240,15 @@ nav {
     color: #F9A426;
 
 } */
+
+.nav-links a:active {
+    color: #F9A426;
+    /* border: 1.5px solid #8246af; */
+    /* font-weight: 600; */
+    /* background-color: yellow; */
+    /* transform: scale(3); */
+    color: white;
+    border: 1px solid #8246af;
+    background-color: #8246af;
+    /* border-radius: 4px; */
+}
