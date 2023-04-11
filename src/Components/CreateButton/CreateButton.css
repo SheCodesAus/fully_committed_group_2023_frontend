@@ -18,11 +18,12 @@
 .show-all-button {
   background-color: white;
   margin: 2.3rem 0 1.5rem 0;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.6rem;
   text-decoration: none;   
   font-size: 1rem;
   border: 1px solid #8246af;
-  border-radius: 4px;
+  color: #8246af;
+  /* border-radius: 2px; */
 
 }
 
