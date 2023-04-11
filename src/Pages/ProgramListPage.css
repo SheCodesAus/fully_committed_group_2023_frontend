@@ -31,7 +31,7 @@ a.progress-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    /* background-color: #f8f8f8; */
     padding: 1rem;
 }
 
@@ -62,6 +62,15 @@ table.programs-table{
     padding: 8px;
     border-bottom: 1px solid #ddd;
   }
+
+th {
+    cursor: pointer;
+}
+
+th:hover {
+    color: #F9A426;
+    /* text-decoration: underline; */
+}
     
 /* Media query for small screens */
 @media screen and (max-width: 690px) {

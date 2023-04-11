@@ -49,7 +49,6 @@ function ProgramsListPage() {
     if (reverseSort){
         sortedProgramData.reverse()
     }
-    
 
     const changeSort = (attributeName) => {
         if (attributeName === sortAttribute) {
@@ -77,8 +76,8 @@ function ProgramsListPage() {
                 <thead>
                     <tr>
                         <SortableTableHeader sortKey="program_name">Program</SortableTableHeader>
-                        <SortableTableHeader sortKey="start_date">Start</SortableTableHeader>
-                        <SortableTableHeader sortKey="end_date">End</SortableTableHeader>
+                        <SortableTableHeader sortKey="start_date">Start Date</SortableTableHeader>
+                        <SortableTableHeader sortKey="end_date">End Date</SortableTableHeader>
                         <SortableTableHeader sortKey="program_type">Program Type</SortableTableHeader>
                         <SortableTableHeader sortKey="city">Location</SortableTableHeader>
                         <th>Mentors</th>

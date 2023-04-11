@@ -25,6 +25,8 @@
   /* padding-top: 50px; */
   /* margin-bottom: -20px; */
   margin: 1rem auto;
+  padding: 1rem;
+
 }
 
 .sub-header {
@@ -36,6 +38,16 @@
 
 .mentor-info-header {
   color: #8246af;
+}
+
+a {
+  text-decoration: none;
+  color: #8246af;
+}
+
+a:hover {
+  color: #F9A426;
+
 }
 
 th {
@@ -51,5 +63,7 @@ th {
 .mentor-table>tr>td a:hover {
 /* border: 1px solid #8246af; */
 /* font-weight: 600; */
-color: #8246af;
+  color: #F9A426;
+  /* color: #8246af; */
 }
+

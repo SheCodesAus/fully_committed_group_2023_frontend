@@ -50,7 +50,7 @@ function SessionDetailPage() {
   }, [sessionData]);
 
   // For Mentor Allocation: Table headings for list of mentors
-  const tableHeaders = ["Name", "Type", "Active", "Current Step"];
+  const tableHeaders = ["Name", "Type", "Active","Current Step"];
 
   // For Mentor Allocation: Generating the value for mentor type
   const getMentorType = ({ lead_mentor, industry_mentor, junior_mentor }) => {
@@ -198,6 +198,7 @@ function SessionDetailPage() {
                   <tbody className="mentor-table">
                     {sessionData.mentors.map((mentor) => (
                       <tr key={mentor.id}>
+                        
                         <td>
                           <Link to={`/mentors/${mentor.id}`}>
                             {mentor.first_name} {mentor.last_name}

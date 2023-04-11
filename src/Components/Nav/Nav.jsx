@@ -22,7 +22,7 @@ function Nav(props) {
 
   return (
     <nav>
-        <img className="logo" src="/white_no_circle.svg" />
+        <img className="logo" src="/purple.svg" />
 
       <div className="nav-links">
         {/* {!loggedIn && (

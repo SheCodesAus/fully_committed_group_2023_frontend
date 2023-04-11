@@ -84,7 +84,7 @@ function SessionListPage() {
     }) : annotatedSessionData;
 
     // SORTING
-    const [sortAttribute, setSortAttribute] = useState("formattedStartDate");
+    const [sortAttribute, setSortAttribute] = useState("startDate");
     const [reverseSort, setReverseSort] = useState(false);
 
     const sortedSessionData = [...filteredSessionData];

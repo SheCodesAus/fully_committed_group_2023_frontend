@@ -1,9 +1,7 @@
-// (CLAIRE) 
 import "./CreateButton.css";
 import React from 'react';
 
 function CreateButton(props) {
-
 
   return (
     <button className="create-button">
@@ -15,9 +13,8 @@ function CreateButton(props) {
 
 export function ShowAllButton({ children, onClick }) {
 
-
   return (
-    <button className="create-button" onClick={onClick}>
+    <button className="show-all-button" onClick={onClick}>
     { children } 
     </button>
   );
