@@ -18,3 +18,27 @@ button.admin-button {
   button.admin-button:hover {
     background-color: #FFA300;
   }
+
+  button.admin-button.password {
+    display: inline-block;
+    background-color: #FFA300;
+
+    /* #8246AF */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 11px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 8px;
+    justify-content: center;
+    align-items: start;
+
+  }
+  
+  button.admin-button:hover {
+    background-color: #FFA300;
+    background-color: #8246AF; 
+
+  }
