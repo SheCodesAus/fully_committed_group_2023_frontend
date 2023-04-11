@@ -20,6 +20,10 @@
   text-decoration: none;
 }
 
+.create-button:hover {
+  color: white;
+}
+
 /* .mentors-list-page table {
   width: 100%;
 } */

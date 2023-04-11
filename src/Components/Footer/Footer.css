@@ -3,8 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
   height: 80px; /*sets the height of the footer, can adjust if we want it larger/smaller */
-  background-color: #FFA300;  
+  /* background-color: #FFA300;   */
   /* background-color: #F7F7F9;   */
   /* FFA300  */
   position: absolute;
@@ -17,5 +18,5 @@
   margin: 0;
   font-size: 1rem;
   text-align: center;
-  padding: 10px;
+  /* padding: 10px; */
 }
