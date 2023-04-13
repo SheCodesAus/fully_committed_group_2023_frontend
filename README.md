@@ -7,6 +7,7 @@
 
 This Mentor Scheduling Tool was created by the Fully Committed Team as a project for the [She Codes Plus](https://www.shecodes.com.au/) program.
 
+- Watch Website Demo [HERE](https://www.loom.com/share/0e50bb6e946948faaafc2fc25ca511e8)
 - Visit deployed frontend [HERE](https://fullycommitted-mentor-scheduling-tool.netlify.app)
 - Visit deployed backend [HERE](https://fully-committed-mentor-scheduling-tool.fly.dev) | [Repo](https://github.com/SheCodesAus/fully_committed_group_2023_backend)
 
