@@ -15,5 +15,8 @@ This Mentor Scheduling Tool was created by the Fully Committed Team as a project
 
 * [Final Project Presentation](https://github.com/SheCodesAus/fully_committed_group_2023_frontend/files/11217231/Fully.Committed.pptx)
 * [Project MVP](https://github.com/SheCodesAus/fully_committed_group_2023_frontend/files/11217232/MVP.-.Fully.Committed.docx)
+* [User Documentation](https://docs.google.com/document/d/1NZr2fvphye2w4CvelUxigNJMTXZHfAMYjRz8hpcySWI/edit?usp=sharing)
+
+
 
 <Insert instructions doc>
